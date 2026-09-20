@@ -1,0 +1,13 @@
+{
+  "name": "webcraft-employee",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HQ Employee - Governed AI Business Employee for Rafal Webcraft",
+  "scripts": {
+    "dev": "npm --prefix backend run dev",
+    "start": "npm --prefix backend start",
+    "build": "npm --prefix backend run build",
+    "test": "npm --prefix backend test",
+    "migrate": "npm --prefix backend run migrate"
+  }
+}

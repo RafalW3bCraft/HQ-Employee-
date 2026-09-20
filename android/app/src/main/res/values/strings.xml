@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HQ</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_leads">Leads</string>
+    <string name="title_meetings">Meetings</string>
+    <string name="title_employee">AI Employee</string>
+    <string name="title_company_brain">Company Brain</string>
+    <string name="title_settings">Settings</string>
+</resources>

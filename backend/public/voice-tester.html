@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HQ Voice Agent — Live Testing Harness</title>
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-card: #111827;
+      --bg-card-hover: #1f2937;
+      --accent-primary: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.3);
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --accent-amber: #f59e0b;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-color: #374151;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top right, #1e1b4b 0%, var(--bg-primary) 60%);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+
+    .brand h1 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4b5563;
+      transition: background 0.3s ease;
+    }
+
+    .status-dot.active {
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+    }
+
+    .status-dot.speaking {
+      background: var(--accent-cyan);
+      box-shadow: 0 0 12px var(--accent-cyan);
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .feed-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      height: 280px;
+      overflow-y: auto;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .msg-user {
+      align-self: flex-end;
+      background: #312e81;
+      color: #e0e7ff;
+      padding: 8px 14px;
+      border-radius: 14px 14px 2px 14px;
+      max-width: 85%;
+    }
+
+    .msg-agent {
+      align-self: flex-start;
+      background: #1e293b;
+      color: #f1f5f9;
+      padding: 8px 14px;
+      border-radius: 14px 14px 14px 2px;
+      max-width: 85%;
+    }
+
+    .tool-chip {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .decision-allow {
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }
+
+    .decision-block {
+      color: var(--accent-rose);
+      font-weight: 600;
+    }
+
+    .decision-approval {
+      color: var(--accent-amber);
+      font-weight: 600;
+    }
+
+    .controls-bar {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+    }
+
+    button {
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #4f46e5;
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    .btn-danger {
+      background: var(--accent-rose);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #e11d48;
+    }
+
+    .btn-secondary {
+      background: #1e293b;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: #334155;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <span class="logo-badge">HQ</span>
+        <h1>Voice Agent Integration Test Harness</h1>
+      </div>
+      <div class="status-indicator">
+        <div id="statusDot" class="status-dot"></div>
+        <span id="statusText">Disconnected</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Live Conversation -->
+      <div class="card">
+        <div class="card-header">
+          <span>Live Conversation Stream</span>
+          <span id="turnStatus" style="color: var(--accent-cyan)">Idle</span>
+        </div>
+        <div id="conversationFeed" class="feed-box">
+          <div style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 40px;">
+            Click "Start Conversation" to connect and talk with the AI sales coordinator.
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Policy & Tool Execution Feed -->
+      <div class="card">
+        <div class="card-header">
+          <span>Backend Policy & Tool Activity</span>
+          <span style="color: var(--accent-emerald)">Governed</span>
+        </div>
+        <div id="toolFeed" class="feed-box">
+          <div style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 40px;">
+            Tool calls and deterministic policy decisions (ALLOW, BLOCK, REQUIRE_APPROVAL) will appear here in real-time.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-bar">
+      <button id="startBtn" class="btn-primary">
+        <span>🎙️</span> Start Conversation
+      </button>
+      <button id="interruptBtn" class="btn-secondary" disabled>
+        <span>🛑</span> Interrupt Agent
+      </button>
+      <button id="endBtn" class="btn-danger" disabled>
+        <span>📞</span> End Call
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let ws = null;
+    let audioContext = null;
+    let mediaStream = null;
+    let audioWorkletNode = null;
+    let isConnected = false;
+
+    const startBtn = document.getElementById('startBtn');
+    const interruptBtn = document.getElementById('interruptBtn');
+    const endBtn = document.getElementById('endBtn');
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    const turnStatus = document.getElementById('turnStatus');
+    const conversationFeed = document.getElementById('conversationFeed');
+    const toolFeed = document.getElementById('toolFeed');
+
+    function appendMessage(speaker, text) {
+      if (!text) return;
+      const msg = document.createElement('div');
+      msg.className = speaker === 'user' ? 'msg-user' : 'msg-agent';
+      msg.textContent = text;
+      conversationFeed.appendChild(msg);
+      conversationFeed.scrollTop = conversationFeed.scrollHeight;
+    }
+
+    function appendToolActivity(activity) {
+      const chip = document.createElement('div');
+      chip.className = 'tool-chip';
+      
+      let decisionClass = 'decision-allow';
+      if (activity.policyDecision === 'BLOCK') decisionClass = 'decision-block';
+      if (activity.policyDecision === 'REQUIRE_APPROVAL') decisionClass = 'decision-approval';
+
+      chip.innerHTML = `
+        <div style="display: flex; justify-content: space-between;">
+          <strong style="color: #93c5fd;">${activity.toolName}</strong>
+          <span class="${decisionClass}">${activity.policyDecision}</span>
+        </div>
+        <div style="color: #94a3b8; font-size: 11px;">
+          Args: ${JSON.stringify(activity.arguments || {})}
+        </div>
+      `;
+      toolFeed.appendChild(chip);
+      toolFeed.scrollTop = toolFeed.scrollHeight;
+    }
+
+    startBtn.onclick = async () => {
+      try {
+        startBtn.disabled = true;
+        statusText.textContent = 'Connecting...';
+
+        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+        const wsUrl = `${protocol}//${window.location.host}/api/voice/ws`;
+        ws = new WebSocket(wsUrl);
+
+        ws.onopen = () => {
+          isConnected = true;
+          statusDot.className = 'status-dot active';
+          statusText.textContent = 'Connected (Live)';
+          interruptBtn.disabled = false;
+          endBtn.disabled = false;
+          conversationFeed.innerHTML = '';
+          toolFeed.innerHTML = '';
+        };
+
+        ws.onmessage = (evt) => {
+          const msg = JSON.parse(evt.data);
+
+          if (msg.type === 'voice.connected') {
+            statusText.textContent = `Connected: ${msg.sessionId.slice(0, 10)}...`;
+          }
+
+          if (msg.type === 'voice.speech_started') {
+            statusDot.className = 'status-dot speaking';
+            turnStatus.textContent = 'User Speaking...';
+          }
+
+          if (msg.type === 'voice.speech_stopped') {
+            statusDot.className = 'status-dot active';
+            turnStatus.textContent = 'Agent Thinking...';
+          }
+
+          if (msg.type === 'voice.user_transcript' && msg.payload.isFinal) {
+            appendMessage('user', msg.payload.text);
+          }
+
+          if (msg.type === 'voice.agent_transcript' && msg.payload.isFinal) {
+            appendMessage('agent', msg.payload.text);
+          }
+
+          if (msg.type === 'voice.tool_activity') {
+            appendToolActivity(msg.payload);
+          }
+
+          if (msg.type === 'voice.session_ended') {
+            cleanup();
+          }
+        };
+
+        ws.onclose = () => {
+          cleanup();
+        };
+
+      } catch (err) {
+        alert('Failed to start voice connection: ' + err.message);
+        cleanup();
+      }
+    };
+
+    endBtn.onclick = () => {
+      if (ws && isConnected) {
+        ws.send(JSON.stringify({ type: 'voice.end' }));
+      }
+      cleanup();
+    };
+
+    interruptBtn.onclick = () => {
+      if (ws && isConnected) {
+        ws.send(JSON.stringify({ type: 'voice.interrupt' }));
+        turnStatus.textContent = 'Interrupted';
+      }
+    };
+
+    function cleanup() {
+      isConnected = false;
+      startBtn.disabled = false;
+      interruptBtn.disabled = true;
+      endBtn.disabled = true;
+      statusDot.className = 'status-dot';
+      statusText.textContent = 'Disconnected';
+      turnStatus.textContent = 'Idle';
+      if (ws) {
+        ws.close();
+        ws = null;
+      }
+    }
+  </script>
+</body>
+</html>
