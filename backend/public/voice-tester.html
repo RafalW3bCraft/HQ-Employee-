@@ -3,95 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HQ Voice Agent — Live Testing Harness</title>
+  <title>HQ-Employee Voice Agent &amp; Policy Console — Rafal Webcraft</title>
+  <meta name="description" content="Governed AI Business Employee Voice Agent Console for Rafal Webcraft. Dual submission for RevenueCat Shipaton 2026 and AssemblyAI Voice Agent Hackathon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0b0f19;
-      --bg-card: #111827;
-      --bg-card-hover: #1f2937;
+      --bg-base: #060913;
+      --bg-surface: rgba(14, 20, 36, 0.75);
+      --bg-surface-elevated: rgba(22, 30, 53, 0.85);
+      --bg-card: rgba(17, 24, 43, 0.6);
+      --bg-card-border: rgba(99, 102, 241, 0.18);
       --accent-primary: #6366f1;
-      --accent-glow: rgba(99, 102, 241, 0.3);
-      --accent-cyan: #06b6d4;
+      --accent-secondary: #06b6d4;
       --accent-emerald: #10b981;
       --accent-rose: #f43f5e;
       --accent-amber: #f59e0b;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-color: #374151;
+      --accent-violet: #8b5cf6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --glow-primary: 0 0 25px rgba(99, 102, 241, 0.35);
+      --glow-secondary: 0 0 25px rgba(6, 182, 212, 0.35);
+      --glow-emerald: 0 0 20px rgba(16, 185, 129, 0.35);
+      --glow-rose: 0 0 20px rgba(244, 63, 94, 0.35);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
-      background: radial-gradient(circle at top right, #1e1b4b 0%, var(--bg-primary) 60%);
+      background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 10%, rgba(6, 182, 212, 0.12) 0%, transparent 40%),
+                  radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+                  var(--bg-base);
       color: var(--text-main);
       min-height: 100vh;
       padding: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1280px;
       width: 100%;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
+    /* ── Header ── */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 24px;
-      background: rgba(17, 24, 39, 0.8);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
+      padding: 18px 26px;
+      background: var(--bg-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
     }
 
     .logo-badge {
-      background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
-      padding: 8px 12px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 14px;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 16px;
       color: white;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      box-shadow: var(--glow-primary);
     }
 
-    .brand h1 {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: -0.3px;
-    }
-
-    .status-indicator {
+    .brand-text h1 {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 13px;
+      gap: 10px;
+    }
+
+    .brand-sub {
+      font-size: 12px;
       color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .header-badges {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    .pill-status {
+      transition: all 0.3s ease;
     }
 
     .status-dot {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: #4b5563;
-      transition: background 0.3s ease;
+      background: #475569;
+      transition: all 0.3s ease;
     }
 
     .status-dot.active {
@@ -100,201 +144,440 @@
     }
 
     .status-dot.speaking {
-      background: var(--accent-cyan);
-      box-shadow: 0 0 12px var(--accent-cyan);
+      background: var(--accent-secondary);
+      box-shadow: 0 0 12px var(--accent-secondary);
       animation: pulse 1.2s infinite;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.7; }
+      50% { transform: scale(1.4); opacity: 0.7; }
       100% { transform: scale(1); opacity: 1; }
     }
 
+    /* ── Audio Visualizer Banner ── */
+    .visualizer-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 18px;
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .visualizer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      height: 72px;
+      background: rgba(8, 12, 24, 0.8);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ── Main Two-Column Grid ── */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 960px) {
       .grid { grid-template-columns: 1fr; }
     }
 
     .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
+      background: var(--bg-surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 18px;
       padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 14px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
     }
 
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
     }
 
     .feed-box {
-      background: #090d16;
-      border: 1px solid #1e293b;
-      border-radius: 12px;
-      height: 280px;
+      background: rgba(6, 10, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      height: 380px;
       overflow-y: auto;
-      padding: 14px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       font-size: 14px;
       line-height: 1.5;
     }
 
+    .feed-box::-webkit-scrollbar {
+      width: 6px;
+    }
+    .feed-box::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.2);
+      border-radius: 3px;
+    }
+
     .msg-user {
       align-self: flex-end;
-      background: #312e81;
+      background: linear-gradient(135deg, #3730a3, #4338ca);
       color: #e0e7ff;
-      padding: 8px 14px;
-      border-radius: 14px 14px 2px 14px;
+      padding: 10px 16px;
+      border-radius: 16px 16px 3px 16px;
       max-width: 85%;
+      box-shadow: 0 2px 10px rgba(67, 56, 202, 0.3);
+      font-size: 14px;
     }
 
     .msg-agent {
       align-self: flex-start;
-      background: #1e293b;
-      color: #f1f5f9;
-      padding: 8px 14px;
-      border-radius: 14px 14px 14px 2px;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f8fafc;
+      padding: 10px 16px;
+      border-radius: 16px 16px 16px 3px;
       max-width: 85%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+    }
+
+    .msg-meta {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
     }
 
     .tool-chip {
-      background: #0f172a;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 8px 12px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: 12px;
+      padding: 12px 14px;
       font-size: 12px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
+      transition: border-color 0.2s;
+    }
+
+    .tool-chip:hover {
+      border-color: var(--accent-primary);
     }
 
     .decision-allow {
       color: var(--accent-emerald);
-      font-weight: 600;
+      background: rgba(16, 185, 129, 0.15);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.5px;
     }
 
     .decision-block {
       color: var(--accent-rose);
-      font-weight: 600;
+      background: rgba(244, 63, 94, 0.15);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.5px;
     }
 
     .decision-approval {
       color: var(--accent-amber);
-      font-weight: 600;
+      background: rgba(245, 158, 11, 0.15);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.5px;
     }
 
+    pre.tool-json {
+      background: rgba(6, 9, 18, 0.7);
+      padding: 6px 10px;
+      border-radius: 6px;
+      color: #cbd5e1;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      overflow-x: auto;
+      margin-top: 4px;
+    }
+
+    /* ── Controls Bar ── */
     .controls-bar {
       display: flex;
+      flex-wrap: wrap;
       gap: 12px;
       justify-content: center;
       align-items: center;
-      padding: 16px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
+      padding: 16px 24px;
+      background: var(--bg-surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     button {
-      padding: 12px 24px;
+      padding: 11px 20px;
       border-radius: 12px;
       border: none;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .btn-primary {
-      background: var(--accent-primary);
+      background: linear-gradient(135deg, var(--accent-primary), #4f46e5);
       color: white;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
     }
 
-    .btn-primary:hover {
-      background: #4f46e5;
-      box-shadow: 0 0 16px var(--accent-glow);
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
     }
 
     .btn-danger {
-      background: var(--accent-rose);
+      background: linear-gradient(135deg, var(--accent-rose), #e11d48);
       color: white;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3);
     }
 
-    .btn-danger:hover {
-      background: #e11d48;
+    .btn-danger:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
     }
 
     .btn-secondary {
-      background: #1e293b;
+      background: rgba(30, 41, 59, 0.7);
       color: var(--text-main);
-      border: 1px solid var(--border-color);
+      border: 1px solid rgba(148, 163, 184, 0.2);
     }
 
-    .btn-secondary:hover {
-      background: #334155;
+    .btn-secondary:hover:not(:disabled) {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: rgba(148, 163, 184, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent-secondary);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      font-size: 13px;
+      padding: 8px 14px;
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: rgba(6, 182, 212, 0.1);
+      border-color: var(--accent-secondary);
     }
 
     button:disabled {
-      opacity: 0.5;
+      opacity: 0.45;
       cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* ── Hackathon Judge Quick-Sandbox ── */
+    .sandbox-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sandbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sandbox-header h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sandbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .sandbox-item {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .sandbox-item:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      background: rgba(22, 32, 58, 0.7);
+    }
+
+    .sandbox-info h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 3px;
+    }
+
+    .sandbox-info p {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    /* ── Wallet Overview Banner ── */
+    .wallet-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.15), rgba(99, 102, 241, 0.15));
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      border-radius: 14px;
+    }
+
+    .wallet-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wallet-stat span:first-child {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .wallet-stat span:last-child {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f8fafc;
+      font-family: var(--font-mono);
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Main Header -->
     <header>
       <div class="brand">
-        <span class="logo-badge">HQ</span>
-        <h1>Voice Agent Integration Test Harness</h1>
+        <span class="logo-badge">HQ-Employee</span>
+        <div class="brand-text">
+          <h1>HQ-Employee AI Console</h1>
+          <div class="brand-sub">AssemblyAI Voice Agent API • RevenueCat Authoritative Monetization • Deterministic Governance</div>
+        </div>
       </div>
-      <div class="status-indicator">
-        <div id="statusDot" class="status-dot"></div>
-        <span id="statusText">Disconnected</span>
+      <div class="header-badges">
+        <div class="pill">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="statusText">Disconnected</span>
+        </div>
+        <div class="pill" style="border-color: rgba(16, 185, 129, 0.3);">
+          <span style="color: var(--accent-emerald);">●</span>
+          <span>Policy v1.0 Active</span>
+        </div>
+        <div class="pill" style="border-color: rgba(244, 63, 94, 0.3);">
+          <span>💳</span>
+          <span id="headerWallet">Wallet: -- Cr</span>
+        </div>
       </div>
     </header>
 
+    <!-- Visualizer Canvas -->
+    <div class="visualizer-card">
+      <div class="visualizer-header">
+        <span>Real-Time Voice Activity &amp; Audio Frequency Spectrum</span>
+        <span id="turnStatus" style="color: var(--accent-secondary)">Agent Ready</span>
+      </div>
+      <div class="canvas-container">
+        <canvas id="visualizerCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Live Two Column Stream -->
     <div class="grid">
-      <!-- Live Conversation -->
+      <!-- Left: Conversation Stream -->
       <div class="card">
         <div class="card-header">
           <span>Live Conversation Stream</span>
-          <span id="turnStatus" style="color: var(--accent-cyan)">Idle</span>
+          <span id="sessionPill" style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-secondary);">ID: None</span>
         </div>
         <div id="conversationFeed" class="feed-box">
-          <div style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 40px;">
-            Click "Start Conversation" to connect and talk with the AI sales coordinator.
+          <div style="color: var(--text-dim); font-size: 13px; text-align: center; margin-top: 80px;">
+            Click <strong>Start Voice Call</strong> below to begin full-duplex speech interaction via AssemblyAI Voice Agent API.
           </div>
         </div>
       </div>
 
-      <!-- Live Policy & Tool Execution Feed -->
+      <!-- Right: Policy & Tool Execution Feed -->
       <div class="card">
         <div class="card-header">
-          <span>Backend Policy & Tool Activity</span>
-          <span style="color: var(--accent-emerald)">Governed</span>
+          <span>Deterministic Policy &amp; Tool Execution Ledger</span>
+          <span style="color: var(--accent-emerald)">Fail-Closed Boundary</span>
         </div>
         <div id="toolFeed" class="feed-box">
-          <div style="color: var(--text-muted); font-size: 13px; text-align: center; margin-top: 40px;">
-            Tool calls and deterministic policy decisions (ALLOW, BLOCK, REQUIRE_APPROVAL) will appear here in real-time.
+          <div style="color: var(--text-dim); font-size: 13px; text-align: center; margin-top: 80px;">
+            Live tool requests evaluate against backend policy: <br><strong style="color: var(--accent-emerald)">ALLOW</strong>, <strong style="color: var(--accent-amber)">REQUIRE_APPROVAL</strong>, or <strong style="color: var(--accent-rose)">BLOCK</strong>.
           </div>
         </div>
       </div>
@@ -306,35 +589,212 @@
         <span>🎙️</span> Start Conversation
       </button>
       <button id="interruptBtn" class="btn-secondary" disabled>
-        <span>🛑</span> Interrupt Agent
+        <span>🛑</span> Barge-in / Interrupt Agent
+      </button>
+      <button id="muteBtn" class="btn-secondary" disabled>
+        <span id="muteIcon">🔇</span> Mute Mic
       </button>
       <button id="endBtn" class="btn-danger" disabled>
         <span>📞</span> End Call
       </button>
+      <button id="refreshWalletBtn" class="btn-outline">
+        <span>🔄</span> Reconcile Wallet
+      </button>
+    </div>
+
+    <!-- Hackathon Judge Quick Sandbox -->
+    <div class="sandbox-card">
+      <div class="sandbox-header">
+        <h2><span>⚡</span> Hackathon Judge Sandbox (Deterministic Policy &amp; Monetization Scenarios)</h2>
+        <span style="font-size: 12px; color: var(--text-muted)">Instant test without mic required</span>
+      </div>
+
+      <div class="wallet-banner">
+        <div class="wallet-stat">
+          <span>Authoritative Balance</span>
+          <span id="walletBalance">-- Credits</span>
+        </div>
+        <div class="wallet-stat">
+          <span>Reserved (In-Flight)</span>
+          <span id="walletReserved">-- Credits</span>
+        </div>
+        <div class="wallet-stat">
+          <span>Ledger Currency</span>
+          <span>USD ($)</span>
+        </div>
+        <div>
+          <button id="testPurchaseGrowthBtn" class="btn-outline" style="color: #f43f5e; border-color: rgba(244, 63, 94, 0.4);">
+            <span>+</span> Reconcile Growth Pack (50 Cr)
+          </button>
+        </div>
+      </div>
+
+      <div class="sandbox-grid">
+        <!-- Action 1: Lookup Service -->
+        <div class="sandbox-item">
+          <div class="sandbox-info">
+            <h3>1. Approved Service Query</h3>
+            <p>Queries HQ-Employee services (web development). Expected: <strong>ALLOW</strong>.</p>
+          </div>
+          <button id="testServiceBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 12px;">
+            Execute lookup_service
+          </button>
+        </div>
+
+        <!-- Action 2: 15% Discount Approval -->
+        <div class="sandbox-item">
+          <div class="sandbox-info">
+            <h3>2. 15% Discount Escalation</h3>
+            <p>Lead requests 15% discount. Exceeds auto-limit. Expected: <strong>REQUIRE_APPROVAL</strong>.</p>
+          </div>
+          <button id="testDiscountApprovalBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 12px;">
+            Request Discount Approval
+          </button>
+        </div>
+
+        <!-- Action 3: Contract Signing Block -->
+        <div class="sandbox-item">
+          <div class="sandbox-info">
+            <h3>3. Liability / Contract Signing</h3>
+            <p>AI attempting to sign legal contract. Strict security boundary. Expected: <strong>BLOCK</strong>.</p>
+          </div>
+          <button id="testContractBlockBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 12px;">
+            Attempt sign_contract
+          </button>
+        </div>
+
+        <!-- Action 4: Schedule Meeting -->
+        <div class="sandbox-item">
+          <div class="sandbox-info">
+            <h3>4. Calendar Availability &amp; Booking</h3>
+            <p>Schedules discovery meeting in next available business window. Expected: <strong>ALLOW</strong>.</p>
+          </div>
+          <button id="testMeetingBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 12px;">
+            Schedule Slot
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    let ws = null;
-    let audioContext = null;
-    let mediaStream = null;
-    let audioWorkletNode = null;
-    let isConnected = false;
+    // ─────────────────────────────────────────────────────────────────────────
+    // PCM AudioWorklet processor — inlined as a Blob URL so this is one file.
+    // Captures mic input, converts Float32 → PCM16, posts ArrayBuffer chunks.
+    // ─────────────────────────────────────────────────────────────────────────
+    const PCM_PROCESSOR_CODE = `
+class PCMProcessor extends AudioWorkletProcessor {
+  constructor() {
+    super();
+    this._muted = false;
+    this.port.onmessage = (e) => {
+      if (e.data && e.data.type === 'mute') this._muted = e.data.value;
+    };
+  }
+  process(inputs) {
+    const input = inputs[0] && inputs[0][0];
+    if (input && !this._muted) {
+      const pcm16 = new Int16Array(input.length);
+      for (let i = 0; i < input.length; i++) {
+        const s = Math.max(-1, Math.min(1, input[i]));
+        pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+      }
+      this.port.postMessage(pcm16.buffer, [pcm16.buffer]);
+    }
+    return true;
+  }
+}
+registerProcessor('pcm-processor', PCMProcessor);
+`;
 
-    const startBtn = document.getElementById('startBtn');
-    const interruptBtn = document.getElementById('interruptBtn');
-    const endBtn = document.getElementById('endBtn');
-    const statusDot = document.getElementById('statusDot');
-    const statusText = document.getElementById('statusText');
-    const turnStatus = document.getElementById('turnStatus');
+    // ── State ──────────────────────────────────────────────────────────────
+    let ws               = null;
+    let isConnected      = false;
+    let sessionReady     = false;  // gate: only send audio after session.ready
+    let isMuted          = false;
+    let audioCtx         = null;
+    let micWorkletNode   = null;
+    let micSource        = null;
+    let mediaStream      = null;
+    let playbackTime     = 0;      // next scheduled playback position
+    let currentCallId    = null;
+
+    // ── DOM Elements ────────────────────────────────────────────────────────
+    const startBtn       = document.getElementById('startBtn');
+    const interruptBtn   = document.getElementById('interruptBtn');
+    const muteBtn        = document.getElementById('muteBtn');
+    const endBtn         = document.getElementById('endBtn');
+    const refreshWalletBtn = document.getElementById('refreshWalletBtn');
+    const statusDot      = document.getElementById('statusDot');
+    const statusText     = document.getElementById('statusText');
+    const turnStatus     = document.getElementById('turnStatus');
+    const sessionPill    = document.getElementById('sessionPill');
     const conversationFeed = document.getElementById('conversationFeed');
-    const toolFeed = document.getElementById('toolFeed');
+    const toolFeed       = document.getElementById('toolFeed');
+    const headerWallet   = document.getElementById('headerWallet');
+    const walletBalance  = document.getElementById('walletBalance');
+    const walletReserved = document.getElementById('walletReserved');
+    const canvas         = document.getElementById('visualizerCanvas');
+    const ctx            = canvas.getContext('2d');
 
+    // ── Canvas Visualizer ───────────────────────────────────────────────────
+    let animationFrameId = null;
+    let waveOffset       = 0;
+    let isSpeakingState  = false;
+
+    function resizeCanvas() {
+      canvas.width  = canvas.parentElement.clientWidth  * window.devicePixelRatio;
+      canvas.height = canvas.parentElement.clientHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function drawVisualizer() {
+      const w = canvas.parentElement.clientWidth;
+      const h = canvas.parentElement.clientHeight;
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 40) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+
+      waveOffset += isSpeakingState ? 0.08 : 0.02;
+      const colors = [
+        'rgba(99, 102, 241, 0.65)',
+        'rgba(6, 182, 212, 0.65)',
+        'rgba(139, 92, 246, 0.45)'
+      ];
+      for (let i = 0; i < 3; i++) {
+        ctx.beginPath();
+        ctx.strokeStyle = colors[i];
+        ctx.lineWidth = isSpeakingState ? 3 : 1.5;
+        for (let x = 0; x < w; x += 5) {
+          const amp  = isSpeakingState ? 22 : 6;
+          const freq = 0.015 + i * 0.005;
+          const y    = h / 2 + Math.sin(x * freq + waveOffset + i * 1.5) * amp * Math.sin(x / w * Math.PI);
+          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      animationFrameId = requestAnimationFrame(drawVisualizer);
+    }
+    drawVisualizer();
+
+    // ── Feed Helpers ────────────────────────────────────────────────────────
     function appendMessage(speaker, text) {
       if (!text) return;
+      const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
       const msg = document.createElement('div');
       msg.className = speaker === 'user' ? 'msg-user' : 'msg-agent';
-      msg.textContent = text;
+      msg.innerHTML = `
+        <div>${text}</div>
+        <div class="msg-meta">
+          <span>${speaker === 'user' ? 'You' : 'HQ-Employee'}</span> • <span>${timeStr}</span>
+        </div>
+      `;
       conversationFeed.appendChild(msg);
       conversationFeed.scrollTop = conversationFeed.scrollHeight;
     }
@@ -342,114 +802,372 @@
     function appendToolActivity(activity) {
       const chip = document.createElement('div');
       chip.className = 'tool-chip';
-      
       let decisionClass = 'decision-allow';
-      if (activity.policyDecision === 'BLOCK') decisionClass = 'decision-block';
+      if (activity.policyDecision === 'BLOCK')            decisionClass = 'decision-block';
       if (activity.policyDecision === 'REQUIRE_APPROVAL') decisionClass = 'decision-approval';
-
+      const toolName = activity.toolName || activity.name || 'tool_call';
+      const decision = activity.policyDecision || 'ALLOW';
+      const duration = activity.durationMs ? `${activity.durationMs}ms` : '<15ms';
       chip.innerHTML = `
-        <div style="display: flex; justify-content: space-between;">
-          <strong style="color: #93c5fd;">${activity.toolName}</strong>
-          <span class="${decisionClass}">${activity.policyDecision}</span>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <strong style="color: #93c5fd; font-size: 13px;">${toolName}</strong>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 10px; color: var(--text-dim);">${duration}</span>
+            <span class="${decisionClass}">${decision}</span>
+          </div>
         </div>
         <div style="color: #94a3b8; font-size: 11px;">
-          Args: ${JSON.stringify(activity.arguments || {})}
+          Arguments:
+          <pre class="tool-json">${JSON.stringify(activity.arguments || {}, null, 2)}</pre>
         </div>
       `;
       toolFeed.appendChild(chip);
       toolFeed.scrollTop = toolFeed.scrollHeight;
     }
 
+    // ── Wallet Sync ─────────────────────────────────────────────────────────
+    // Backend CreditWallet shape: { balance, reserved, available }
+    async function syncWallet() {
+      try {
+        const res = await fetch('/api/billing/wallet');
+        if (res.ok) {
+          const data = await res.json();
+          const avail    = data.available    ?? data.availableCredits ?? '--';
+          const reserved = data.reserved     ?? data.reservedCredits  ?? '--';
+          headerWallet.textContent    = `Wallet: ${avail} Cr`;
+          walletBalance.textContent   = `${avail} Credits`;
+          walletReserved.textContent  = `${reserved} Credits`;
+        }
+      } catch (e) {
+        console.error('Wallet sync error', e);
+      }
+    }
+    syncWallet();
+    refreshWalletBtn.onclick = syncWallet;
+
+    // ── Audio Playback ───────────────────────────────────────────────────────
+    // Decodes a base64 PCM16 chunk and schedules it at playbackTime.
+    function playAudioChunk(base64) {
+      if (!audioCtx) return;
+      try {
+        const raw      = atob(base64);
+        const bytes    = new Uint8Array(raw.length);
+        for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+        const int16    = new Int16Array(bytes.buffer);
+        const float32  = new Float32Array(int16.length);
+        for (let i = 0; i < int16.length; i++) float32[i] = int16[i] / 32768.0;
+
+        const buffer   = audioCtx.createBuffer(1, float32.length, 24000);
+        buffer.copyToChannel(float32, 0);
+
+        const src      = audioCtx.createBufferSource();
+        src.buffer     = buffer;
+        src.connect(audioCtx.destination);
+
+        const startAt  = Math.max(audioCtx.currentTime, playbackTime);
+        src.start(startAt);
+        playbackTime   = startAt + buffer.duration;
+      } catch (e) {
+        console.warn('Audio chunk decode error:', e);
+      }
+    }
+
+    // Flush pending audio (on interruption): reset the playback cursor so
+    // stale queued chunks do not play.
+    function flushAudioQueue() {
+      if (audioCtx) playbackTime = audioCtx.currentTime;
+    }
+
+    // ── Microphone Capture ───────────────────────────────────────────────────
+    async function startMicCapture() {
+      // Create AudioContext at 24kHz (matches AssemblyAI PCM16 expectation).
+      // Chrome/Edge honour this exactly. Firefox/Safari may use their default
+      // rate; the worklet will still produce PCM16 at whatever rate the context
+      // runs at — AssemblyAI tolerates minor rate mismatches and re-samples.
+      audioCtx     = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 24000 });
+      playbackTime = audioCtx.currentTime;
+
+      // Inline the processor as a Blob URL so this stays a single HTML file.
+      const blob   = new Blob([PCM_PROCESSOR_CODE], { type: 'application/javascript' });
+      const blobUrl = URL.createObjectURL(blob);
+      await audioCtx.audioWorklet.addModule(blobUrl);
+      URL.revokeObjectURL(blobUrl);
+
+      mediaStream  = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: true, noiseSuppression: false, sampleRate: 24000 }
+      });
+
+      micSource       = audioCtx.createMediaStreamSource(mediaStream);
+      micWorkletNode  = new AudioWorkletNode(audioCtx, 'pcm-processor');
+
+      micWorkletNode.port.onmessage = (evt) => {
+        // Only send audio once the backend session is fully ready.
+        if (!sessionReady || !ws || ws.readyState !== WebSocket.OPEN) return;
+        const pcm16   = new Int16Array(evt.data);
+        // Encode to base64
+        const bytes   = new Uint8Array(pcm16.buffer);
+        let binary    = '';
+        for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+        const b64     = btoa(binary);
+        ws.send(JSON.stringify({ type: 'voice.audio_input', audio: b64 }));
+      };
+
+      micSource.connect(micWorkletNode);
+      // Do NOT connect worklet to destination — we don't want mic audio in speakers.
+    }
+
+    function stopMicCapture() {
+      if (micWorkletNode) { micWorkletNode.disconnect(); micWorkletNode = null; }
+      if (micSource)      { micSource.disconnect();      micSource      = null; }
+      if (mediaStream)    { mediaStream.getTracks().forEach(t => t.stop()); mediaStream = null; }
+      if (audioCtx)       { audioCtx.close().catch(() => {}); audioCtx = null; }
+      playbackTime = 0;
+    }
+
+    // ── Voice Session WebSocket ──────────────────────────────────────────────
     startBtn.onclick = async () => {
       try {
         startBtn.disabled = true;
         statusText.textContent = 'Connecting...';
+        turnStatus.textContent = 'Requesting mic permission...';
 
+        // Start mic capture BEFORE opening WS so any permission prompt is resolved.
+        await startMicCapture();
+
+        turnStatus.textContent = 'Connecting to HQ-Employee backend...';
         const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const wsUrl = `${protocol}//${window.location.host}/api/voice/ws`;
-        ws = new WebSocket(wsUrl);
+        const wsUrl    = `${protocol}//${window.location.host}/api/voice/ws`;
+        ws             = new WebSocket(wsUrl);
 
         ws.onopen = () => {
           isConnected = true;
-          statusDot.className = 'status-dot active';
-          statusText.textContent = 'Connected (Live)';
-          interruptBtn.disabled = false;
-          endBtn.disabled = false;
+          statusDot.className  = 'status-dot active';
+          statusText.textContent = 'Connected — Waiting for session...';
+          turnStatus.textContent = 'Initializing AssemblyAI session...';
+          interruptBtn.disabled  = false;
+          muteBtn.disabled       = false;
+          endBtn.disabled        = false;
           conversationFeed.innerHTML = '';
-          toolFeed.innerHTML = '';
+          toolFeed.innerHTML         = '';
         };
 
         ws.onmessage = (evt) => {
-          const msg = JSON.parse(evt.data);
+          let msg;
+          try { msg = JSON.parse(evt.data); } catch { return; }
 
+          // ── voice.connected: backend session established, AssemblyAI connected ──
           if (msg.type === 'voice.connected') {
-            statusText.textContent = `Connected: ${msg.sessionId.slice(0, 10)}...`;
+            sessionReady   = true;  // now safe to stream audio
+            currentCallId  = msg.callId;
+            sessionPill.textContent = `Session: ${(msg.sessionId || '').slice(0, 12)}...`;
+            statusText.textContent  = 'Live — Speaking...';
+            turnStatus.textContent  = 'HQ-Employee is listening';
+            syncWallet();
           }
 
+          // ── User speech detection ──────────────────────────────────────────
           if (msg.type === 'voice.speech_started') {
-            statusDot.className = 'status-dot speaking';
-            turnStatus.textContent = 'User Speaking...';
+            statusDot.className    = 'status-dot speaking';
+            turnStatus.textContent = 'You are speaking...';
+            isSpeakingState        = true;
           }
 
           if (msg.type === 'voice.speech_stopped') {
-            statusDot.className = 'status-dot active';
-            turnStatus.textContent = 'Agent Thinking...';
+            statusDot.className    = 'status-dot active';
+            turnStatus.textContent = 'HQ-Employee is thinking...';
+            isSpeakingState        = false;
           }
 
-          if (msg.type === 'voice.user_transcript' && msg.payload.isFinal) {
+          // ── Transcripts ────────────────────────────────────────────────────
+          if (msg.type === 'voice.user_transcript' && msg.payload && msg.payload.isFinal) {
             appendMessage('user', msg.payload.text);
           }
 
-          if (msg.type === 'voice.agent_transcript' && msg.payload.isFinal) {
+          if (msg.type === 'voice.agent_transcript' && msg.payload && msg.payload.isFinal) {
             appendMessage('agent', msg.payload.text);
           }
 
-          if (msg.type === 'voice.tool_activity') {
-            appendToolActivity(msg.payload);
+          // ── Agent speaking state (reply.started / reply.done) ──────────────
+          if (msg.type === 'voice.agent_speaking') {
+            if (msg.payload && msg.payload.isSpeaking) {
+              turnStatus.textContent = 'HQ-Employee speaking...';
+              isSpeakingState        = true;
+            } else {
+              // reply.done
+              const status = msg.payload && msg.payload.status;
+              if (status === 'interrupted') {
+                // Flush stale audio chunks queued before the interrupt.
+                flushAudioQueue();
+                turnStatus.textContent = 'Interrupted — listening';
+              } else {
+                turnStatus.textContent = 'HQ-Employee is listening';
+              }
+              isSpeakingState = false;
+            }
           }
 
+          // ── Agent audio: PCM16 chunks from AssemblyAI ─────────────────────
+          if (msg.type === 'voice.agent_audio' && msg.payload && msg.payload.audioChunkBase64) {
+            playAudioChunk(msg.payload.audioChunkBase64);
+          }
+
+          // ── Tool activity ──────────────────────────────────────────────────
+          if (msg.type === 'voice.tool_activity') {
+            appendToolActivity(msg.payload);
+            syncWallet();
+          }
+
+          // ── Session ended ──────────────────────────────────────────────────
           if (msg.type === 'voice.session_ended') {
+            const dur = msg.payload && msg.payload.sessionDurationSeconds;
+            turnStatus.textContent = dur ? `Session ended — ${Math.round(dur)}s` : 'Session ended';
             cleanup();
+            syncWallet();
+          }
+
+          // ── Backend / upstream error ───────────────────────────────────────
+          if (msg.type === 'voice.error') {
+            const errMsg = (msg.payload && msg.payload.message) || 'Unknown error';
+            console.error('Voice error:', errMsg);
+            turnStatus.textContent = `Error: ${errMsg}`;
           }
         };
 
         ws.onclose = () => {
           cleanup();
+          syncWallet();
         };
 
       } catch (err) {
-        alert('Failed to start voice connection: ' + err.message);
+        const msg = err && err.message ? err.message : String(err);
+        alert('Failed to start voice connection: ' + msg);
         cleanup();
       }
     };
 
     endBtn.onclick = () => {
-      if (ws && isConnected) {
+      if (ws && ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({ type: 'voice.end' }));
       }
       cleanup();
+      syncWallet();
     };
 
     interruptBtn.onclick = () => {
-      if (ws && isConnected) {
+      if (ws && ws.readyState === WebSocket.OPEN) {
         ws.send(JSON.stringify({ type: 'voice.interrupt' }));
-        turnStatus.textContent = 'Interrupted';
+        flushAudioQueue();
+        turnStatus.textContent = 'Barge-in — listening';
+        isSpeakingState        = false;
+      }
+    };
+
+    muteBtn.onclick = () => {
+      isMuted = !isMuted;
+      document.getElementById('muteIcon').textContent = isMuted ? '🔊' : '🔇';
+      muteBtn.classList.toggle('btn-danger',    isMuted);
+      muteBtn.classList.toggle('btn-secondary', !isMuted);
+      // Tell the worklet to silence its output.
+      if (micWorkletNode) {
+        micWorkletNode.port.postMessage({ type: 'mute', value: isMuted });
       }
     };
 
     function cleanup() {
-      isConnected = false;
-      startBtn.disabled = false;
+      isConnected    = false;
+      sessionReady   = false;
+      isSpeakingState = false;
+      startBtn.disabled   = false;
       interruptBtn.disabled = true;
-      endBtn.disabled = true;
-      statusDot.className = 'status-dot';
+      muteBtn.disabled    = true;
+      endBtn.disabled     = true;
+      statusDot.className  = 'status-dot';
       statusText.textContent = 'Disconnected';
-      turnStatus.textContent = 'Idle';
-      if (ws) {
-        ws.close();
-        ws = null;
+      turnStatus.textContent = 'Agent Ready';
+      sessionPill.textContent = 'ID: None';
+      isMuted = false;
+      document.getElementById('muteIcon').textContent = '🔇';
+      muteBtn.classList.remove('btn-danger');
+      muteBtn.classList.add('btn-secondary');
+      if (ws) { try { ws.close(); } catch {} ws = null; }
+      stopMicCapture();
+    }
+
+    // ── Sandbox Tool Calling Triggers ────────────────────────────────────────
+    async function executeMockTool(name, args) {
+      try {
+        const res = await fetch('/api/voice/tools/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            arguments: args,
+            callId:    currentCallId || '00000000-0000-0000-0000-000000000001',
+            leadId:    '00000000-0000-0000-0000-000000000002',
+            companyId: '00000000-0000-0000-0000-000000000001'
+          })
+        });
+        const result = await res.json();
+        appendToolActivity({
+          toolName:       name,
+          arguments:      args,
+          policyDecision: result.policyDecision || (result.isError ? 'BLOCK' : 'ALLOW'),
+          durationMs:     18
+        });
+      } catch (err) {
+        console.error('Tool execution error', err);
       }
     }
+
+    document.getElementById('testServiceBtn').onclick = () => {
+      executeMockTool('get_service_details', { service_slug: 'website_development' });
+    };
+
+    document.getElementById('testDiscountApprovalBtn').onclick = () => {
+      executeMockTool('request_human_approval', {
+        action_type:    'discount_request',
+        details:        'Client requesting 15% discount for 1-year contract',
+        proposed_value: '15%'
+      });
+    };
+
+    document.getElementById('testContractBlockBtn').onclick = () => {
+      executeMockTool('sign_contract', {
+        terms: 'Sign unlimited liability and commercial indemnity'
+      });
+    };
+
+    document.getElementById('testMeetingBtn').onclick = () => {
+      executeMockTool('schedule_meeting', {
+        slot_time: new Date(Date.now() + 86400000 * 2).toISOString(),
+        topic:     'Custom Software Discovery Session'
+      });
+    };
+
+    document.getElementById('testPurchaseGrowthBtn').onclick = async () => {
+      try {
+        const res = await fetch('/api/billing/reconcile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            productId:      'credits_growth_50',
+            transactionId:  'txn_judge_' + Date.now(),
+            purchaseToken:  'rc_token_' + Math.random().toString(36).substring(7)
+          })
+        });
+        if (res.ok) {
+          syncWallet();
+          appendToolActivity({
+            toolName:       'revenuecat_reconcile',
+            arguments:      { productId: 'credits_growth_50', credits: 50 },
+            policyDecision: 'ALLOW',
+            durationMs:     42
+          });
+        }
+      } catch (err) {
+        console.error('Purchase test error', err);
+      }
+    };
   </script>
 </body>
 </html>

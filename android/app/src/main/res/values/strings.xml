@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HQ</string>
+    <string name="app_name">HQ-Employee</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_leads">Leads</string>
     <string name="title_meetings">Meetings</string>

@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WebcraftEmployee"
+rootProject.name = "DEmployee"
 include(":app")

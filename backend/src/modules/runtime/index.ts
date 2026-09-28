@@ -66,7 +66,7 @@ export interface ConversationContext {
 const ALL_BUSINESS_TOOLS: RuntimeToolDefinition[] = [
   {
     name: 'get_company_profile',
-    description: 'Retrieve approved background information about HQ, company history, headquarters, and core expertise.',
+    description: 'Retrieve approved background information about HQ-Employee, company history, headquarters, and core expertise.',
     parameters: { type: 'object', properties: {} },
     governedCategory: 'information',
   },
@@ -82,7 +82,7 @@ const ALL_BUSINESS_TOOLS: RuntimeToolDefinition[] = [
   },
   {
     name: 'get_pricing_guidance',
-    description: 'Retrieve official approved pricing guidance and ranges for HQ services. Never guess or invent pricing outside approved ranges.',
+    description: 'Retrieve official approved pricing guidance and ranges for HQ-Employee services. Never guess or invent pricing outside approved ranges.',
     parameters: {
       type: 'object',
       properties: { service_name: { type: 'string' } },

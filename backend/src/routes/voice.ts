@@ -67,13 +67,25 @@ export const voiceRoutes: FastifyPluginAsync = async (fastify) => {
   fastify.get('/voice-tester', async (request, reply) => {
     const fs = await import('fs/promises');
     const path = await import('path');
-    const filePath = path.join(process.cwd(), 'public', 'voice-tester.html');
-    try {
-      const html = await fs.readFile(filePath, 'utf-8');
-      return reply.type('text/html').send(html);
-    } catch {
-      return reply.type('text/html').send('<h1>Voice Tester HTML not found</h1>');
+    const { fileURLToPath } = await import('url');
+
+    const candidatePaths = [
+      path.join(process.cwd(), 'public', 'voice-tester.html'),
+      path.join(process.cwd(), 'backend', 'public', 'voice-tester.html'),
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../public/voice-tester.html'),
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../public/voice-tester.html'),
+    ];
+
+    for (const candidate of candidatePaths) {
+      try {
+        const html = await fs.readFile(candidate, 'utf-8');
+        return reply.type('text/html').send(html);
+      } catch {
+        // Try next candidate
+      }
     }
+
+    return reply.status(404).type('text/html').send('<h1>Voice Tester HTML not found</h1>');
   });
 
   // 4. Normalized WebSocket bridge for browser & Android voice interaction

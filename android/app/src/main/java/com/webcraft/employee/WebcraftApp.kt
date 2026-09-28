@@ -19,6 +19,8 @@ import com.webcraft.employee.domain.usecase.ManagePolicyUseCase
 import com.webcraft.employee.domain.usecase.UpdateCompanyProfileUseCase
 import com.webcraft.employee.domain.usecase.UpsertFaqUseCase
 import com.webcraft.employee.domain.usecase.UpsertServiceUseCase
+import com.webcraft.employee.data.fake.FakeBillingRepository
+import com.webcraft.employee.domain.repository.BillingRepository
 
 import com.webcraft.employee.data.fake.FakeVoiceCallRepository
 import com.webcraft.employee.domain.repository.VoiceCallRepository
@@ -29,6 +31,7 @@ class AppContainer {
     val employeeRepository: EmployeeRepository by lazy { FakeEmployeeRepository() }
     val companyBrainRepository: CompanyBrainRepository by lazy { FakeCompanyBrainRepository() }
     val voiceCallRepository: VoiceCallRepository by lazy { FakeVoiceCallRepository() }
+    val billingRepository: BillingRepository by lazy { FakeBillingRepository() }
 
     val getDashboardDataUseCase by lazy {
         GetDashboardDataUseCase(leadRepository, meetingRepository)

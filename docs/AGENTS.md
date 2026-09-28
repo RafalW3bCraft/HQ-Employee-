@@ -1,8 +1,8 @@
-# Webcraft Employee — AI Development Rules
+# HQ-Employee — AI Development Rules
 
 ## 1. Mission
 
-Build Webcraft Employee: a governed AI business employee for Rafal Webcraft.
+Build HQ-Employee: a governed AI business employee for Rafal Webcraft.
 
 The employee communicates with leads using real-time voice AI, qualifies opportunities, discusses only authorized company information, schedules meetings, records structured project information, and escalates decisions outside its authority to a human.
 
@@ -14,7 +14,7 @@ The product must behave as a controlled business system, not as an unrestricted 
 
 Employee name:
 
-Webcraft Employee
+HQ-Employee
 
 Role:
 

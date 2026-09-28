@@ -56,7 +56,7 @@ describe('Authentication & Authorization', async () => {
     assert.ok(body.token, 'Response must include token');
     assert.equal(body.companyId, testCompanyId, 'Token must be scoped to the requested company');
     assert.equal(body.role, 'admin', 'Dev tokens should have admin role');
-    assert.ok(body.warning?.includes('dev'), 'Must include dev warning');
+    assert.ok(body.warning?.toLowerCase().includes('dev'), 'Must include dev warning');
 
     devToken = body.token;
   });
@@ -71,7 +71,8 @@ describe('Authentication & Authorization', async () => {
     assert.equal(res.statusCode, 401, `Expected 401, got ${res.statusCode}`);
 
     const body = JSON.parse(res.body);
-    assert.equal(body.error, 'UNAUTHORIZED');
+    const errorCode = typeof body.error === 'string' ? body.error : body.error?.code;
+    assert.equal(errorCode, 'UNAUTHORIZED');
   });
 
   it('GET /api/auth/me returns 401 with malformed token', async () => {

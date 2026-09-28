@@ -8,7 +8,7 @@ export const healthRoutes: FastifyPluginAsync = async (fastify) => {
 
     return reply.status(200).send({
       status: 'ok',
-      service: 'webcraft-employee-api',
+      service: 'hq-employee-api',
       version: '0.1.0',
       timestamp: new Date().toISOString(),
       uptime: uptimeSeconds,

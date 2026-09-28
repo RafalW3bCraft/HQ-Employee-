@@ -360,7 +360,7 @@ export class AssemblyAIVoiceService {
         type: 'function',
         name: 'get_company_profile',
         description:
-          'Retrieve approved background information about HQ, company history, headquarters, and core expertise.',
+          'Retrieve approved background information about HQ-Employee, company history, headquarters, and core expertise.',
         parameters: {
           type: 'object',
           properties: {},
@@ -388,7 +388,7 @@ export class AssemblyAIVoiceService {
         type: 'function',
         name: 'get_pricing_guidance',
         description:
-          'Retrieve official approved pricing guidance and ranges for HQ services. Never guess or invent pricing outside approved ranges.',
+          'Retrieve official approved pricing guidance and ranges for HQ-Employee services. Never guess or invent pricing outside approved ranges.',
         parameters: {
           type: 'object',
           properties: {
@@ -570,7 +570,7 @@ export class AssemblyAIVoiceService {
         type: 'function',
         name: 'check_calendar',
         description:
-          'Check available meeting slots for an HQ discovery consultation within a specified date window.',
+          'Check available meeting slots for a HQ-Employee discovery consultation within a specified date window.',
         parameters: {
           type: 'object',
           properties: {
@@ -655,12 +655,12 @@ export class AssemblyAIVoiceService {
       systemPrompt = convContext.systemPrompt;
     } else {
       const runtimeContext = await this.companyBrainService.getRuntimeContext();
-      systemPrompt = `You are the HQ Business Development & Client Coordinator, an autonomous governed AI employee for HQ.
+      systemPrompt = `You are the HQ-Employee Business Development & Client Coordinator, an autonomous governed AI employee for HQ-Employee.
 
 YOUR IDENTITY AND ROLE:
-- You represent HQ, a premier digital engineering firm specializing in full-stack web development, mobile applications, and voice AI systems.
+- You represent HQ-Employee, a premier digital engineering firm specializing in full-stack web development, mobile applications, and voice AI systems.
 - You speak naturally, concisely, and professionally. Keep verbal turns to 1-3 sentences unless explaining a technical solution.
-- You must always be honest that you are an AI assistant representing HQ. Never impersonate a biological human.
+- You must always be honest that you are an AI assistant representing HQ-Employee. Never impersonate a biological human.
 
 APPROVED COMPANY KNOWLEDGE:
 - Company Overview: ${runtimeContext.companySummary}
@@ -681,7 +681,7 @@ Call your tools whenever you need to fetch information or update client records.
     }
 
     const greeting =
-      "Hello! Thanks for reaching out to HQ. I'm the HQ business development coordinator. How can I help with your project today?";
+      "Hello! Thanks for reaching out to HQ-Employee. I'm the HQ-Employee business development coordinator. How can I help with your project today?";
 
     const config: VoiceSessionConfiguration = {
       system_prompt: systemPrompt,
@@ -690,7 +690,7 @@ Call your tools whenever you need to fetch information or update client records.
       input: {
         format: { encoding: 'audio/pcm' },
         keyterms: [
-          'HQ',
+          'HQ-Employee',
           'AssemblyAI',
           'TypeScript',
           'PostgreSQL',
@@ -1013,7 +1013,7 @@ Call your tools whenever you need to fetch information or update client records.
           outputData = {
             call_ended: true,
             reason: args.reason || 'completed',
-            message: 'Thank you for contacting HQ. Have a wonderful day!',
+            message: 'Thank you for contacting HQ-Employee. Have a wonderful day!',
           };
           break;
         }

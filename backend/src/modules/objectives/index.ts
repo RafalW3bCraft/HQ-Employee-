@@ -14,6 +14,7 @@
  *   PENDING → IN_PROGRESS → COMPLETED | FAILED | SKIPPED | DEFERRED
  */
 import { randomUUID } from 'crypto';
+import { query } from '../../db/index.js';
 import { defaultAuditService, AuditService } from '../audit/index.js';
 import { defaultLeadsRepository, LeadsRepository, Lead } from '../leads/index.js';
 import { defaultProposalService, ProposalService } from '../proposals/index.js';
@@ -79,17 +80,104 @@ export interface ObjectiveEvaluation {
 export class ObjectivesRepository {
   private objectives: Objective[] = [];
 
+  private mapRowToObjective(row: any): Objective {
+    return {
+      id: row.id,
+      companyId: row.company_id,
+      type: row.type as ObjectiveType,
+      status: row.status as ObjectiveStatus,
+      priority: row.priority as ObjectivePriority,
+      leadId: row.lead_id ?? undefined,
+      proposalId: row.proposal_id ?? undefined,
+      description: row.description,
+      scheduledAfter: row.scheduled_after instanceof Date ? row.scheduled_after.toISOString() : String(row.scheduled_after),
+      expiresAt: row.expires_at instanceof Date ? row.expires_at.toISOString() : String(row.expires_at),
+      attemptCount: Number(row.attempt_count),
+      maxAttempts: Number(row.max_attempts),
+      lastAttemptResult: row.last_attempt_result ?? undefined,
+      lastAttemptAt: row.last_attempt_at ? (row.last_attempt_at instanceof Date ? row.last_attempt_at.toISOString() : String(row.last_attempt_at)) : undefined,
+      suggestedAction: row.suggested_action,
+      metadata: typeof row.metadata === 'string' ? JSON.parse(row.metadata) : (row.metadata ?? {}),
+      createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : String(row.created_at),
+      updatedAt: row.updated_at instanceof Date ? row.updated_at.toISOString() : String(row.updated_at),
+    };
+  }
+
   async create(objective: Objective): Promise<Objective> {
-    this.objectives.push(objective);
+    try {
+      await query(
+        `INSERT INTO autonomous_objectives (
+          id, company_id, type, status, priority, lead_id, proposal_id,
+          description, scheduled_after, expires_at, attempt_count, max_attempts,
+          last_attempt_result, last_attempt_at, suggested_action, metadata,
+          created_at, updated_at
+        ) VALUES (
+          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18
+        )`,
+        [
+          objective.id,
+          objective.companyId,
+          objective.type,
+          objective.status,
+          objective.priority,
+          objective.leadId ?? null,
+          objective.proposalId ?? null,
+          objective.description,
+          objective.scheduledAfter,
+          objective.expiresAt,
+          objective.attemptCount,
+          objective.maxAttempts,
+          objective.lastAttemptResult ?? null,
+          objective.lastAttemptAt ?? null,
+          objective.suggestedAction,
+          JSON.stringify(objective.metadata ?? {}),
+          objective.createdAt,
+          objective.updatedAt,
+        ]
+      );
+    } catch {
+      // In-memory fallback
+    }
+    const existingIdx = this.objectives.findIndex((o) => o.id === objective.id);
+    if (existingIdx >= 0) {
+      this.objectives[existingIdx] = objective;
+    } else {
+      this.objectives.push(objective);
+    }
     return { ...objective };
   }
 
   async getById(id: string): Promise<Objective | null> {
+    try {
+      const res = await query<any>('SELECT * FROM autonomous_objectives WHERE id = $1', [id]);
+      if (res.rows.length > 0) {
+        return this.mapRowToObjective(res.rows[0]);
+      }
+    } catch {
+      // In-memory fallback
+    }
     return this.objectives.find((o) => o.id === id) ?? null;
   }
 
   async listPending(companyId: string, now: Date = new Date()): Promise<Objective[]> {
     const nowISO = now.toISOString();
+    try {
+      const res = await query<any>(
+        `SELECT * FROM autonomous_objectives
+         WHERE company_id = $1
+           AND status = 'PENDING'
+           AND scheduled_after <= $2
+           AND expires_at > $2
+           AND attempt_count < max_attempts
+         ORDER BY scheduled_after ASC`,
+        [companyId, nowISO]
+      );
+      if (res.rows.length > 0) {
+        return res.rows.map((r) => this.mapRowToObjective(r));
+      }
+    } catch {
+      // In-memory fallback
+    }
     return this.objectives.filter(
       (o) =>
         o.companyId === companyId &&
@@ -101,16 +189,61 @@ export class ObjectivesRepository {
   }
 
   async listByLead(leadId: string, companyId: string): Promise<Objective[]> {
+    try {
+      const res = await query<any>(
+        `SELECT * FROM autonomous_objectives
+         WHERE lead_id = $1 AND company_id = $2
+         ORDER BY created_at DESC`,
+        [leadId, companyId]
+      );
+      if (res.rows.length > 0) {
+        return res.rows.map((r) => this.mapRowToObjective(r));
+      }
+    } catch {
+      // In-memory fallback
+    }
     return this.objectives.filter(
       (o) => o.leadId === leadId && o.companyId === companyId
     );
   }
 
   async listAll(companyId: string): Promise<Objective[]> {
+    try {
+      const res = await query<any>(
+        `SELECT * FROM autonomous_objectives
+         WHERE company_id = $1
+         ORDER BY created_at DESC`,
+        [companyId]
+      );
+      if (res.rows.length > 0) {
+        return res.rows.map((r) => this.mapRowToObjective(r));
+      }
+    } catch {
+      // In-memory fallback
+    }
     return this.objectives.filter((o) => o.companyId === companyId);
   }
 
   async update(objective: Objective): Promise<Objective> {
+    try {
+      await query(
+        `UPDATE autonomous_objectives SET
+          status = $1, priority = $2, attempt_count = $3, last_attempt_result = $4,
+          last_attempt_at = $5, updated_at = $6
+        WHERE id = $7`,
+        [
+          objective.status,
+          objective.priority,
+          objective.attemptCount,
+          objective.lastAttemptResult ?? null,
+          objective.lastAttemptAt ?? null,
+          objective.updatedAt,
+          objective.id,
+        ]
+      );
+    } catch {
+      // In-memory fallback
+    }
     const idx = this.objectives.findIndex((o) => o.id === objective.id);
     if (idx < 0) throw new AppError('Objective not found', 404, 'NOT_FOUND');
     this.objectives[idx] = objective;
@@ -119,6 +252,25 @@ export class ObjectivesRepository {
 
   async expireOverdue(companyId: string, now: Date = new Date()): Promise<number> {
     const nowISO = now.toISOString();
+    try {
+      const res = await query<any>(
+        `UPDATE autonomous_objectives
+         SET status = 'SKIPPED', updated_at = $1
+         WHERE company_id = $2 AND status = 'PENDING' AND expires_at <= $1`,
+        [nowISO, companyId]
+      );
+      if (res.rowCount && res.rowCount > 0) {
+        for (const o of this.objectives) {
+          if (o.companyId === companyId && o.status === 'PENDING' && o.expiresAt <= nowISO) {
+            o.status = 'SKIPPED';
+            o.updatedAt = nowISO;
+          }
+        }
+        return res.rowCount;
+      }
+    } catch {
+      // In-memory fallback
+    }
     let expired = 0;
     for (const o of this.objectives) {
       if (

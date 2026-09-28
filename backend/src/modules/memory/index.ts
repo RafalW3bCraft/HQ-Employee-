@@ -184,7 +184,7 @@ export class MemoryService {
         employeeId: 'default',
         version: '1.0.0',
         status: 'ACTIVE',
-        systemInstructions: 'You are the HQ Business Development & Client Coordinator.',
+        systemInstructions: 'You are the HQ-Employee Business Development & Client Coordinator.',
         authorityRules: [],
         escalationRules: [],
         createdAt: new Date().toISOString(),
@@ -216,7 +216,7 @@ export class MemoryService {
     return {
       employeeId,
       companyId,
-      name: 'HQ Business Development & Client Coordinator',
+      name: 'HQ-Employee Business Development & Client Coordinator',
       role: 'Business Development & Client Coordination',
       persona: 'Professional, concise, consultative, and transparent AI business coordinator.',
       activePolicyVersion: activePolicy?.version || '1.0.0',

@@ -9,5 +9,6 @@ sealed class Screen(val route: String, val title: String) {
     data object Meetings : Screen("meetings", "Meetings")
     data object Employee : Screen("employee", "AI Employee")
     data object CompanyBrain : Screen("company_brain", "Company Brain")
+    data object Billing : Screen("billing", "Credits & Billing")
     data object Settings : Screen("settings", "Settings")
 }

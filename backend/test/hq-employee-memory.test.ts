@@ -45,7 +45,7 @@ describe('HQ Employee Structured Memory Subsystem', () => {
   it('1. retrieves structured Company Memory with guidance, policies, and isolation', async () => {
     const memory = await memoryService.getCompanyMemory(companyA);
     assert.ok(memory.profile);
-    assert.strictEqual(memory.profile.name, 'HQ');
+    assert.strictEqual(memory.profile.name, 'HQ-Employee');
     assert.ok(memory.services.length >= 4);
     assert.ok(memory.pricingGuidance.length >= 4);
     assert.ok(memory.timelineGuidance.length >= 4);
@@ -61,7 +61,7 @@ describe('HQ Employee Structured Memory Subsystem', () => {
 
   it('2. retrieves Employee Memory with role, persona, and authorized capabilities', async () => {
     const employee = await memoryService.getEmployeeMemory('emp-001', companyA);
-    assert.strictEqual(employee.name, 'HQ Business Development & Client Coordinator');
+    assert.strictEqual(employee.name, 'HQ-Employee Business Development & Client Coordinator');
     assert.strictEqual(employee.role, 'Business Development & Client Coordination');
     assert.ok(employee.persona.includes('Professional'));
     assert.ok(employee.authorizedCapabilities.includes('get_company_profile'));

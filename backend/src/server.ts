@@ -167,7 +167,7 @@ export async function createServer(appConfig: AppConfig): Promise<FastifyInstanc
   server.get('/', async (request, reply) => {
     return reply.send({
       service: 'hq-employee-api',
-      message: 'HQ Governed AI Backend API',
+      message: 'HQ-Employee Governed AI Backend API',
       status: 'operational',
       docs: '/health',
       requestId: request.id,

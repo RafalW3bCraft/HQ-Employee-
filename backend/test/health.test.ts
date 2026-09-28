@@ -33,7 +33,7 @@ describe('Health Endpoint Integration', () => {
     assert.strictEqual(response.statusCode, 200);
     const body = JSON.parse(response.payload);
     assert.strictEqual(body.status, 'ok');
-    assert.strictEqual(body.service, 'webcraft-employee-api');
+    assert.strictEqual(body.service, 'hq-employee-api');
     assert.strictEqual(body.version, '0.1.0');
     assert.strictEqual(body.requestId, 'test-req-12345');
     assert.strictEqual(typeof body.uptime, 'number');

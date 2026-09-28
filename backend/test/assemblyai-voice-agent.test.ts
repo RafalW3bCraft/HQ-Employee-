@@ -79,8 +79,8 @@ describe('AssemblyAI Voice Agent API Integration', () => {
 
     // Verify session config parameters
     const config = data.config;
-    assert.ok(config.system_prompt.includes('HQ'));
-    assert.ok(config.greeting.includes('HQ'));
+    assert.ok(config.system_prompt.includes('HQ-Employee'));
+    assert.ok(config.greeting.includes('HQ-Employee'));
     assert.strictEqual(config.output.voice, 'alba');
     assert.strictEqual(config.input.transcription_mode, 'balanced');
     assert.strictEqual(config.input.turn_detection.interrupt_response, true);
@@ -103,7 +103,7 @@ describe('AssemblyAI Voice Agent API Integration', () => {
     assert.strictEqual(profileBody.policyDecision, 'ALLOW');
     assert.strictEqual(profileBody.isError, false);
     const profileResult = JSON.parse(profileBody.result);
-    assert.ok(profileResult.name.includes('HQ'));
+    assert.ok(profileResult.name.includes('HQ-Employee'));
 
     // B. Pricing Guidance
     const pricingRes = await server.inject({
@@ -334,7 +334,7 @@ describe('AssemblyAI Voice Agent API Integration', () => {
 
     assert.strictEqual(res.statusCode, 200);
     assert.ok(res.headers['content-type']?.includes('text/html'));
-    assert.ok(res.payload.includes('HQ Voice Agent'));
+    assert.ok(res.payload.includes('HQ-Employee Voice Agent'));
     assert.ok(res.payload.includes('Start Conversation'));
     assert.ok(res.payload.includes('Interrupt Agent'));
     assert.ok(res.payload.includes('End Call'));
@@ -493,5 +493,72 @@ describe('AssemblyAI Voice Agent API Integration', () => {
     assert.strictEqual(validBody.isError, false);
     const resultObj = JSON.parse(validBody.result);
     assert.strictEqual(resultObj.success, true);
+  });
+
+  it('13. normalizes reply.done with status=interrupted as voice.agent_speaking isSpeaking=false/interrupted', () => {
+    const callId = 'test-call-interrupt';
+    const sid    = 'sess-interrupt-789';
+
+    const replyDoneInterrupted = defaultCallsService.normalizeProviderEvent(
+      { type: 'reply.done', status: 'interrupted', reply_id: 'r-1' },
+      callId,
+      sid
+    );
+    assert.strictEqual(replyDoneInterrupted?.type, 'voice.agent_speaking');
+    assert.strictEqual(replyDoneInterrupted?.payload.isSpeaking, false);
+    assert.strictEqual(replyDoneInterrupted?.payload.status, 'interrupted');
+
+    const replyDoneComplete = defaultCallsService.normalizeProviderEvent(
+      { type: 'reply.done', status: 'complete', reply_id: 'r-2' },
+      callId,
+      sid
+    );
+    assert.strictEqual(replyDoneComplete?.type, 'voice.agent_speaking');
+    assert.strictEqual(replyDoneComplete?.payload.isSpeaking, false);
+    assert.strictEqual(replyDoneComplete?.payload.status, 'complete');
+  });
+
+  it('14. reply.audio normalizes with data field (not audio field) as voice.agent_audio', () => {
+    const chunk = 'UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=';
+    const ev    = defaultCallsService.normalizeProviderEvent(
+      { type: 'reply.audio', data: chunk },
+      'call-audio-test',
+      'sess-audio'
+    );
+    assert.strictEqual(ev?.type, 'voice.agent_audio');
+    assert.strictEqual(ev?.payload.audioChunkBase64, chunk);
+
+    // Verify that passing raw.audio (wrong field) yields undefined payload
+    const evWrongField = defaultCallsService.normalizeProviderEvent(
+      { type: 'reply.audio', audio: chunk },
+      'call-audio-test2',
+      'sess-audio2'
+    );
+    // type is still mapped, but chunk should be undefined (wrong field name)
+    assert.strictEqual(evWrongField?.type, 'voice.agent_audio');
+    assert.strictEqual(evWrongField?.payload.audioChunkBase64, undefined);
+  });
+
+  it('15. wallet endpoint returns available and reserved fields (not availableCredits)', async () => {
+    const res = await server.inject({ method: 'GET', url: '/api/billing/wallet' });
+    assert.strictEqual(res.statusCode, 200);
+    const body = JSON.parse(res.payload);
+    // Backend CreditWallet shape must expose 'available' and 'reserved'
+    assert.ok('available' in body, 'wallet must expose available field');
+    assert.ok('reserved'  in body, 'wallet must expose reserved field');
+    assert.ok('balance'   in body, 'wallet must expose balance field');
+    assert.strictEqual(typeof body.available, 'number');
+    assert.strictEqual(typeof body.reserved,  'number');
+  });
+
+  it('16. voice-tester.html does not contain raw ASSEMBLYAI_API_KEY or bearer token', async () => {
+    const res = await server.inject({ method: 'GET', url: '/voice-tester' });
+    assert.strictEqual(res.statusCode, 200);
+    // The page must never embed the backend secret key
+    const payload = res.payload;
+    assert.strictEqual(payload.includes('ASSEMBLYAI_API_KEY'), false, 'Must not contain env var name');
+    assert.strictEqual(payload.includes('test_key'),           false, 'Must not contain API key value');
+    // Token fetch must go via backend endpoint, not to assemblyai.com directly
+    assert.strictEqual(payload.includes('agents.assemblyai.com'), false, 'Browser must not contact AssemblyAI directly');
   });
 });

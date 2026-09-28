@@ -65,9 +65,9 @@ describe('HQ Employee Runtime Layer & Context Builder', () => {
     });
 
     assert.strictEqual(ctx.conversationId, convId);
-    assert.strictEqual(ctx.employee.name, 'HQ Business Development & Client Coordinator');
+    assert.strictEqual(ctx.employee.name, 'HQ-Employee Business Development & Client Coordinator');
     assert.strictEqual(ctx.employee.role, 'Business Development & Client Coordination');
-    assert.strictEqual(ctx.company.name, 'HQ');
+    assert.strictEqual(ctx.company.name, 'HQ-Employee');
     assert.strictEqual(ctx.lead.id, leadA1);
     assert.strictEqual(ctx.lead.fullName, 'Marcus Wright');
     assert.strictEqual(ctx.lead.companyName, 'Cyberdyne Systems');

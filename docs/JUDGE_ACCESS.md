@@ -1,14 +1,14 @@
 # Hackathon Judge Review & Evaluation Guide
 
-Welcome to the evaluation guide for **HQ Employee** (submitted to the **RevenueCat Shipaton 2026** and **AssemblyAI Voice Agent Hackathon**).
+Welcome to the evaluation guide for **HQ-Employee** (submitted to the **RevenueCat Shipaton 2026** and **AssemblyAI Voice Agent Hackathon**).
 
-HQ Employee is an enterprise-governed AI business employee for Rafal Webcraft. It communicates with prospective clients via low-latency voice, discovers and qualifies business requirements, enforces deterministic policy boundaries, manages calendar booking, and tracks call credit consumption through an authoritative RevenueCat-reconciled ledger.
+HQ-Employee is an enterprise-governed AI business employee for Rafal Webcraft. It communicates with prospective clients via low-latency voice, discovers and qualifies business requirements, enforces deterministic policy boundaries, manages calendar booking, and tracks call credit consumption through an authoritative RevenueCat-reconciled ledger.
 
 ---
 
 ## 1. Quick Verification & Test Suite
 
-The entire backend subsystem is validated by **116 unit, integration, and end-to-end tests** with zero external mocking compromises:
+The entire backend subsystem is validated by **142 unit, integration, and end-to-end tests** with zero external mocking compromises:
 
 ```bash
 cd backend
@@ -18,7 +18,7 @@ npm test
 ```
 
 Expected output:
-- **116 passed tests** across **15 test suites**
+- **142 passed tests** across **18 test suites**
 - Full 17-scenario End-to-End lifecycle validation passing with 100% success.
 
 ---
@@ -119,10 +119,11 @@ Try triggering an action that exceeds AI employee authority:
 ---
 
 ## 5. Android Application Architecture
-
+ 
 - Package: `com.webcraft.employee`
 - UI: Jetpack Compose + Material 3 Design System
 - Multiplatform-ready Clean Architecture:
   - `domain/model/`: `CreditPackage.kt`, `WalletBalance.kt`, `PurchaseState.kt`
-  - `domain/repository/`: `BillingRepository.kt`, `CompanyBrainRepository.kt`, `LeadsRepository.kt`, `MeetingsRepository.kt`
-  - `ui/screens/`: Dashboard, Leads, Meetings, AI Employee, Company Brain, Settings
+  - `domain/repository/`: `BillingRepository.kt`, `CompanyBrainRepository.kt`, `LeadRepository.kt`, `MeetingRepository.kt`, `VoiceCallRepository.kt`
+  - `data/fake/`: `FakeBillingRepository.kt`, `FakeCompanyBrainRepository.kt`, `FakeLeadRepository.kt`, `FakeMeetingRepository.kt`, `FakeVoiceCallRepository.kt`
+  - `ui/screens/`: Dashboard, Leads, Meetings, AI Employee, Company Brain, Billing / Call Credits, Settings

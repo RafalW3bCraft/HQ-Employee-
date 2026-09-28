@@ -111,10 +111,10 @@ const defaultEmployeeId = 'e0000000-0000-0000-0000-000000000001';
 
 const initialProfile: CompanyProfile = {
   id: defaultCompanyId,
-  name: 'HQ',
+  name: 'HQ-Employee',
   tagline: 'Engineering next-generation web, custom software, and voice AI solutions.',
-  website: 'https://hq.example.com',
-  description: 'HQ is a premier digital engineering firm building high-performance web applications, bespoke software platforms, enterprise conversational AI solutions, and secure systems.',
+  website: 'https://hq-employee.example.com',
+  description: 'HQ-Employee is a premier digital engineering firm building high-performance web applications, bespoke software platforms, enterprise conversational AI solutions, and secure systems.',
   createdAt: new Date('2026-09-01T00:00:00Z').toISOString(),
   updatedAt: new Date('2026-09-17T00:00:00Z').toISOString(),
 };
@@ -244,7 +244,7 @@ const initialFaqs: CompanyFaq[] = [
     id: 'f0000000-0000-0000-0000-000000000001',
     companyId: defaultCompanyId,
     question: 'Do you sign NDAs before discovery discussions?',
-    answer: 'Yes, HQ routinely executes mutual non-disclosure agreements prior to in-depth technical discussions.',
+    answer: 'Yes, HQ-Employee routinely executes mutual non-disclosure agreements prior to in-depth technical discussions.',
     displayOrder: 1,
     isActive: true,
     createdAt: new Date('2026-09-01T00:00:00Z').toISOString(),
@@ -263,7 +263,7 @@ const initialFaqs: CompanyFaq[] = [
   {
     id: 'f0000000-0000-0000-0000-000000000003',
     companyId: defaultCompanyId,
-    question: 'How do we begin a project with HQ?',
+    question: 'How do we begin a project with HQ-Employee?',
     answer: 'We schedule an initial 30-minute discovery consultation to discover your requirements, followed by a formal technical scope and proposal.',
     displayOrder: 3,
     isActive: true,
@@ -277,7 +277,7 @@ const initialPolicy: EmployeePolicy = {
   employeeId: defaultEmployeeId,
   version: '1.0.0',
   status: 'ACTIVE',
-  systemInstructions: `You are the HQ Business Development & Client Coordinator for HQ.
+  systemInstructions: `You are the HQ-Employee Business Development & Client Coordinator for HQ-Employee.
 Your role is to communicate with prospective clients, qualify software development opportunities, discuss only approved company information, schedule discovery meetings, maintain structured lead memory, and escalate out-of-scope decisions to human leadership.
 Always speak concisely, professionally, and warmly. Identify yourself honestly as an AI coordinator.`,
   authorityRules: [

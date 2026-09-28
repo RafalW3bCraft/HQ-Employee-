@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
+import com.webcraft.employee.presentation.billing.BillingViewModel
 import com.webcraft.employee.presentation.companybrain.CompanyBrainViewModel
 import com.webcraft.employee.presentation.dashboard.DashboardViewModel
 import com.webcraft.employee.presentation.employee.EmployeeViewModel
@@ -31,6 +32,7 @@ class MainActivity : ComponentActivity() {
             container.managePolicyUseCase
         )
         val settingsViewModel = SettingsViewModel()
+        val billingViewModel = BillingViewModel(container.billingRepository)
 
         setContent {
             WebcraftTheme {
@@ -42,7 +44,8 @@ class MainActivity : ComponentActivity() {
                     meetingsViewModel = meetingsViewModel,
                     employeeViewModel = employeeViewModel,
                     companyBrainViewModel = companyBrainViewModel,
-                    settingsViewModel = settingsViewModel
+                    settingsViewModel = settingsViewModel,
+                    billingViewModel = billingViewModel
                 )
             }
         }

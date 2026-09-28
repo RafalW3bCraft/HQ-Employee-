@@ -75,6 +75,7 @@ fun AppScaffold(
                             .padding(end = 8.dp)
                             .clip(RoundedCornerShape(12.dp))
                             .background(IndigoPrimary.copy(alpha = 0.2f))
+                            .clickable { navController.navigate(Screen.Billing.route) }
                             .padding(horizontal = 10.dp, vertical = 6.dp),
                         contentAlignment = Alignment.Center
                     ) {

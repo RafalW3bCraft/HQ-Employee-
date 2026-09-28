@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
-    "test": "node --import tsx --test test/**/*.test.ts",
+    "test": "node --import tsx --test test/assemblyai-telephony.test.ts test/assemblyai-voice-agent.test.ts test/auth.test.ts test/company-brain.test.ts test/config.test.ts test/e2e-workflow.test.ts test/errors.test.ts test/health.test.ts test/hq-audit-system.test.ts test/hq-employee-memory.test.ts test/hq-employee-runtime.test.ts test/lead-qualification.test.ts test/meetings.test.ts test/modules.test.ts test/objectives.test.ts test/policy-engine.test.ts test/proposals.test.ts test/revenuecat-monetization.test.ts",
     "migrate": "tsx src/db/migrator.ts"
   },
   "dependencies": {

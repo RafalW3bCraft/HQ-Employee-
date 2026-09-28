@@ -1,4 +1,4 @@
-# HQ Employee — Governed AI Business Employee
+# HQ-Employee — Governed AI Business Employee
 
 <div align="center">
 
@@ -7,7 +7,7 @@
 [![RevenueCat Monetization](https://img.shields.io/badge/RevenueCat-In--App%20Purchases-e11d48?style=for-the-badge&logo=revenuecat)](https://www.revenuecat.com)
 [![Fastify Backend](https://img.shields.io/badge/Fastify-TypeScript%20API-000000?style=for-the-badge&logo=fastify)](https://fastify.dev)
 [![Android Client](https://img.shields.io/badge/Android-Jetpack%20Compose-3ddc84?style=for-the-badge&logo=android)](https://developer.android.com/jetpack/compose)
-[![Tests Passing](https://img.shields.io/badge/Tests-116%2F116%20Passed-10b981?style=for-the-badge)](file:///home/sp3ct0r/employee/backend/test)
+[![Tests Passing](https://img.shields.io/badge/Tests-142%2F142%20Passed-10b981?style=for-the-badge)](file:///home/sp3ct0r/employee/backend/test)
 [![TypeScript Strict](https://img.shields.io/badge/TypeScript-Strict%20Mode-3178c6?style=for-the-badge&logo=typescript)](file:///home/sp3ct0r/employee/backend/tsconfig.json)
 
 **The Autonomous, Governed AI Sales & Client Coordinator for Rafal Webcraft**
@@ -22,7 +22,7 @@
 
 ## 📖 1. Executive Summary & Value Proposition
 
-**HQ Employee** (Webcraft Sales & Client Coordinator) is an enterprise-grade, governed AI business employee designed to automate high-touch client acquisition and initial qualification for Rafal Webcraft. Unlike typical unstructured conversational chatbots, HQ Employee operates under **strict mathematical governance**, backed by a deterministic policy engine, versioned organizational knowledge, double-entry credit ledgering, and carrier-grade voice telephony.
+**HQ-Employee** (HQ-Employee Sales & Client Coordinator) is an enterprise-grade, governed AI business employee designed to automate high-touch client acquisition and initial qualification for Rafal Webcraft. Unlike typical unstructured conversational chatbots, HQ-Employee operates under **strict mathematical governance**, backed by a deterministic policy engine, versioned organizational knowledge, double-entry credit ledgering, and carrier-grade voice telephony.
 
 ### Key Capabilities
 - 🎙️ **Full-Duplex Speech-to-Speech:** Powered by AssemblyAI's Voice Agent API (`wss://agents.assemblyai.com/v1/ws`) with the low-latency `alba` neural voice, real-time STT, and natural turn interruption.
@@ -158,14 +158,14 @@ npm install
 # Build TypeScript to verify zero compilation errors
 npm run build
 
-# Run complete 116-test suite across 15 test suites
+# Run complete 142-test suite across 18 test suites
 npm test
 ```
 
 Expected test output:
 ```text
-✔ 15 test suites passed
-✔ 116 automated unit, integration, and E2E tests passed
+✔ 18 test suites passed
+✔ 142 automated unit, integration, and E2E tests passed
 ✔ 0 failures, 0 skipped
 ℹ Duration: ~1.2s
 ```
@@ -610,7 +610,7 @@ android/app/src/main/java/com/webcraft/employee/
 
 ## 🧪 7. Test Suite Breakdown & Verification
 
-The project includes **116 automated tests** across **15 test suites** covering unit logic, integration boundaries, security isolation, and full end-to-end workflows.
+The project includes **142 automated tests** across **18 test suites** covering unit logic, integration boundaries, security isolation, and full end-to-end workflows.
 
 ```bash
 cd backend
@@ -636,6 +636,9 @@ npm test
 | 13 | `test/health.test.ts` | 2 | Health check endpoint, uptime, version output |
 | 14 | `test/config.test.ts` | 2 | Environment schema validation, default fallbacks |
 | 15 | `test/modules.test.ts` | 2 | Architectural boundary enforcement, module decoupling |
+| 16 | `test/auth.test.ts` | 8 | JWT issuance, token tampering rejection, protected route authorization, dev-token production blocking |
+| 17 | `test/proposals.test.ts` | 9 | Proposal generation from brief, custom pricing human approval guard, lifecycle status transitions |
+| 18 | `test/objectives.test.ts` | 9 | Autonomous outbound task generation, stale lead follow-ups, priority queues, human approval triggers |
 
 ---
 

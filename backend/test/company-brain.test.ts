@@ -31,7 +31,7 @@ describe('Company Brain Subsystem Integration', () => {
     const body = JSON.parse(res.payload);
 
     assert.ok(body.profile);
-    assert.strictEqual(body.profile.name, 'HQ');
+    assert.strictEqual(body.profile.name, 'HQ-Employee');
     assert.ok(body.services.length >= 4);
     assert.ok(body.faqs.length >= 3);
     assert.ok(body.activePolicy);
@@ -204,7 +204,7 @@ describe('Company Brain Subsystem Integration', () => {
     assert.strictEqual(res.statusCode, 200);
     const ctx = JSON.parse(res.payload);
 
-    assert.ok(ctx.companySummary.includes('HQ'));
+    assert.ok(ctx.companySummary.includes('HQ-Employee'));
     assert.strictEqual(ctx.activePolicyVersion, '1.1.0');
     assert.ok(ctx.systemInstructions);
     assert.ok(ctx.approvedServices.length >= 4);

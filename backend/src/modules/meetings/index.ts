@@ -614,7 +614,7 @@ export class MeetingsService {
       let calResult: { calendarEventId: string; meetingLink?: string };
       try {
         calResult = await this.calendarProvider.createEvent({
-          title: dto.topic ? `HQ Discovery: ${dto.topic}` : `HQ Consultation with ${lead.fullName}`,
+          title: dto.topic ? `HQ-Employee Discovery: ${dto.topic}` : `HQ-Employee Consultation with ${lead.fullName}`,
           description: `Discovery consultation with ${lead.fullName} (${lead.companyName || 'Prospect'}). Agenda: ${dto.topic || 'Software Development Discovery'}`,
           start: slotStart,
           end: slotEnd,

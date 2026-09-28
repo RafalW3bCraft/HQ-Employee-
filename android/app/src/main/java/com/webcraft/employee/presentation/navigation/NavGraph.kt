@@ -17,6 +17,8 @@ import com.webcraft.employee.presentation.leads.LeadDetailScreen
 import com.webcraft.employee.presentation.leads.LeadsScreen
 import com.webcraft.employee.presentation.leads.LeadsViewModel
 import com.webcraft.employee.presentation.meetings.MeetingsScreen
+import com.webcraft.employee.presentation.billing.BillingScreen
+import com.webcraft.employee.presentation.billing.BillingViewModel
 import com.webcraft.employee.presentation.meetings.MeetingsViewModel
 import com.webcraft.employee.presentation.settings.SettingsScreen
 import com.webcraft.employee.presentation.settings.SettingsViewModel
@@ -29,7 +31,8 @@ fun WebcraftNavGraph(
     meetingsViewModel: MeetingsViewModel,
     employeeViewModel: EmployeeViewModel,
     companyBrainViewModel: CompanyBrainViewModel,
-    settingsViewModel: SettingsViewModel
+    settingsViewModel: SettingsViewModel,
+    billingViewModel: BillingViewModel
 ) {
     NavHost(
         navController = navController,
@@ -75,6 +78,11 @@ fun WebcraftNavGraph(
         composable(Screen.CompanyBrain.route) {
             AppScaffold(navController = navController, currentScreenTitle = Screen.CompanyBrain.title) {
                 CompanyBrainScreen(viewModel = companyBrainViewModel)
+            }
+        }
+        composable(Screen.Billing.route) {
+            AppScaffold(navController = navController, currentScreenTitle = Screen.Billing.title) {
+                BillingScreen(viewModel = billingViewModel)
             }
         }
         composable(Screen.Settings.route) {

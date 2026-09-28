@@ -1,8 +1,8 @@
-# Webcraft Employee — Product Specification
+# HQ-Employee — Product Specification
 
 ## Product
 
-Webcraft Employee
+HQ-Employee
 
 ## Tagline
 
@@ -22,7 +22,7 @@ Rafal Webcraft.
 
 ## Initial Employee
 
-Webcraft Sales & Client Coordinator.
+HQ-Employee Sales & Client Coordinator.
 
 ---
 

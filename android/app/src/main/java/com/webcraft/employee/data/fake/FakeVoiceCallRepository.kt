@@ -35,7 +35,7 @@ class FakeVoiceCallRepository : VoiceCallRepository {
 
         delay(600)
 
-        val greetingText = "Hello! Thanks for reaching out to HQ. I'm the HQ business development and client coordinator. How can I help with your project today?"
+        val greetingText = "Hello! Thanks for reaching out to HQ-Employee. I'm the HQ-Employee business development and client coordinator. How can I help with your project today?"
         val greetingTranscript = TranscriptItem(
             id = UUID.randomUUID().toString(),
             speaker = "agent",
