@@ -292,4 +292,128 @@ describe('Governed Autonomous Company Operating Agent Architecture', () => {
       assert.equal(rec.nextStage, 'FOLLOW_UP');
     });
   });
+
+  describe('5. Autonomous HTTP Endpoints Integration', () => {
+    test('GET /api/autonomous/industry-profiles returns available profiles', async () => {
+      const { createServer } = await import('../src/server.js');
+      const { config } = await import('../src/config/index.js');
+      const app = await createServer(config);
+
+      const res = await app.inject({
+        method: 'GET',
+        url: '/api/autonomous/industry-profiles',
+      });
+
+      assert.equal(res.statusCode, 200);
+      const data = JSON.parse(res.body);
+      assert.ok(data.total >= 4);
+      assert.ok(Array.isArray(data.profiles));
+      await app.close();
+    });
+
+    test('GET /api/autonomous/industry-profiles/software_dev returns specific profile details', async () => {
+      const { createServer } = await import('../src/server.js');
+      const { config } = await import('../src/config/index.js');
+      const app = await createServer(config);
+
+      const res = await app.inject({
+        method: 'GET',
+        url: '/api/autonomous/industry-profiles/software_dev',
+      });
+
+      assert.equal(res.statusCode, 200);
+      const data = JSON.parse(res.body);
+      assert.equal(data.profile.id, 'software_dev');
+      assert.ok(data.profile.recommendedServices.length >= 2);
+      await app.close();
+    });
+
+    test('POST /api/autonomous/emergency-stop trips kill-switch and updates GET /api/autonomous/status', async () => {
+      const { createServer } = await import('../src/server.js');
+      const { config } = await import('../src/config/index.js');
+      const app = await createServer(config);
+      const companyId = 'comp_http_emergency_01';
+
+      // 1. Initial status -> AVAILABLE
+      const initialRes = await app.inject({
+        method: 'GET',
+        url: `/api/autonomous/status?companyId=${companyId}`,
+      });
+      assert.equal(initialRes.statusCode, 200);
+      const initData = JSON.parse(initialRes.body);
+      assert.equal(initData.status, 'AVAILABLE');
+
+      // 2. Trip emergency stop
+      const stopRes = await app.inject({
+        method: 'POST',
+        url: `/api/autonomous/emergency-stop?companyId=${companyId}`,
+        payload: {
+          stopped: true,
+          reason: 'Manual emergency stop triggered via control dashboard',
+          actorId: 'operator_dan_99',
+        },
+      });
+      assert.equal(stopRes.statusCode, 200);
+      const stopData = JSON.parse(stopRes.body);
+      assert.equal(stopData.success, true);
+      assert.equal(stopData.emergencyStop.isStopped, true);
+
+      // 3. Status now reflects EMERGENCY_STOPPED
+      const lockedRes = await app.inject({
+        method: 'GET',
+        url: `/api/autonomous/status?companyId=${companyId}`,
+      });
+      const lockedData = JSON.parse(lockedRes.body);
+      assert.equal(lockedData.status, 'EMERGENCY_STOPPED');
+      assert.equal(lockedData.emergencyStop.isStopped, true);
+
+      // 4. Clear emergency stop
+      const clearRes = await app.inject({
+        method: 'POST',
+        url: `/api/autonomous/emergency-stop?companyId=${companyId}`,
+        payload: {
+          stopped: false,
+          reason: 'Cleared by operator',
+          actorId: 'operator_dan_99',
+        },
+      });
+      assert.equal(clearRes.statusCode, 200);
+      await app.close();
+    });
+
+    test('POST /api/autonomous/scheduler/jobs schedules persistent job and returns in executable list', async () => {
+      const { createServer } = await import('../src/server.js');
+      const { config } = await import('../src/config/index.js');
+      const app = await createServer(config);
+      const companyId = 'comp_http_sched_01';
+
+      const scheduleRes = await app.inject({
+        method: 'POST',
+        url: `/api/autonomous/scheduler/jobs?companyId=${companyId}`,
+        payload: {
+          jobType: 'OUTBOUND_LEAD_DISCOVERY',
+          priority: 'CRITICAL',
+          scheduledFor: new Date(Date.now() - 5000).toISOString(),
+          idempotencyKey: 'idemp_http_job_test_01',
+          payload: { leadId: 'lead_xyz_123' },
+        },
+      });
+      assert.equal(scheduleRes.statusCode, 201);
+      const schedData = JSON.parse(scheduleRes.body);
+      assert.equal(schedData.success, true);
+      assert.equal(schedData.job.jobType, 'OUTBOUND_LEAD_DISCOVERY');
+
+      // Query executable jobs
+      const execRes = await app.inject({
+        method: 'GET',
+        url: `/api/autonomous/scheduler/executable?companyId=${companyId}`,
+      });
+      assert.equal(execRes.statusCode, 200);
+      const execData = JSON.parse(execRes.body);
+      assert.ok(execData.total >= 1);
+      assert.ok(execData.jobs.some((j: any) => j.idempotencyKey === 'idemp_http_job_test_01'));
+      await app.close();
+    });
+  });
 });
+

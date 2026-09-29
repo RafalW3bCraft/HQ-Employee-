@@ -17,6 +17,7 @@ import { billingRoutes } from './routes/billing.js';
 import { authRoutes } from './routes/auth.js';
 import { proposalRoutes } from './routes/proposals.js';
 import { objectiveRoutes } from './routes/objectives.js';
+import { autonomousRoutes } from './routes/autonomous.js';
 
 // ────────────────────────────────────────────────────────────────────────────
 // Fastify type augmentations
@@ -162,6 +163,7 @@ export async function createServer(appConfig: AppConfig): Promise<FastifyInstanc
   await server.register(billingRoutes);
   await server.register(proposalRoutes);
   await server.register(objectiveRoutes);
+  await server.register(autonomousRoutes);
 
   // ── Root endpoint ─────────────────────────────────────────────────────────
   server.get('/', async (request, reply) => {
