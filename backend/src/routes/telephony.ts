@@ -1,6 +1,9 @@
 import { FastifyPluginAsync } from 'fastify';
 import { z } from 'zod';
 import { randomUUID } from 'crypto';
+import WebSocket from 'ws';
+import { defaultAssemblyAIService } from '../modules/assemblyai/index.js';
+import { config, AppConfig } from '../config/index.js';
 import {
   defaultOutboundTelephonyCoordinator,
   defaultOptOutRepository,
@@ -283,6 +286,26 @@ export const telephonyRoutes: FastifyPluginAsync = async (fastify) => {
   });
 
   // ──────────────────────────────────────────────────────────────────────────
+  // 3b. GET /api/calls/:id/events (Section 4 requirement)
+  // ──────────────────────────────────────────────────────────────────────────
+  fastify.get('/api/calls/:id/events', async (request, reply) => {
+    const { id } = request.params as { id: string };
+    const session = await callsRepo.getSession(id);
+    const audits = await auditService.getRecentEvents(100);
+    const callAudits = audits.filter(
+      (a) => a.targetId === id || a.metadata?.callId === id || a.metadata?.callRecordId === id
+    );
+
+    return reply.status(200).send({
+      callId: id,
+      status: session?.status || 'UNKNOWN',
+      transcripts: session?.transcripts || [],
+      toolCalls: session?.toolCalls || [],
+      events: callAudits,
+    });
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
   // 4. End Call Execution
   // ──────────────────────────────────────────────────────────────────────────
   fastify.post('/api/calls/:id/end', async (request, reply) => {
@@ -397,6 +420,175 @@ export const telephonyRoutes: FastifyPluginAsync = async (fastify) => {
       return reply.status(200).send({ ok: true, received: true });
     }
   });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 8b. Twilio Media Stream Webhook (Section 4 requirement)
+  // ──────────────────────────────────────────────────────────────────────────
+  fastify.post('/api/webhooks/twilio/stream', async (request, reply) => {
+    const body = (request.body as any) || {};
+    const callId = body.CallSid || body.callId || randomUUID();
+    const host = (request.headers.host || 'localhost:3000').replace(/^https?:\/\//, '');
+    const streamUrl = `wss://${host}/media-stream/${callId}`;
+    const twiml = `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Connect>
+    <Stream url="${streamUrl}" />
+  </Connect>
+</Response>`;
+    return reply.type('text/xml').send(twiml);
+  });
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // 8c. Bidirectional Media Stream WebSocket Bridge (Section 4 & 5)
+  // Twilio / Call-E Media Stream ↔ Backend WebSocket ↔ AssemblyAI Voice Agent
+  // ──────────────────────────────────────────────────────────────────────────
+  const handleMediaStreamSocket = (connection: any, request: any) => {
+    const socket: WebSocket = connection.socket;
+    const params = request.params as { callId?: string; id?: string };
+    const callId = params.callId || params.id || randomUUID();
+    const activeConfig: AppConfig = (fastify as any).appConfig || config;
+    const apiKey = activeConfig.ASSEMBLYAI_API_KEY || process.env.ASSEMBLYAI_API_KEY || '';
+    const isProductionKey = Boolean(apiKey && !apiKey.startsWith('dummy_'));
+
+    let streamSid = '';
+    let assemblyWs: WebSocket | null = null;
+    let isAssemblyReady = false;
+    const pendingMediaFrames: string[] = [];
+
+    // Upstream AssemblyAI connection
+    if (isProductionKey) {
+      try {
+        assemblyWs = new WebSocket('wss://agents.assemblyai.com/v1/ws', {
+          headers: { Authorization: `Bearer ${apiKey}` },
+        });
+
+        assemblyWs.onopen = async () => {
+          // Configure session for Twilio/Call-E G.711 μ-law (pcmu) at 8 kHz
+          assemblyWs?.send(
+            JSON.stringify({
+              type: 'session.update',
+              session: {
+                sample_rate: 8000,
+                encoding: 'pcm_mulaw',
+              },
+            })
+          );
+        };
+
+        assemblyWs.onmessage = async (evt: any) => {
+          try {
+            const raw = JSON.parse(evt.data.toString());
+
+            if (raw.type === 'session.ready') {
+              isAssemblyReady = true;
+              while (pendingMediaFrames.length > 0 && assemblyWs?.readyState === 1) {
+                const chunk = pendingMediaFrames.shift();
+                if (chunk) {
+                  assemblyWs.send(JSON.stringify({ type: 'input.audio', audio: chunk }));
+                }
+              }
+            } else if (raw.type === 'reply.audio') {
+              if (socket.readyState === 1 /* OPEN */) {
+                socket.send(
+                  JSON.stringify({
+                    event: 'media',
+                    streamSid,
+                    media: {
+                      payload: raw.audio,
+                    },
+                  })
+                );
+              }
+            } else if (raw.type === 'input.speech.started' || (raw.type === 'reply.done' && raw.status === 'interrupted')) {
+              // User barge-in: clear buffered telephony audio
+              if (socket.readyState === 1 /* OPEN */) {
+                socket.send(
+                  JSON.stringify({
+                    event: 'clear',
+                    streamSid,
+                  })
+                );
+              }
+            } else if (raw.type === 'tool.call') {
+              const execution = await defaultAssemblyAIService.executeTool(raw.name, raw.arguments || {}, raw.call_id, {
+                callId,
+              });
+              if (assemblyWs?.readyState === 1) {
+                assemblyWs.send(
+                  JSON.stringify({
+                    type: 'tool.result',
+                    call_id: raw.call_id,
+                    result: execution.result,
+                    is_error: execution.isError,
+                  })
+                );
+              }
+            } else if (raw.type === 'transcript.user') {
+              callsService.recordTranscript(callId, { speaker: 'user', text: raw.text || '' }).catch(() => {});
+            } else if (raw.type === 'transcript.agent') {
+              callsService.recordTranscript(callId, { speaker: 'agent', text: raw.text || '' }).catch(() => {});
+            }
+          } catch {
+            // Ignore frame parse error
+          }
+        };
+
+        assemblyWs.onerror = () => {};
+      } catch {
+        // Fallback
+      }
+    }
+
+    socket.on('message', async (rawBuffer: any) => {
+      try {
+        const msg = JSON.parse(rawBuffer.toString());
+        const event = msg.event || msg.type;
+
+        if (event === 'connected') {
+          // Telephony connected event
+        } else if (event === 'start') {
+          streamSid = msg.start?.streamSid || msg.streamSid || '';
+          callsService.recordAssemblySessionId(callId, streamSid).catch(() => {});
+        } else if (event === 'media') {
+          const payload = msg.media?.payload || msg.payload;
+          if (payload) {
+            if (assemblyWs && isAssemblyReady && assemblyWs.readyState === 1) {
+              assemblyWs.send(JSON.stringify({ type: 'input.audio', audio: payload }));
+            } else {
+              pendingMediaFrames.push(payload);
+              if (pendingMediaFrames.length > 50) {
+                pendingMediaFrames.shift();
+              }
+            }
+          }
+        } else if (event === 'stop') {
+          if (assemblyWs) {
+            try {
+              if (assemblyWs.readyState === 1) {
+                assemblyWs.send(JSON.stringify({ type: 'session.end' }));
+              }
+              assemblyWs.close();
+            } catch {}
+          }
+          callsService.endSession(callId).catch(() => {});
+        }
+      } catch {
+        // Non-JSON frame
+      }
+    });
+
+    socket.on('close', () => {
+      if (assemblyWs) {
+        try {
+          assemblyWs.close();
+        } catch {}
+      }
+      callsService.endSession(callId).catch(() => {});
+    });
+  };
+
+  fastify.get('/media-stream/:callId', { websocket: true }, handleMediaStreamSocket);
+  fastify.get('/api/media-stream/:callId', { websocket: true }, handleMediaStreamSocket);
 
   // ──────────────────────────────────────────────────────────────────────────
   // 9. Legacy / Existing Telephony Endpoints

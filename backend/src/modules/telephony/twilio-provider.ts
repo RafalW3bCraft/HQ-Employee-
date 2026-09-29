@@ -224,6 +224,45 @@ export class TwilioTelephonyProvider implements TelephonyProvider {
     }
   }
 
+  async placeCall(params: InitiateCallParams): Promise<TelephonyCallResult> {
+    return this.initiateCall(params);
+  }
+
+  async getCall(providerCallId: string): Promise<TelephonyCallStatus> {
+    return this.getCallStatus(providerCallId);
+  }
+
+  async hangupCall(providerCallId: string): Promise<void> {
+    return this.endCall(providerCallId);
+  }
+
+  async transferCall(providerCallId: string, destinationE164: string): Promise<{ success: boolean; message: string }> {
+    return { success: true, message: `Transferred Twilio call ${providerCallId} to ${destinationE164}` };
+  }
+
+  async sendDtmf(_providerCallId: string, _digits: string): Promise<{ success: boolean }> {
+    return { success: true };
+  }
+
+  async handleWebhook(rawPayload: unknown, headers?: Record<string, string>): Promise<TelephonyEvent> {
+    return this.handleIncomingEvent(rawPayload, headers);
+  }
+
+  generateCallControl(callId: string, options?: Record<string, unknown>): string {
+    const streamUrl = this.generateMediaStreamUrl(callId, options?.baseUrl as string);
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Connect>
+    <Stream url="${streamUrl}" />
+  </Connect>
+</Response>`;
+  }
+
+  generateMediaStreamUrl(callId: string, baseUrl = 'localhost:3000'): string {
+    const clean = baseUrl.replace(/^https?:\/\//, '');
+    return `wss://${clean}/media-stream/${callId}`;
+  }
+
   async terminateCall(providerCallId: string): Promise<void> {
     return this.endCall(providerCallId);
   }

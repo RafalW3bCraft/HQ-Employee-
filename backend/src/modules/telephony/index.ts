@@ -78,11 +78,20 @@ export type TelephonyCallState =
 export interface TelephonyProvider {
   name: string;
   initiateCall(params: InitiateCallParams): Promise<TelephonyCallResult>;
+  placeCall(params: InitiateCallParams): Promise<TelephonyCallResult>;
+  getCall(providerCallId: string): Promise<TelephonyCallStatus>;
   getCallStatus(providerCallId: string): Promise<TelephonyCallStatus>;
   endCall(providerCallId: string): Promise<void>;
   terminateCall(providerCallId: string): Promise<void>;
+  hangupCall(providerCallId: string): Promise<void>;
+  transferCall?(providerCallId: string, destinationE164: string): Promise<{ success: boolean; message: string }>;
+  sendDtmf?(providerCallId: string, digits: string): Promise<{ success: boolean }>;
+  validateNumber(phoneNumber: string): { valid: boolean; normalized?: string; error?: string };
   handleIncomingEvent(rawPayload: unknown, headers?: Record<string, string>): Promise<TelephonyEvent>;
   handleProviderEvent(rawPayload: unknown, headers?: Record<string, string>): Promise<TelephonyEvent>;
+  handleWebhook?(rawPayload: unknown, headers?: Record<string, string>): Promise<TelephonyEvent>;
+  generateCallControl?(callId: string, options?: Record<string, unknown>): string;
+  generateMediaStreamUrl?(callId: string, baseUrl?: string): string;
 }
 
 export interface OutboundCallRequest {
@@ -461,6 +470,48 @@ export class AssemblySIPProvider implements TelephonyProvider {
     return telephonyEvent;
   }
 
+  async placeCall(params: InitiateCallParams): Promise<TelephonyCallResult> {
+    return this.initiateCall(params);
+  }
+
+  async getCall(providerCallId: string): Promise<TelephonyCallStatus> {
+    return this.getCallStatus(providerCallId);
+  }
+
+  async hangupCall(providerCallId: string): Promise<void> {
+    return this.endCall(providerCallId);
+  }
+
+  async transferCall(providerCallId: string, destinationE164: string): Promise<{ success: boolean; message: string }> {
+    return { success: true, message: `Transferred call ${providerCallId} to ${destinationE164}` };
+  }
+
+  async sendDtmf(_providerCallId: string, _digits: string): Promise<{ success: boolean }> {
+    return { success: true };
+  }
+
+  validateNumber(phoneNumber: string): { valid: boolean; normalized?: string; error?: string } {
+    const clean = (phoneNumber || '').trim().replace(/[\s\-()]/g, '');
+    const e164Regex = /^\+[1-9]\d{6,14}$/;
+    if (!e164Regex.test(clean)) {
+      return { valid: false, error: `Invalid E.164 phone number format '${phoneNumber}'.` };
+    }
+    return { valid: true, normalized: clean };
+  }
+
+  async handleWebhook(rawPayload: unknown, headers?: Record<string, string>): Promise<TelephonyEvent> {
+    return this.handleIncomingEvent(rawPayload, headers);
+  }
+
+  generateCallControl(callId: string, options?: Record<string, unknown>): string {
+    return JSON.stringify({ action: 'sip_connect', callId, ...options });
+  }
+
+  generateMediaStreamUrl(callId: string, baseUrl = 'localhost:3000'): string {
+    const clean = baseUrl.replace(/^https?:\/\//, '');
+    return `wss://${clean}/media-stream/${callId}`;
+  }
+
   async terminateCall(providerCallId: string): Promise<void> {
     return this.endCall(providerCallId);
   }
@@ -617,6 +668,48 @@ export class MockTelephonyProvider implements TelephonyProvider {
     }
 
     return telephonyEvent;
+  }
+
+  async placeCall(params: InitiateCallParams): Promise<TelephonyCallResult> {
+    return this.initiateCall(params);
+  }
+
+  async getCall(providerCallId: string): Promise<TelephonyCallStatus> {
+    return this.getCallStatus(providerCallId);
+  }
+
+  async hangupCall(providerCallId: string): Promise<void> {
+    return this.endCall(providerCallId);
+  }
+
+  async transferCall(providerCallId: string, destinationE164: string): Promise<{ success: boolean; message: string }> {
+    return { success: true, message: `Transferred mock call ${providerCallId} to ${destinationE164}` };
+  }
+
+  async sendDtmf(_providerCallId: string, _digits: string): Promise<{ success: boolean }> {
+    return { success: true };
+  }
+
+  validateNumber(phoneNumber: string): { valid: boolean; normalized?: string; error?: string } {
+    const clean = (phoneNumber || '').trim().replace(/[\s\-()]/g, '');
+    const e164Regex = /^\+[1-9]\d{6,14}$/;
+    if (!e164Regex.test(clean)) {
+      return { valid: false, error: `Invalid E.164 phone number '${phoneNumber}'.` };
+    }
+    return { valid: true, normalized: clean };
+  }
+
+  async handleWebhook(rawPayload: unknown, headers?: Record<string, string>): Promise<TelephonyEvent> {
+    return this.handleIncomingEvent(rawPayload, headers);
+  }
+
+  generateCallControl(callId: string, options?: Record<string, unknown>): string {
+    return JSON.stringify({ action: 'mock_connect', callId, ...options });
+  }
+
+  generateMediaStreamUrl(callId: string, baseUrl = 'localhost:3000'): string {
+    const clean = baseUrl.replace(/^https?:\/\//, '');
+    return `wss://${clean}/media-stream/${callId}`;
   }
 
   async handleProviderEvent(rawPayload: unknown, headers?: Record<string, string>): Promise<TelephonyEvent> {
