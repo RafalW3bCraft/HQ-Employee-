@@ -1,7 +1,7 @@
 {
-  "name": "webcraft-employee-backend",
+  "name": "hq-employee-backend",
   "version": "0.1.0",
-  "description": "Governed AI Business Employee Backend API for Rafal Webcraft",
+  "description": "Governed AI Business Employee Backend API — HQ-Employee",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {

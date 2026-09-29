@@ -581,7 +581,7 @@ export const voiceRoutes: FastifyPluginAsync = async (fastify) => {
 
     // Initialize call session record
     callsService
-      .startSession('anonymous-lead', 'webcraft-coordinator')
+      .startSession('anonymous-lead', 'hq-employee-coordinator')
       .then((callRecord) => {
         callId = callRecord.id;
 

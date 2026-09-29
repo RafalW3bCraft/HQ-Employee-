@@ -207,7 +207,7 @@ export class PolicyEngineService {
 
     // 3. Log Immutable Audit Event
     await this.auditService.logPolicyEvaluation({
-      actorId: params.employeeId || 'webcraft-coordinator',
+      actorId: params.employeeId || 'hq-employee-coordinator',
       action,
       decision,
       reason,

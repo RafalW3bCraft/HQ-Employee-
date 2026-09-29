@@ -174,7 +174,7 @@ export class SimulatedCalendarProvider implements CalendarProvider {
     });
     return {
       calendarEventId,
-      meetingLink: `https://meet.rafalwebcraft.com/discovery-${randomUUID().substring(0, 8)}`,
+      meetingLink: `https://meet.hq-employee.co/discovery-${randomUUID().substring(0, 8)}`,
     };
   }
 
@@ -379,7 +379,7 @@ export class MeetingsService {
    * Filters out:
    * - Times outside company business hours (Mon-Fri 09:00 - 17:00 in target timezone)
    * - Past dates and slots with less than 2 hours lead time
-   * - Local booked meetings in Webcraft DB
+   * - Local booked meetings in HQ-Employee DB
    * - External busy blocks from Calendar Provider
    */
   async checkAvailability(query: AvailabilityQuery): Promise<AvailabilityResult> {
@@ -579,7 +579,7 @@ export class MeetingsService {
       } catch (calError: any) {
         await this.auditService.logEvent({
           actorType: 'EMPLOYEE',
-          actorId: dto.actorId || 'webcraft-coordinator',
+          actorId: dto.actorId || 'hq-employee-coordinator',
           action: 'CALENDAR_OPERATION_FAILED',
           targetType: 'MEETING_RESERVATION',
           targetId: dto.leadId,
@@ -625,7 +625,7 @@ export class MeetingsService {
         // Log failure audit event
         await this.auditService.logEvent({
           actorType: 'EMPLOYEE',
-          actorId: dto.actorId || 'webcraft-coordinator',
+          actorId: dto.actorId || 'hq-employee-coordinator',
           action: 'CALENDAR_OPERATION_FAILED',
           targetType: 'MEETING_RESERVATION',
           targetId: dto.leadId,
@@ -698,7 +698,7 @@ export class MeetingsService {
       // 6. Log audit event for meeting creation
       await this.auditService.logEvent({
         actorType: 'EMPLOYEE',
-        actorId: dto.actorId || 'webcraft-coordinator',
+        actorId: dto.actorId || 'hq-employee-coordinator',
         action: 'MEETING_SCHEDULED',
         targetType: 'MEETING',
         targetId: meetingRecord.id,
@@ -802,7 +802,7 @@ export class MeetingsService {
       // Log audit event
       await this.auditService.logEvent({
         actorType: 'EMPLOYEE',
-        actorId: dto.actorId || 'webcraft-coordinator',
+        actorId: dto.actorId || 'hq-employee-coordinator',
         action: 'MEETING_RESCHEDULED',
         targetType: 'MEETING',
         targetId: meeting.id,
@@ -873,7 +873,7 @@ export class MeetingsService {
     // Log audit event
     await this.auditService.logEvent({
       actorType: 'EMPLOYEE',
-      actorId: dto.actorId || 'webcraft-coordinator',
+      actorId: dto.actorId || 'hq-employee-coordinator',
       action: 'MEETING_CANCELLED',
       targetType: 'MEETING',
       targetId: meeting.id,

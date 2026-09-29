@@ -15,7 +15,7 @@ const configSchema = z.object({
   DATABASE_URL: z
     .string()
     .url()
-    .default('postgresql://webcraft:webcraft_secure_password@localhost:5432/webcraft_employee'),
+    .default('postgresql://hq_employee:hq_employee_password@localhost:5432/hq_employee'),
 
   // AssemblyAI — no dummy default; must be set explicitly
   ASSEMBLYAI_API_KEY: z

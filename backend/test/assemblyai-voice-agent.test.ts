@@ -309,7 +309,7 @@ describe('AssemblyAI Voice Agent API Integration', () => {
   });
 
   it('8. tracks call session lifecycle and creates audit event on session completion', async () => {
-    const session = await defaultCallsService.startSession('lead-001', 'webcraft-coordinator');
+    const session = await defaultCallsService.startSession('lead-001', 'hq-employee-coordinator');
     assert.strictEqual(session.status, 'INITIALIZING');
 
     // Add transcripts
@@ -342,7 +342,7 @@ describe('AssemblyAI Voice Agent API Integration', () => {
 
     assert.strictEqual(res.statusCode, 200);
     assert.ok(res.headers['content-type']?.includes('text/html'));
-    assert.ok(res.payload.includes('HQ-Employee Voice Agent'));
+    assert.ok(res.payload.includes('HQ-Employee') && res.payload.includes('Policy Console'));
     assert.ok(res.payload.includes('Start Conversation'));
     assert.ok(res.payload.includes('Interrupt Agent'));
     assert.ok(res.payload.includes('End Call'));
@@ -371,7 +371,7 @@ describe('AssemblyAI Voice Agent API Integration', () => {
 
     // B. create lead and schedule_meeting
     const newLead = await defaultLeadsRepository.createLead({
-      companyId: 'company_webcraft_001',
+      companyId: 'company_hq_employee_001',
       fullName: 'Dr. Sarah Connor',
       companyName: 'Cyberdyne Resistance',
       contactEmail: 'sconnor@cyberdyne.org',

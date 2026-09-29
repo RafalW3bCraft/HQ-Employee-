@@ -691,7 +691,7 @@ Call your tools whenever you need to fetch information or update client records.
         format: { encoding: 'audio/pcm' },
         keyterms: [
           'HQ-Employee',
-          'Rafal Webcraft',
+          'Employee',
           'Web Development',
           'Full-Stack Engineering',
           'Mobile App Development',
@@ -732,7 +732,7 @@ Call your tools whenever you need to fetch information or update client records.
     callId: string,
     context: ToolExecutionContext = {}
   ): Promise<ToolExecutionResult> {
-    const actorId = context.actorId || 'webcraft-voice-agent';
+    const actorId = context.actorId || 'hq-employee-voice-agent';
     const leadId = (args.lead_id as string) || context.leadId;
 
     // 1. Mandatory Policy Evaluation

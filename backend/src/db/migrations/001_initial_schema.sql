@@ -1,5 +1,5 @@
 -- 001_initial_schema.sql
--- Webcraft Employee Database Schema Foundation
+-- HQ-Employee Database Schema Foundation
 -- All 18 core domain tables
 
 -- 1. companies

@@ -74,7 +74,7 @@ export class CallsRepository {
       id: randomUUID(),
       companyId: data.companyId || defaultCompanyId,
       leadId: data.leadId,
-      employeeId: data.employeeId || 'webcraft-coordinator',
+      employeeId: data.employeeId || 'hq-employee-coordinator',
       channel: data.channel || 'WEB_VOICE',
       status: 'INITIALIZING',
       durationSeconds: 0,
