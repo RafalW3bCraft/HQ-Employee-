@@ -293,6 +293,23 @@ export class LeadQualificationService {
     return this.repository.createLead(data);
   }
 
+  async updateLeadStatus(id: string, status: QualificationStatus): Promise<Lead> {
+    const lead = await this.getLead(id);
+    lead.status = status;
+    const updated = await this.repository.updateLead(lead);
+    await this.auditService.logEvent({
+      action: 'LEAD_UPDATED',
+      companyId: lead.companyId,
+      leadId: id,
+      targetType: 'LEAD',
+      targetId: id,
+      actorType: 'SYSTEM',
+      actorId: 'system',
+      metadata: { leadId: id, oldStatus: lead.status, newStatus: status },
+    });
+    return updated;
+  }
+
   /**
    * Ingests and validates an extracted conversation fact with strict provenance.
    * Prevents unsupported facts from being marked confirmed.

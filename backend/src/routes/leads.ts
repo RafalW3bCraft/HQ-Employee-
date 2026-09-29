@@ -58,6 +58,17 @@ export const leadsRoutes: FastifyPluginAsync = async (fastify) => {
     return reply.status(200).send(lead);
   });
 
+  // Update lead qualification status
+  fastify.patch('/api/leads/:id/status', async (request, reply) => {
+    const { id } = request.params as { id: string };
+    const { status } = (request.body || {}) as { status?: any };
+    if (!status) {
+      throw new ValidationError('Status is required');
+    }
+    const updated = await service.updateLeadStatus(id, status);
+    return reply.status(200).send(updated);
+  });
+
   // Record extracted conversation fact with provenance & validation
   fastify.post('/api/leads/:id/facts', async (request, reply) => {
     const { id } = request.params as { id: string };
