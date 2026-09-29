@@ -12,6 +12,8 @@ import {
   PolicyDeniedError,
   ValidationError,
 } from '../../errors/index.js';
+import { defaultCalleTelephonyProvider } from './calle-provider.js';
+import { defaultTwilioTelephonyProvider } from './twilio-provider.js';
 
 // ============================================================================
 // 1. Domain Types & Interfaces
@@ -93,6 +95,9 @@ export interface OutboundCallRequest {
   idempotencyKey?: string;
   companyId?: string;
   employeeId?: string;
+  provider?: 'calle' | 'twilio' | 'sip' | string;
+  callPlan?: Record<string, unknown>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface OutboundCallSessionResponse {
@@ -658,6 +663,16 @@ export class OutboundTelephonyCoordinator {
     this.telephonyProvider = provider;
   }
 
+  getTelephonyProvider(preferredName?: string): TelephonyProvider {
+    if (preferredName === 'calle' || (!preferredName && defaultCalleTelephonyProvider.isConfigured())) {
+      return defaultCalleTelephonyProvider;
+    }
+    if (preferredName === 'twilio' || (!preferredName && defaultTwilioTelephonyProvider.isConfigured())) {
+      return defaultTwilioTelephonyProvider;
+    }
+    return this.telephonyProvider;
+  }
+
   async recordOptOut(phoneNumberE164: string, reason?: string) {
     return this.optOutRepo.addOptOut(phoneNumberE164, reason);
   }
@@ -827,13 +842,19 @@ export class OutboundTelephonyCoordinator {
       // ----------------------------------------------------------------------
       // STEP 10: Initiate Call via TelephonyProvider
       // ----------------------------------------------------------------------
-      const telephonyResult = await this.telephonyProvider.initiateCall({
+      const activeCarrier = this.getTelephonyProvider(request.provider);
+      const telephonyResult = await activeCarrier.initiateCall({
         destinationE164: rawDest,
         callerIdE164: '+15551234567',
         leadId: request.leadId,
         callRecordId,
         companyId,
         employeeId,
+        metadata: {
+          ...request.metadata,
+          callPlan: request.callPlan,
+          idempotencyKey: request.idempotencyKey,
+        },
       });
 
       // Update call record with provider call ID
@@ -1018,15 +1039,20 @@ export class OutboundTelephonyCoordinator {
         ? `${payload.call.call_id}_${payload.event}_${payload.timestamp}`
         : null);
 
+    const isCalleEvent = Boolean(payload?.type?.startsWith('call.') || payload?.data?.id);
+    const activeProvider = isCalleEvent
+      ? defaultCalleTelephonyProvider
+      : this.telephonyProvider;
+
     if (eventId && this.processedWebhookEventIds.has(eventId)) {
       // Event already processed: deduplicate without double committing credits
-      return await this.telephonyProvider.handleIncomingEvent(rawPayload, headers);
+      return await activeProvider.handleIncomingEvent(rawPayload, headers);
     }
     if (eventId) {
       this.processedWebhookEventIds.add(eventId);
     }
 
-    const event = await this.telephonyProvider.handleIncomingEvent(rawPayload, headers);
+    const event = await activeProvider.handleIncomingEvent(rawPayload, headers);
 
     // Find internal call record matching providerCallId
     for (const [callId, callSession] of this.telephonyCalls.entries()) {
@@ -1077,3 +1103,7 @@ export const telephonyModule = {
   provider: defaultAssemblySIPProvider,
   coordinator: defaultOutboundTelephonyCoordinator,
 };
+
+// Re-export Calle and Twilio providers
+export * from './calle-provider.js';
+export * from './twilio-provider.js';

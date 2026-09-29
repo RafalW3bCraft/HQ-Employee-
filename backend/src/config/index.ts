@@ -49,6 +49,26 @@ const configSchema = z.object({
 
   // AssemblyAI Telephony Webhook Secret (fail closed in production)
   AAI_WEBHOOK_SECRET: z.string().optional(),
+
+  // Call-E (heycall-e.com) Telephony Provider Configuration
+  CALLE_API_KEY: z.string().optional(),
+  CALLE_BASE_URL: z.string().default('https://api.heycall-e.com/v1'),
+  CALLE_PHONE_NUMBER: z.string().optional(),
+  CALLE_WEBHOOK_URL: z.string().optional(),
+
+  // Google Calendar & Meet Integration
+  GOOGLE_CALENDAR_CLIENT_ID: z.string().optional(),
+  GOOGLE_CALENDAR_CLIENT_SECRET: z.string().optional(),
+  GOOGLE_CALENDAR_REFRESH_TOKEN: z.string().optional(),
+  GOOGLE_CALENDAR_ID: z.string().default('primary'),
+  GOOGLE_OAUTH_CLIENT_ID: z.string().optional(),
+  GOOGLE_OAUTH_CLIENT_SECRET: z.string().optional(),
+  GOOGLE_OAUTH_REDIRECT_URI: z.string().optional(),
+
+  // Secondary Telephony Provider (Twilio)
+  TWILIO_ACCOUNT_SID: z.string().optional(),
+  TWILIO_AUTH_TOKEN: z.string().optional(),
+  TWILIO_PHONE_NUMBER: z.string().optional(),
 }).superRefine((data, ctx) => {
   if (data.NODE_ENV === 'production') {
     if (!data.JWT_SECRET) {
