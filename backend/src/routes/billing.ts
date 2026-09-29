@@ -94,4 +94,24 @@ export const billingRoutes: FastifyPluginAsync = async (fastify) => {
       transactions,
     });
   });
+
+  // 7. Authoritative First-Time User 1000 Free Credits Onboarding Grant
+  fastify.post('/api/billing/welcome-grant', async (request, reply) => {
+    const parse = z.object({
+      companyId: z.string().default('00000000-0000-0000-0000-000000000001'),
+      userId: z.string().optional(),
+    }).safeParse(request.body || {});
+
+    if (!parse.success) {
+      throw new ValidationError('Invalid welcome grant payload', parse.error.format());
+    }
+
+    const result = await billingService.grantWelcomeCredits(
+      parse.data.companyId,
+      parse.data.userId
+    );
+
+    return reply.status(200).send(result);
+  });
 };
+

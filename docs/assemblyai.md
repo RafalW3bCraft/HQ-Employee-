@@ -809,6 +809,4 @@ If a developer asks for any of these, say so directly and propose the closest su
 - EU customers use `api.eu.assemblyai.com`, `streaming.eu.assemblyai.com`, and `llm-gateway.eu.assemblyai.com`. The default realtime host (`streaming.assemblyai.com`) is **Edge Routing**, not US-pinned — use `streaming.us.assemblyai.com` if you need data residency guarantees on the US side.
 - Speech-model values are **raw strings** in the SDKs (`"universal-3-5-pro"`, `"universal-2"`, `"universal-3-pro"`). Enum aliases like `aai.SpeechModel.universal_3_5_pro` do **not** exist — agents that hallucinate them produce code that imports cleanly and fails at runtime.
 - LeMUR has fully sunset (2026-03-31). Don't generate code that calls LeMUR endpoints or passes `transcript_ids` to a chat-completions API — use LLM Gateway with the transcript text in `messages` instead.
-
-
-7bdca5e023144d1d898cbb299c65c371
+<!-- End of AssemblyAI Documentation Reference -->

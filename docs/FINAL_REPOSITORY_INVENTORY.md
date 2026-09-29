@@ -1,0 +1,8337 @@
+# HQ EMPLOYEE — FINAL REPOSITORY INVENTORY
+
+Complete inventory and dependency classification of every file in the repository prior to the final pre-submission engineering pass.
+
+**Total Files Audited:** 396
+
+## Classification Summary
+
+| Classification | Count | Description |
+|---|---|---|
+| `PRODUCTION` | 127 | Category count |
+| `CORE` | 94 | Category count |
+| `UNRELATED` | 87 | Category count |
+| `DOCUMENTATION` | 36 | Category count |
+| `TEST` | 18 | Category count |
+| `REQUIRED` | 12 | Category count |
+| `DUPLICATE` | 8 | Category count |
+| `DEVELOPMENT` | 8 | Category count |
+| `DEPLOYMENT` | 6 | Category count |
+
+---
+
+### `.agents/rules/assembly-ai-instructions.md`
+- **PATH:** `.agents/rules/assembly-ai-instructions.md`
+- **TYPE:** .md
+- **PURPOSE:** AssemblyAI developer rules and prompt guidelines
+- **OWNER/SUBSYSTEM:** Agent / Instructions
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** YES
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Essential agent context for AssemblyAI Voice Agent protocol
+- **CLASSIFICATION:** `REQUIRED`
+
+### `.env`
+- **PATH:** `.env`
+- **TYPE:** (no extension)
+- **PURPOSE:** Repository root configuration file: .env
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `.firebase/hosting.aG9zdGluZy9wdWJsaWM.cache`
+- **PATH:** `.firebase/hosting.aG9zdGluZy9wdWJsaWM.cache`
+- **TYPE:** .cache
+- **PURPOSE:** Repository root configuration file: hosting.aG9zdGluZy9wdWJsaWM.cache
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `.firebaserc`
+- **PATH:** `.firebaserc`
+- **TYPE:** (no extension)
+- **PURPOSE:** Deployment configuration: .firebaserc
+- **OWNER/SUBSYSTEM:** Root Configuration & Primary Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Firebase CLI and hosting configuration
+- **CLASSIFICATION:** `DEPLOYMENT`
+
+### `.gitignore`
+- **PATH:** `.gitignore`
+- **TYPE:** (no extension)
+- **PURPOSE:** Repository root configuration file: .gitignore
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `ASSEMBLYAI_DEMO_TEST.md`
+- **PATH:** `ASSEMBLYAI_DEMO_TEST.md`
+- **TYPE:** .md
+- **PURPOSE:** Repository root configuration file: ASSEMBLYAI_DEMO_TEST.md
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `AUTONOMY_STATUS.md`
+- **PATH:** `AUTONOMY_STATUS.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/AUTONOMY_STATUS.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/AUTONOMY_STATUS.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `BLOCKER_REGISTER.md`
+- **PATH:** `BLOCKER_REGISTER.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative project documentation: BLOCKER_REGISTER.md
+- **OWNER/SUBSYSTEM:** Root Configuration & Primary Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Primary repository readme and baseline
+- **CLASSIFICATION:** `REQUIRED`
+
+### `BUG_REGISTER.md`
+- **PATH:** `BUG_REGISTER.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/BUG_REGISTER.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/BUG_REGISTER.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `CODEBASE_AUDIT.md`
+- **PATH:** `CODEBASE_AUDIT.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/CODEBASE_AUDIT.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/CODEBASE_AUDIT.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `CORRECTION_PLAN.md`
+- **PATH:** `CORRECTION_PLAN.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/CORRECTION_PLAN.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/CORRECTION_PLAN.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `DEPENDENCY_AUDIT.md`
+- **PATH:** `DEPENDENCY_AUDIT.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/DEPENDENCY_AUDIT.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/DEPENDENCY_AUDIT.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `INTEGRATION_STATUS.md`
+- **PATH:** `INTEGRATION_STATUS.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/INTEGRATION_STATUS.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/INTEGRATION_STATUS.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `README.md`
+- **PATH:** `README.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative project documentation: README.md
+- **OWNER/SUBSYSTEM:** Root Configuration & Primary Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Primary repository readme and baseline
+- **CLASSIFICATION:** `REQUIRED`
+
+### `SECURITY_FINDINGS.md`
+- **PATH:** `SECURITY_FINDINGS.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/SECURITY_FINDINGS.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/SECURITY_FINDINGS.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `SUBMISSION_BASELINE.md`
+- **PATH:** `SUBMISSION_BASELINE.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative project documentation: SUBMISSION_BASELINE.md
+- **OWNER/SUBSYSTEM:** Root Configuration & Primary Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Primary repository readme and baseline
+- **CLASSIFICATION:** `REQUIRED`
+
+### `TEST_STATUS.md`
+- **PATH:** `TEST_STATUS.md`
+- **TYPE:** .md
+- **PURPOSE:** Duplicate root document of docs/TEST_STATUS.md
+- **OWNER/SUBSYSTEM:** Duplicate Root Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** YES
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** YES
+- **REASON:** Duplicate of docs/TEST_STATUS.md; authoritative copy is maintained under docs/
+- **CLASSIFICATION:** `DUPLICATE`
+
+### `android/app/build.gradle.kts`
+- **PATH:** `android/app/build.gradle.kts`
+- **TYPE:** .kts
+- **PURPOSE:** Android build/configuration/app file: build.gradle.kts
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/app/src/main/AndroidManifest.xml`
+- **PATH:** `android/app/src/main/AndroidManifest.xml`
+- **TYPE:** .xml
+- **PURPOSE:** Android build/configuration/app file: AndroidManifest.xml
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/app/src/main/java/com/webcraft/employee/MainActivity.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/MainActivity.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android build/configuration/app file: MainActivity.kt
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/app/src/main/java/com/webcraft/employee/WebcraftApp.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/WebcraftApp.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android build/configuration/app file: WebcraftApp.kt
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/app/src/main/java/com/webcraft/employee/data/fake/FakeBillingRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/data/fake/FakeBillingRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android mock repository: FakeBillingRepository.kt
+- **OWNER/SUBSYSTEM:** Android Data Mocks
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Preview/debug mock repository; retained for Compose previews and local unit tests
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `android/app/src/main/java/com/webcraft/employee/data/fake/FakeCompanyBrainRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/data/fake/FakeCompanyBrainRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android mock repository: FakeCompanyBrainRepository.kt
+- **OWNER/SUBSYSTEM:** Android Data Mocks
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Preview/debug mock repository; retained for Compose previews and local unit tests
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `android/app/src/main/java/com/webcraft/employee/data/fake/FakeEmployeeRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/data/fake/FakeEmployeeRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android mock repository: FakeEmployeeRepository.kt
+- **OWNER/SUBSYSTEM:** Android Data Mocks
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Preview/debug mock repository; retained for Compose previews and local unit tests
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `android/app/src/main/java/com/webcraft/employee/data/fake/FakeLeadRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/data/fake/FakeLeadRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android mock repository: FakeLeadRepository.kt
+- **OWNER/SUBSYSTEM:** Android Data Mocks
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Preview/debug mock repository; retained for Compose previews and local unit tests
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `android/app/src/main/java/com/webcraft/employee/data/fake/FakeMeetingRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/data/fake/FakeMeetingRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android mock repository: FakeMeetingRepository.kt
+- **OWNER/SUBSYSTEM:** Android Data Mocks
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Preview/debug mock repository; retained for Compose previews and local unit tests
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `android/app/src/main/java/com/webcraft/employee/data/fake/FakeVoiceCallRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/data/fake/FakeVoiceCallRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Android mock repository: FakeVoiceCallRepository.kt
+- **OWNER/SUBSYSTEM:** Android Data Mocks
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Preview/debug mock repository; retained for Compose previews and local unit tests
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/CompanyBrain.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/CompanyBrain.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: CompanyBrain.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/CreditPackage.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/CreditPackage.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: CreditPackage.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/DashboardStats.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/DashboardStats.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: DashboardStats.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/Employee.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/Employee.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: Employee.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/Lead.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/Lead.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: Lead.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/Meeting.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/Meeting.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: Meeting.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/PurchaseState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/PurchaseState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: PurchaseState.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/VoiceCallSession.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/VoiceCallSession.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: VoiceCallSession.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/model/WalletBalance.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/model/WalletBalance.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: WalletBalance.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/repository/BillingRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/repository/BillingRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: BillingRepository.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/repository/CompanyBrainRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/repository/CompanyBrainRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: CompanyBrainRepository.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/repository/EmployeeRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/repository/EmployeeRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: EmployeeRepository.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/repository/LeadRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/repository/LeadRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: LeadRepository.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/repository/MeetingRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/repository/MeetingRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: MeetingRepository.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/repository/VoiceCallRepository.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/repository/VoiceCallRepository.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: VoiceCallRepository.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetCompanyBrainUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetCompanyBrainUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: GetCompanyBrainUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetDashboardDataUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetDashboardDataUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: GetDashboardDataUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetEmployeeUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetEmployeeUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: GetEmployeeUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetLeadDetailUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetLeadDetailUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: GetLeadDetailUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetLeadsUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetLeadsUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: GetLeadsUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetMeetingsUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/GetMeetingsUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: GetMeetingsUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/ManagePolicyUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/ManagePolicyUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: ManagePolicyUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/UpdateCompanyProfileUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/UpdateCompanyProfileUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: UpdateCompanyProfileUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/UpsertFaqUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/UpsertFaqUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: UpsertFaqUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/domain/usecase/UpsertServiceUseCase.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/domain/usecase/UpsertServiceUseCase.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Clean architecture domain entity/use-case/repository interface: UpsertServiceUseCase.kt
+- **OWNER/SUBSYSTEM:** Android Domain
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Domain contracts for Android application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/billing/BillingScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/billing/BillingScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: BillingScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/billing/BillingUiState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/billing/BillingUiState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: BillingUiState.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/billing/BillingViewModel.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/billing/BillingViewModel.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: BillingViewModel.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/common/AppScaffold.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/common/AppScaffold.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: AppScaffold.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/common/StatusBadge.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/common/StatusBadge.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: StatusBadge.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/companybrain/CompanyBrainScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/companybrain/CompanyBrainScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: CompanyBrainScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/companybrain/CompanyBrainUiState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/companybrain/CompanyBrainUiState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: CompanyBrainUiState.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/companybrain/CompanyBrainViewModel.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/companybrain/CompanyBrainViewModel.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: CompanyBrainViewModel.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/dashboard/DashboardScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/dashboard/DashboardScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: DashboardScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/dashboard/DashboardUiState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/dashboard/DashboardUiState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: DashboardUiState.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/dashboard/DashboardViewModel.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/dashboard/DashboardViewModel.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: DashboardViewModel.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/employee/EmployeeScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/employee/EmployeeScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: EmployeeScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/employee/EmployeeUiState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/employee/EmployeeUiState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: EmployeeUiState.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/employee/EmployeeViewModel.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/employee/EmployeeViewModel.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: EmployeeViewModel.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadDetailScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadDetailScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: LeadDetailScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadsScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadsScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: LeadsScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadsUiState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadsUiState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: LeadsUiState.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadsViewModel.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/leads/LeadsViewModel.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: LeadsViewModel.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/meetings/MeetingsScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/meetings/MeetingsScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: MeetingsScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/meetings/MeetingsUiState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/meetings/MeetingsUiState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: MeetingsUiState.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/meetings/MeetingsViewModel.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/meetings/MeetingsViewModel.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: MeetingsViewModel.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/navigation/NavGraph.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/navigation/NavGraph.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: NavGraph.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/navigation/Screen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/navigation/Screen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: Screen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/settings/SettingsScreen.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/settings/SettingsScreen.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: SettingsScreen.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/settings/SettingsUiState.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/settings/SettingsUiState.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: SettingsUiState.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/settings/SettingsViewModel.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/settings/SettingsViewModel.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: SettingsViewModel.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/theme/Color.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/theme/Color.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: Color.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/theme/Theme.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/theme/Theme.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: Theme.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/java/com/webcraft/employee/presentation/theme/Type.kt`
+- **PATH:** `android/app/src/main/java/com/webcraft/employee/presentation/theme/Type.kt`
+- **TYPE:** .kt
+- **PURPOSE:** Jetpack Compose UI Screen / ViewModel / UiState: Type.kt
+- **OWNER/SUBSYSTEM:** Android Presentation (Jetpack Compose)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** User interface for Android mobile application
+- **CLASSIFICATION:** `CORE`
+
+### `android/app/src/main/res/values/colors.xml`
+- **PATH:** `android/app/src/main/res/values/colors.xml`
+- **TYPE:** .xml
+- **PURPOSE:** Android build/configuration/app file: colors.xml
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/app/src/main/res/values/strings.xml`
+- **PATH:** `android/app/src/main/res/values/strings.xml`
+- **TYPE:** .xml
+- **PURPOSE:** Android build/configuration/app file: strings.xml
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/app/src/main/res/values/themes.xml`
+- **PATH:** `android/app/src/main/res/values/themes.xml`
+- **TYPE:** .xml
+- **PURPOSE:** Android build/configuration/app file: themes.xml
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/app/src/main/res/xml/network_security_config.xml`
+- **PATH:** `android/app/src/main/res/xml/network_security_config.xml`
+- **TYPE:** .xml
+- **PURPOSE:** Android build/configuration/app file: network_security_config.xml
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/build.gradle.kts`
+- **PATH:** `android/build.gradle.kts`
+- **TYPE:** .kts
+- **PURPOSE:** Android build/configuration/app file: build.gradle.kts
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/gradle.properties`
+- **PATH:** `android/gradle.properties`
+- **TYPE:** .properties
+- **PURPOSE:** Android build/configuration/app file: gradle.properties
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/gradle/libs.versions.toml`
+- **PATH:** `android/gradle/libs.versions.toml`
+- **TYPE:** .toml
+- **PURPOSE:** Android build/configuration/app file: libs.versions.toml
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/gradle/wrapper/gradle-wrapper.properties`
+- **PATH:** `android/gradle/wrapper/gradle-wrapper.properties`
+- **TYPE:** .properties
+- **PURPOSE:** Android build/configuration/app file: gradle-wrapper.properties
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `android/settings.gradle.kts`
+- **PATH:** `android/settings.gradle.kts`
+- **TYPE:** .kts
+- **PURPOSE:** Android build/configuration/app file: settings.gradle.kts
+- **OWNER/SUBSYSTEM:** Android Client
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Android application source and configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/.agents/skills/extension-to-functions-codebase/SKILL.md`
+- **PATH:** `backend/.agents/skills/extension-to-functions-codebase/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/extension-to-functions-codebase/references/configuration-migration.md`
+- **PATH:** `backend/.agents/skills/extension-to-functions-codebase/references/configuration-migration.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact configuration-migration.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/extension-to-functions-codebase/references/destructuring-shim.md`
+- **PATH:** `backend/.agents/skills/extension-to-functions-codebase/references/destructuring-shim.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact destructuring-shim.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/extension-to-functions-codebase/references/signature-mapping.md`
+- **PATH:** `backend/.agents/skills/extension-to-functions-codebase/references/signature-mapping.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact signature-mapping.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-ai-logic-basics/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-ai-logic-basics/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-ai-logic-basics/references/flutter_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-ai-logic-basics/references/flutter_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** Flutter integration skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated Flutter tooling; project does not use Flutter
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-ai-logic-basics/references/ios_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-ai-logic-basics/references/ios_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact ios_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-ai-logic-basics/references/usage_patterns_android.md`
+- **PATH:** `backend/.agents/skills/firebase-ai-logic-basics/references/usage_patterns_android.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact usage_patterns_android.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-ai-logic-basics/references/usage_patterns_web.md`
+- **PATH:** `backend/.agents/skills/firebase-ai-logic-basics/references/usage_patterns_web.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact usage_patterns_web.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-app-hosting-basics/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-app-hosting-basics/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-app-hosting-basics/references/cli_commands.md`
+- **PATH:** `backend/.agents/skills/firebase-app-hosting-basics/references/cli_commands.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact cli_commands.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-app-hosting-basics/references/configuration.md`
+- **PATH:** `backend/.agents/skills/firebase-app-hosting-basics/references/configuration.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact configuration.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-app-hosting-basics/references/emulation.md`
+- **PATH:** `backend/.agents/skills/firebase-app-hosting-basics/references/emulation.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact emulation.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-auth-basics/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-auth-basics/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-auth-basics/references/client_sdk_android.md`
+- **PATH:** `backend/.agents/skills/firebase-auth-basics/references/client_sdk_android.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact client_sdk_android.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-auth-basics/references/client_sdk_web.md`
+- **PATH:** `backend/.agents/skills/firebase-auth-basics/references/client_sdk_web.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact client_sdk_web.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-auth-basics/references/flutter_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-auth-basics/references/flutter_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** Flutter integration skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated Flutter tooling; project does not use Flutter
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-auth-basics/references/ios_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-auth-basics/references/ios_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact ios_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-auth-basics/references/security_rules.md`
+- **PATH:** `backend/.agents/skills/firebase-auth-basics/references/security_rules.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact security_rules.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/android_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/android_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact android_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/firebase-cli-guide.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/firebase-cli-guide.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact firebase-cli-guide.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/firebase-service-init.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/firebase-service-init.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact firebase-service-init.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/flutter_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/flutter_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** Flutter integration skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated Flutter tooling; project does not use Flutter
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/ios_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/ios_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact ios_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/local-env-setup.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/local-env-setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact local-env-setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/refresh/android_studio.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/refresh/android_studio.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact android_studio.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/refresh/antigravity.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/refresh/antigravity.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact antigravity.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/refresh/claude.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/refresh/claude.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact claude.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/refresh/gemini-cli.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/refresh/gemini-cli.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact gemini-cli.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/refresh/other-agents.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/refresh/other-agents.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact other-agents.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/setup/android_studio.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/setup/android_studio.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact android_studio.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/setup/antigravity.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/setup/antigravity.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact antigravity.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/setup/claude_code.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/setup/claude_code.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact claude_code.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/setup/cursor.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/setup/cursor.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact cursor.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/setup/gemini_cli.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/setup/gemini_cli.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact gemini_cli.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/setup/github_copilot.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/setup/github_copilot.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact github_copilot.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/setup/other_agents.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/setup/other_agents.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact other_agents.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-basics/references/web_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-basics/references/web_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact web_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-crashlytics/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-crashlytics/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-crashlytics/references/android_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-crashlytics/references/android_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact android_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-crashlytics/references/ios_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-crashlytics/references/ios_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact ios_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/examples.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/examples.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/cloud_functions.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/cloud_functions.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/config.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/config.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/data_seeding.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/data_seeding.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/native_sql.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/native_sql.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/operations.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/operations.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/realtime.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/realtime.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/schema.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/schema.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/sdk_admin_node.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/sdk_admin_node.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/sdk_android.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/sdk_android.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/sdk_flutter.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/sdk_flutter.md`
+- **TYPE:** .md
+- **PURPOSE:** Flutter integration skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated Flutter tooling; project does not use Flutter
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/sdk_ios.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/sdk_ios.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/sdk_web.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/sdk_web.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/search.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/search.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/reference/security.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/reference/security.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-data-connect/templates.md`
+- **PATH:** `backend/.agents/skills/firebase-data-connect/templates.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/android_sdk_usage.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/android_sdk_usage.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/data_model.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/data_model.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/flutter_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/flutter_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** Flutter integration skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated Flutter tooling; project does not use Flutter
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/indexes.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/indexes.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/ios_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/ios_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/provisioning.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/provisioning.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/python_sdk_usage.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/python_sdk_usage.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/enterprise/web_sdk_usage.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/enterprise/web_sdk_usage.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/standard/android_sdk_usage.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/standard/android_sdk_usage.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/standard/flutter_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/standard/flutter_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** Flutter integration skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated Flutter tooling; project does not use Flutter
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/standard/indexes.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/standard/indexes.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/standard/ios_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/standard/ios_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/standard/provisioning.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/standard/provisioning.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-firestore/references/standard/web_sdk_usage.md`
+- **PATH:** `backend/.agents/skills/firebase-firestore/references/standard/web_sdk_usage.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-hosting-basics/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-hosting-basics/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-hosting-basics/references/configuration.md`
+- **PATH:** `backend/.agents/skills/firebase-hosting-basics/references/configuration.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact configuration.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-hosting-basics/references/deploying.md`
+- **PATH:** `backend/.agents/skills/firebase-hosting-basics/references/deploying.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact deploying.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-remote-config-basics/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-remote-config-basics/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-remote-config-basics/references/android_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-remote-config-basics/references/android_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact android_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-remote-config-basics/references/ios_setup.md`
+- **PATH:** `backend/.agents/skills/firebase-remote-config-basics/references/ios_setup.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact ios_setup.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firebase-security-rules-auditor/SKILL.md`
+- **PATH:** `backend/.agents/skills/firebase-security-rules-auditor/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** External skill artifact SKILL.md
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** External copied plugin artifact not used in runtime, build, or tests
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/firestore-rules-creation/SKILL.md`
+- **PATH:** `backend/.agents/skills/firestore-rules-creation/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** Firebase Firestore/Data Connect reference
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated database skill; project uses PostgreSQL on Neon
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/xcode-project-setup/SKILL.md`
+- **PATH:** `backend/.agents/skills/xcode-project-setup/SKILL.md`
+- **TYPE:** .md
+- **PURPOSE:** Xcode / Swift SPM setup skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated iOS/Xcode tooling; project is Android and backend TypeScript only
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/.gitignore`
+- **PATH:** `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/.gitignore`
+- **TYPE:** (no extension)
+- **PURPOSE:** Xcode / Swift SPM setup skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated iOS/Xcode tooling; project is Android and backend TypeScript only
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/Package.resolved`
+- **PATH:** `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/Package.resolved`
+- **TYPE:** .resolved
+- **PURPOSE:** Xcode / Swift SPM setup skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated iOS/Xcode tooling; project is Android and backend TypeScript only
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/Package.swift`
+- **PATH:** `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/Package.swift`
+- **TYPE:** .swift
+- **PURPOSE:** Xcode / Swift SPM setup skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated iOS/Xcode tooling; project is Android and backend TypeScript only
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/Sources/main.swift`
+- **PATH:** `backend/.agents/skills/xcode-project-setup/scripts/xcode_spm_setup/Sources/main.swift`
+- **TYPE:** .swift
+- **PURPOSE:** Xcode / Swift SPM setup skill
+- **OWNER/SUBSYSTEM:** Agent Skills (External Copied)
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** YES
+- **OBSOLETE:** NO
+- **UNRELATED:** YES
+- **SAFE TO DELETE:** YES
+- **REASON:** Unrelated iOS/Xcode tooling; project is Android and backend TypeScript only
+- **CLASSIFICATION:** `UNRELATED`
+
+### `backend/.env`
+- **PATH:** `backend/.env`
+- **TYPE:** (no extension)
+- **PURPOSE:** Repository root configuration file: .env
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/.env.example`
+- **PATH:** `backend/.env.example`
+- **TYPE:** .example
+- **PURPOSE:** Repository root configuration file: .env.example
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/config/index.d.ts`
+- **PATH:** `backend/dist/config/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/config/index.js`
+- **PATH:** `backend/dist/config/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/config/index.js.map`
+- **PATH:** `backend/dist/config/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/db/index.d.ts`
+- **PATH:** `backend/dist/db/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/db/index.js`
+- **PATH:** `backend/dist/db/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/db/index.js.map`
+- **PATH:** `backend/dist/db/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/db/migrator.d.ts`
+- **PATH:** `backend/dist/db/migrator.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/db/migrator.js`
+- **PATH:** `backend/dist/db/migrator.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/db/migrator.js.map`
+- **PATH:** `backend/dist/db/migrator.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/errors/index.d.ts`
+- **PATH:** `backend/dist/errors/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/errors/index.js`
+- **PATH:** `backend/dist/errors/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/errors/index.js.map`
+- **PATH:** `backend/dist/errors/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/index.d.ts`
+- **PATH:** `backend/dist/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/index.js`
+- **PATH:** `backend/dist/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/index.js.map`
+- **PATH:** `backend/dist/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/approvals/index.d.ts`
+- **PATH:** `backend/dist/modules/approvals/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/approvals/index.js`
+- **PATH:** `backend/dist/modules/approvals/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/approvals/index.js.map`
+- **PATH:** `backend/dist/modules/approvals/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/assemblyai/index.d.ts`
+- **PATH:** `backend/dist/modules/assemblyai/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/assemblyai/index.js`
+- **PATH:** `backend/dist/modules/assemblyai/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/assemblyai/index.js.map`
+- **PATH:** `backend/dist/modules/assemblyai/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/audit/index.d.ts`
+- **PATH:** `backend/dist/modules/audit/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/audit/index.js`
+- **PATH:** `backend/dist/modules/audit/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/audit/index.js.map`
+- **PATH:** `backend/dist/modules/audit/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/auth/index.d.ts`
+- **PATH:** `backend/dist/modules/auth/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/auth/index.js`
+- **PATH:** `backend/dist/modules/auth/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/auth/index.js.map`
+- **PATH:** `backend/dist/modules/auth/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/billing/index.d.ts`
+- **PATH:** `backend/dist/modules/billing/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/billing/index.js`
+- **PATH:** `backend/dist/modules/billing/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/billing/index.js.map`
+- **PATH:** `backend/dist/modules/billing/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/calls/index.d.ts`
+- **PATH:** `backend/dist/modules/calls/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/calls/index.js`
+- **PATH:** `backend/dist/modules/calls/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/calls/index.js.map`
+- **PATH:** `backend/dist/modules/calls/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/company/index.d.ts`
+- **PATH:** `backend/dist/modules/company/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/company/index.js`
+- **PATH:** `backend/dist/modules/company/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/company/index.js.map`
+- **PATH:** `backend/dist/modules/company/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/employee/index.d.ts`
+- **PATH:** `backend/dist/modules/employee/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/employee/index.js`
+- **PATH:** `backend/dist/modules/employee/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/employee/index.js.map`
+- **PATH:** `backend/dist/modules/employee/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/leads/index.d.ts`
+- **PATH:** `backend/dist/modules/leads/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/leads/index.js`
+- **PATH:** `backend/dist/modules/leads/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/leads/index.js.map`
+- **PATH:** `backend/dist/modules/leads/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/meetings/google-calendar.d.ts`
+- **PATH:** `backend/dist/modules/meetings/google-calendar.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/meetings/google-calendar.js`
+- **PATH:** `backend/dist/modules/meetings/google-calendar.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/meetings/google-calendar.js.map`
+- **PATH:** `backend/dist/modules/meetings/google-calendar.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/meetings/index.d.ts`
+- **PATH:** `backend/dist/modules/meetings/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/meetings/index.js`
+- **PATH:** `backend/dist/modules/meetings/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/meetings/index.js.map`
+- **PATH:** `backend/dist/modules/meetings/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/memory/index.d.ts`
+- **PATH:** `backend/dist/modules/memory/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/memory/index.js`
+- **PATH:** `backend/dist/modules/memory/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/memory/index.js.map`
+- **PATH:** `backend/dist/modules/memory/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/objectives/index.d.ts`
+- **PATH:** `backend/dist/modules/objectives/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/objectives/index.js`
+- **PATH:** `backend/dist/modules/objectives/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/objectives/index.js.map`
+- **PATH:** `backend/dist/modules/objectives/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/policies/index.d.ts`
+- **PATH:** `backend/dist/modules/policies/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/policies/index.js`
+- **PATH:** `backend/dist/modules/policies/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/policies/index.js.map`
+- **PATH:** `backend/dist/modules/policies/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/proposals/index.d.ts`
+- **PATH:** `backend/dist/modules/proposals/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/proposals/index.js`
+- **PATH:** `backend/dist/modules/proposals/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/proposals/index.js.map`
+- **PATH:** `backend/dist/modules/proposals/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/runtime/index.d.ts`
+- **PATH:** `backend/dist/modules/runtime/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/runtime/index.js`
+- **PATH:** `backend/dist/modules/runtime/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/runtime/index.js.map`
+- **PATH:** `backend/dist/modules/runtime/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/telephony/index.d.ts`
+- **PATH:** `backend/dist/modules/telephony/index.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/telephony/index.js`
+- **PATH:** `backend/dist/modules/telephony/index.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/modules/telephony/index.js.map`
+- **PATH:** `backend/dist/modules/telephony/index.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/auth.d.ts`
+- **PATH:** `backend/dist/routes/auth.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/auth.js`
+- **PATH:** `backend/dist/routes/auth.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/auth.js.map`
+- **PATH:** `backend/dist/routes/auth.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/billing.d.ts`
+- **PATH:** `backend/dist/routes/billing.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/billing.js`
+- **PATH:** `backend/dist/routes/billing.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/billing.js.map`
+- **PATH:** `backend/dist/routes/billing.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/company.d.ts`
+- **PATH:** `backend/dist/routes/company.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/company.js`
+- **PATH:** `backend/dist/routes/company.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/company.js.map`
+- **PATH:** `backend/dist/routes/company.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/health.d.ts`
+- **PATH:** `backend/dist/routes/health.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/health.js`
+- **PATH:** `backend/dist/routes/health.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/health.js.map`
+- **PATH:** `backend/dist/routes/health.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/leads.d.ts`
+- **PATH:** `backend/dist/routes/leads.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/leads.js`
+- **PATH:** `backend/dist/routes/leads.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/leads.js.map`
+- **PATH:** `backend/dist/routes/leads.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/meetings.d.ts`
+- **PATH:** `backend/dist/routes/meetings.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/meetings.js`
+- **PATH:** `backend/dist/routes/meetings.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/meetings.js.map`
+- **PATH:** `backend/dist/routes/meetings.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/objectives.d.ts`
+- **PATH:** `backend/dist/routes/objectives.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/objectives.js`
+- **PATH:** `backend/dist/routes/objectives.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/objectives.js.map`
+- **PATH:** `backend/dist/routes/objectives.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/policies.d.ts`
+- **PATH:** `backend/dist/routes/policies.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/policies.js`
+- **PATH:** `backend/dist/routes/policies.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/policies.js.map`
+- **PATH:** `backend/dist/routes/policies.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/proposals.d.ts`
+- **PATH:** `backend/dist/routes/proposals.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/proposals.js`
+- **PATH:** `backend/dist/routes/proposals.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/proposals.js.map`
+- **PATH:** `backend/dist/routes/proposals.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/telephony.d.ts`
+- **PATH:** `backend/dist/routes/telephony.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/telephony.js`
+- **PATH:** `backend/dist/routes/telephony.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/telephony.js.map`
+- **PATH:** `backend/dist/routes/telephony.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/voice.d.ts`
+- **PATH:** `backend/dist/routes/voice.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/voice.js`
+- **PATH:** `backend/dist/routes/voice.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/routes/voice.js.map`
+- **PATH:** `backend/dist/routes/voice.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/server.d.ts`
+- **PATH:** `backend/dist/server.d.ts`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/server.js`
+- **PATH:** `backend/dist/server.js`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/dist/server.js.map`
+- **PATH:** `backend/dist/server.js.map`
+- **TYPE:** Compiled JavaScript / SourceMap
+- **PURPOSE:** TypeScript compiler output from src/
+- **OWNER/SUBSYSTEM:** Backend Build Output
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Compiled server artifacts from tsc build
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/package-lock.json`
+- **PATH:** `backend/package-lock.json`
+- **TYPE:** .json
+- **PURPOSE:** Repository root configuration file: package-lock.json
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/package.json`
+- **PATH:** `backend/package.json`
+- **TYPE:** .json
+- **PURPOSE:** Repository root configuration file: package.json
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/public/voice-tester.html`
+- **PATH:** `backend/public/voice-tester.html`
+- **TYPE:** .html
+- **PURPOSE:** Browser voice tester and judge sandbox UI
+- **OWNER/SUBSYSTEM:** Backend Web UI / Tester
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** YES
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Interactive full-duplex voice console for judges and live demonstration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/skills-lock.json`
+- **PATH:** `backend/skills-lock.json`
+- **TYPE:** .json
+- **PURPOSE:** Repository root configuration file: skills-lock.json
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `backend/src/config/index.ts`
+- **PATH:** `backend/src/config/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/index.ts`
+- **PATH:** `backend/src/db/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/migrations/001_initial_schema.sql`
+- **PATH:** `backend/src/db/migrations/001_initial_schema.sql`
+- **TYPE:** .sql
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/migrations/002_company_brain.sql`
+- **PATH:** `backend/src/db/migrations/002_company_brain.sql`
+- **TYPE:** .sql
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/migrations/003_meetings_enhancements.sql`
+- **PATH:** `backend/src/db/migrations/003_meetings_enhancements.sql`
+- **TYPE:** .sql
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/migrations/004_telephony_subsystem.sql`
+- **PATH:** `backend/src/db/migrations/004_telephony_subsystem.sql`
+- **TYPE:** .sql
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/migrations/005_credit_ledger.sql`
+- **PATH:** `backend/src/db/migrations/005_credit_ledger.sql`
+- **TYPE:** .sql
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/migrations/006_proposals_and_objectives.sql`
+- **PATH:** `backend/src/db/migrations/006_proposals_and_objectives.sql`
+- **TYPE:** .sql
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/db/migrator.ts`
+- **PATH:** `backend/src/db/migrator.ts`
+- **TYPE:** .ts
+- **PURPOSE:** PostgreSQL database pool, schema, and migration runner
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core database connectivity and migrations
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/errors/index.ts`
+- **PATH:** `backend/src/errors/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/index.ts`
+- **PATH:** `backend/src/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/approvals/index.ts`
+- **PATH:** `backend/src/modules/approvals/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/assemblyai/index.ts`
+- **PATH:** `backend/src/modules/assemblyai/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** AssemblyAI Voice Agent integration and WebSocket handler
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core AssemblyAI voice session handler and WebSocket proxy
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/audit/index.ts`
+- **PATH:** `backend/src/modules/audit/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/auth/index.ts`
+- **PATH:** `backend/src/modules/auth/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/billing/index.ts`
+- **PATH:** `backend/src/modules/billing/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Authoritative Credit Ledger & RevenueCat monetization
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** YES
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core credit wallet, ledger transactions, and webhook processing
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/calls/index.ts`
+- **PATH:** `backend/src/modules/calls/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/company/index.ts`
+- **PATH:** `backend/src/modules/company/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/employee/index.ts`
+- **PATH:** `backend/src/modules/employee/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/leads/index.ts`
+- **PATH:** `backend/src/modules/leads/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/meetings/google-calendar.ts`
+- **PATH:** `backend/src/modules/meetings/google-calendar.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: google-calendar.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/meetings/index.ts`
+- **PATH:** `backend/src/modules/meetings/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/memory/index.ts`
+- **PATH:** `backend/src/modules/memory/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/objectives/index.ts`
+- **PATH:** `backend/src/modules/objectives/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/policies/index.ts`
+- **PATH:** `backend/src/modules/policies/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Deterministic Policy Engine boundary
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core policy evaluation (ALLOW, REQUIRE_APPROVAL, BLOCK)
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/proposals/index.ts`
+- **PATH:** `backend/src/modules/proposals/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/runtime/index.ts`
+- **PATH:** `backend/src/modules/runtime/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/modules/telephony/index.ts`
+- **PATH:** `backend/src/modules/telephony/index.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: index.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/auth.ts`
+- **PATH:** `backend/src/routes/auth.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: auth.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/billing.ts`
+- **PATH:** `backend/src/routes/billing.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Authoritative Credit Ledger & RevenueCat monetization
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** YES
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core credit wallet, ledger transactions, and webhook processing
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/company.ts`
+- **PATH:** `backend/src/routes/company.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: company.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/health.ts`
+- **PATH:** `backend/src/routes/health.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: health.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/leads.ts`
+- **PATH:** `backend/src/routes/leads.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: leads.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/meetings.ts`
+- **PATH:** `backend/src/routes/meetings.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: meetings.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/objectives.ts`
+- **PATH:** `backend/src/routes/objectives.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: objectives.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/policies.ts`
+- **PATH:** `backend/src/routes/policies.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Deterministic Policy Engine boundary
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core policy evaluation (ALLOW, REQUIRE_APPROVAL, BLOCK)
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/proposals.ts`
+- **PATH:** `backend/src/routes/proposals.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: proposals.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/telephony.ts`
+- **PATH:** `backend/src/routes/telephony.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: telephony.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/routes/voice.ts`
+- **PATH:** `backend/src/routes/voice.ts`
+- **TYPE:** .ts
+- **PURPOSE:** AssemblyAI Voice Agent integration and WebSocket handler
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core AssemblyAI voice session handler and WebSocket proxy
+- **CLASSIFICATION:** `CORE`
+
+### `backend/src/server.ts`
+- **PATH:** `backend/src/server.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Backend subsystem module: server.ts
+- **OWNER/SUBSYSTEM:** Backend Core
+- **RUNTIME USE:** YES
+- **TEST USE:** NO
+- **BUILD USE:** YES
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Core backend TypeScript service
+- **CLASSIFICATION:** `CORE`
+
+### `backend/test/assemblyai-telephony.test.ts`
+- **PATH:** `backend/test/assemblyai-telephony.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: assemblyai-telephony.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/assemblyai-voice-agent.test.ts`
+- **PATH:** `backend/test/assemblyai-voice-agent.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: assemblyai-voice-agent.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/auth.test.ts`
+- **PATH:** `backend/test/auth.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: auth.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/company-brain.test.ts`
+- **PATH:** `backend/test/company-brain.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: company-brain.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/config.test.ts`
+- **PATH:** `backend/test/config.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: config.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/e2e-workflow.test.ts`
+- **PATH:** `backend/test/e2e-workflow.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: e2e-workflow.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/errors.test.ts`
+- **PATH:** `backend/test/errors.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: errors.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/health.test.ts`
+- **PATH:** `backend/test/health.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: health.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/hq-audit-system.test.ts`
+- **PATH:** `backend/test/hq-audit-system.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: hq-audit-system.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/hq-employee-memory.test.ts`
+- **PATH:** `backend/test/hq-employee-memory.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: hq-employee-memory.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/hq-employee-runtime.test.ts`
+- **PATH:** `backend/test/hq-employee-runtime.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: hq-employee-runtime.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/lead-qualification.test.ts`
+- **PATH:** `backend/test/lead-qualification.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: lead-qualification.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/meetings.test.ts`
+- **PATH:** `backend/test/meetings.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: meetings.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/modules.test.ts`
+- **PATH:** `backend/test/modules.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: modules.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/objectives.test.ts`
+- **PATH:** `backend/test/objectives.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: objectives.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/policy-engine.test.ts`
+- **PATH:** `backend/test/policy-engine.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: policy-engine.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/proposals.test.ts`
+- **PATH:** `backend/test/proposals.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: proposals.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/test/revenuecat-monetization.test.ts`
+- **PATH:** `backend/test/revenuecat-monetization.test.ts`
+- **TYPE:** .ts
+- **PURPOSE:** Automated integration/unit test: revenuecat-monetization.test.ts
+- **OWNER/SUBSYSTEM:** Backend Tests
+- **RUNTIME USE:** NO
+- **TEST USE:** YES
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** YES
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Required test suite for continuous verification
+- **CLASSIFICATION:** `TEST`
+
+### `backend/tsconfig.json`
+- **PATH:** `backend/tsconfig.json`
+- **TYPE:** .json
+- **PURPOSE:** Repository root configuration file: tsconfig.json
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `docs/AGENTS.md`
+- **PATH:** `docs/AGENTS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: AGENTS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/ARCHITECTURE.md`
+- **PATH:** `docs/ARCHITECTURE.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: ARCHITECTURE.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/ASSEMBLYAI_PRODUCTION_VERIFICATION.md`
+- **PATH:** `docs/ASSEMBLYAI_PRODUCTION_VERIFICATION.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: ASSEMBLYAI_PRODUCTION_VERIFICATION.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/AUTONOMY_STATUS.md`
+- **PATH:** `docs/AUTONOMY_STATUS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: AUTONOMY_STATUS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/BUG_REGISTER.md`
+- **PATH:** `docs/BUG_REGISTER.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: BUG_REGISTER.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/CALLING.md`
+- **PATH:** `docs/CALLING.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: CALLING.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/CLOUD_RUN_DEPLOYMENT.md`
+- **PATH:** `docs/CLOUD_RUN_DEPLOYMENT.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: CLOUD_RUN_DEPLOYMENT.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/CODEBASE_AUDIT.md`
+- **PATH:** `docs/CODEBASE_AUDIT.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: CODEBASE_AUDIT.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/CORRECTION_PLAN.md`
+- **PATH:** `docs/CORRECTION_PLAN.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: CORRECTION_PLAN.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/DEPENDENCY_AUDIT.md`
+- **PATH:** `docs/DEPENDENCY_AUDIT.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: DEPENDENCY_AUDIT.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/EMPLOYEE_PERSONA.md`
+- **PATH:** `docs/EMPLOYEE_PERSONA.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: EMPLOYEE_PERSONA.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/EMPLOYEE_POLICY.md`
+- **PATH:** `docs/EMPLOYEE_POLICY.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: EMPLOYEE_POLICY.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/FINAL_REPOSITORY_INVENTORY.md`
+- **PATH:** `docs/FINAL_REPOSITORY_INVENTORY.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: FINAL_REPOSITORY_INVENTORY.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/FINAL_VERIFICATION_MATRIX.md`
+- **PATH:** `docs/FINAL_VERIFICATION_MATRIX.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: FINAL_VERIFICATION_MATRIX.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/FIREBASE_DEPLOYMENT.md`
+- **PATH:** `docs/FIREBASE_DEPLOYMENT.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: FIREBASE_DEPLOYMENT.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/INTEGRATION_STATUS.md`
+- **PATH:** `docs/INTEGRATION_STATUS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: INTEGRATION_STATUS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/JUDGE_ACCESS.md`
+- **PATH:** `docs/JUDGE_ACCESS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: JUDGE_ACCESS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/MEMORY.md`
+- **PATH:** `docs/MEMORY.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: MEMORY.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/PRIVACY.md`
+- **PATH:** `docs/PRIVACY.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: PRIVACY.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/PRODUCTION_DEPLOYMENT_PLAN.md`
+- **PATH:** `docs/PRODUCTION_DEPLOYMENT_PLAN.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: PRODUCTION_DEPLOYMENT_PLAN.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/PRODUCTION_ENVIRONMENT.md`
+- **PATH:** `docs/PRODUCTION_ENVIRONMENT.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: PRODUCTION_ENVIRONMENT.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/PRODUCTION_READINESS.md`
+- **PATH:** `docs/PRODUCTION_READINESS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: PRODUCTION_READINESS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/PRODUCTION_SECURITY.md`
+- **PATH:** `docs/PRODUCTION_SECURITY.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: PRODUCTION_SECURITY.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/PRODUCTION_VERIFICATION.md`
+- **PATH:** `docs/PRODUCTION_VERIFICATION.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: PRODUCTION_VERIFICATION.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/PROJECT_SPEC.md`
+- **PATH:** `docs/PROJECT_SPEC.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: PROJECT_SPEC.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/RELEASE.md`
+- **PATH:** `docs/RELEASE.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: RELEASE.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/RELEASE_READINESS.md`
+- **PATH:** `docs/RELEASE_READINESS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: RELEASE_READINESS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/REVENUECAT.md`
+- **PATH:** `docs/REVENUECAT.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: REVENUECAT.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** YES
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/SECURITY.md`
+- **PATH:** `docs/SECURITY.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: SECURITY.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/SECURITY_FINDINGS.md`
+- **PATH:** `docs/SECURITY_FINDINGS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: SECURITY_FINDINGS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/TERMS.md`
+- **PATH:** `docs/TERMS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: TERMS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/TESTING.md`
+- **PATH:** `docs/TESTING.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: TESTING.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/TEST_STATUS.md`
+- **PATH:** `docs/TEST_STATUS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: TEST_STATUS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/TOOLS.md`
+- **PATH:** `docs/TOOLS.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: TOOLS.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/VERIFICATION_SESSION.md`
+- **PATH:** `docs/VERIFICATION_SESSION.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: VERIFICATION_SESSION.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `docs/assemblyai.md`
+- **PATH:** `docs/assemblyai.md`
+- **TYPE:** .md
+- **PURPOSE:** Authoritative documentation: assemblyai.md
+- **OWNER/SUBSYSTEM:** Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Technical specification, audit trail, or architecture guide
+- **CLASSIFICATION:** `DOCUMENTATION`
+
+### `firebase.json`
+- **PATH:** `firebase.json`
+- **TYPE:** .json
+- **PURPOSE:** Deployment configuration: firebase.json
+- **OWNER/SUBSYSTEM:** Root Configuration & Primary Documentation
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Firebase CLI and hosting configuration
+- **CLASSIFICATION:** `DEPLOYMENT`
+
+### `hosting/public/index.html`
+- **PATH:** `hosting/public/index.html`
+- **TYPE:** .html
+- **PURPOSE:** Static web app bundle deployed to Firebase Hosting
+- **OWNER/SUBSYSTEM:** Firebase Hosting
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** YES
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Production web hosting frontend (https://hq-employee.web.app)
+- **CLASSIFICATION:** `DEPLOYMENT`
+
+### `infra/Dockerfile`
+- **PATH:** `infra/Dockerfile`
+- **TYPE:** (no extension)
+- **PURPOSE:** Multi-stage Dockerfile for Cloud Run deployment
+- **OWNER/SUBSYSTEM:** DevOps / Infrastructure
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Container build specification for production backend
+- **CLASSIFICATION:** `DEPLOYMENT`
+
+### `infra/README.md`
+- **PATH:** `infra/README.md`
+- **TYPE:** .md
+- **PURPOSE:** Multi-stage Dockerfile for Cloud Run deployment
+- **OWNER/SUBSYSTEM:** DevOps / Infrastructure
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Container build specification for production backend
+- **CLASSIFICATION:** `DEPLOYMENT`
+
+### `infra/docker-compose.yml`
+- **PATH:** `infra/docker-compose.yml`
+- **TYPE:** .yml
+- **PURPOSE:** Multi-stage Dockerfile for Cloud Run deployment
+- **OWNER/SUBSYSTEM:** DevOps / Infrastructure
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Container build specification for production backend
+- **CLASSIFICATION:** `DEPLOYMENT`
+
+### `package.json`
+- **PATH:** `package.json`
+- **TYPE:** .json
+- **PURPOSE:** Repository root configuration file: package.json
+- **OWNER/SUBSYSTEM:** General Configuration
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Workspace level configuration
+- **CLASSIFICATION:** `PRODUCTION`
+
+### `scripts/generate_inventory.py`
+- **PATH:** `scripts/generate_inventory.py`
+- **TYPE:** .py
+- **PURPOSE:** Automation/verification script: generate_inventory.py
+- **OWNER/SUBSYSTEM:** Deployment & Validation Scripts
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Verification and deployment utilities
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `scripts/verify-production.sh`
+- **PATH:** `scripts/verify-production.sh`
+- **TYPE:** .sh
+- **PURPOSE:** Automation/verification script: verify-production.sh
+- **OWNER/SUBSYSTEM:** Deployment & Validation Scripts
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** NO
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** YES
+- **ASSEMBLYAI RELEVANCE:** NO
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Verification and deployment utilities
+- **CLASSIFICATION:** `DEVELOPMENT`
+
+### `submission/assemblyai/01_PROJECT_TITLE.md`
+- **PATH:** `submission/assemblyai/01_PROJECT_TITLE.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 01_PROJECT_TITLE.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`
+
+### `submission/assemblyai/02_SHORT_DESCRIPTION.md`
+- **PATH:** `submission/assemblyai/02_SHORT_DESCRIPTION.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 02_SHORT_DESCRIPTION.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`
+
+### `submission/assemblyai/03_LONG_DESCRIPTION.md`
+- **PATH:** `submission/assemblyai/03_LONG_DESCRIPTION.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 03_LONG_DESCRIPTION.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`
+
+### `submission/assemblyai/04_TECHNOLOGY_TAGS.md`
+- **PATH:** `submission/assemblyai/04_TECHNOLOGY_TAGS.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 04_TECHNOLOGY_TAGS.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`
+
+### `submission/assemblyai/05_DEMO_SCRIPT.md`
+- **PATH:** `submission/assemblyai/05_DEMO_SCRIPT.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 05_DEMO_SCRIPT.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`
+
+### `submission/assemblyai/06_SLIDE_OUTLINE.md`
+- **PATH:** `submission/assemblyai/06_SLIDE_OUTLINE.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 06_SLIDE_OUTLINE.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`
+
+### `submission/assemblyai/07_README_SUBMISSION.md`
+- **PATH:** `submission/assemblyai/07_README_SUBMISSION.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 07_README_SUBMISSION.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`
+
+### `submission/assemblyai/08_JUDGE_TEST_INSTRUCTIONS.md`
+- **PATH:** `submission/assemblyai/08_JUDGE_TEST_INSTRUCTIONS.md`
+- **TYPE:** .md
+- **PURPOSE:** Official AssemblyAI Hackathon submission artifact: 08_JUDGE_TEST_INSTRUCTIONS.md
+- **OWNER/SUBSYSTEM:** Hackathon Submission Material
+- **RUNTIME USE:** NO
+- **TEST USE:** NO
+- **BUILD USE:** NO
+- **DOCUMENTATION USE:** YES
+- **ECC USE:** NO
+- **DEPLOYMENT USE:** NO
+- **ASSEMBLYAI RELEVANCE:** YES
+- **SHIPATON/REVENUECAT RELEVANCE:** NO
+- **DUPLICATE:** NO
+- **UNUSED:** NO
+- **OBSOLETE:** NO
+- **UNRELATED:** NO
+- **SAFE TO DELETE:** NO
+- **REASON:** Submission documentation required by hackathon submission guidelines
+- **CLASSIFICATION:** `REQUIRED`

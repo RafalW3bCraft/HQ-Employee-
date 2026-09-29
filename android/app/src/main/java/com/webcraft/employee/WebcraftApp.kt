@@ -24,14 +24,35 @@ import com.webcraft.employee.domain.repository.BillingRepository
 
 import com.webcraft.employee.data.fake.FakeVoiceCallRepository
 import com.webcraft.employee.domain.repository.VoiceCallRepository
+import com.webcraft.employee.data.network.NetworkBillingRepository
+import com.webcraft.employee.data.network.NetworkCompanyBrainRepository
+import com.webcraft.employee.data.network.NetworkEmployeeRepository
+import com.webcraft.employee.data.network.NetworkLeadRepository
+import com.webcraft.employee.data.network.NetworkMeetingRepository
+import com.webcraft.employee.data.network.NetworkVoiceCallRepository
 
-class AppContainer {
-    val leadRepository: LeadRepository by lazy { FakeLeadRepository() }
-    val meetingRepository: MeetingRepository by lazy { FakeMeetingRepository() }
-    val employeeRepository: EmployeeRepository by lazy { FakeEmployeeRepository() }
-    val companyBrainRepository: CompanyBrainRepository by lazy { FakeCompanyBrainRepository() }
-    val voiceCallRepository: VoiceCallRepository by lazy { FakeVoiceCallRepository() }
-    val billingRepository: BillingRepository by lazy { FakeBillingRepository() }
+class AppContainer(
+    private val isProduction: Boolean = true,
+    private val apiBaseUrl: String = "https://hq-employee.web.app"
+) {
+    val leadRepository: LeadRepository by lazy {
+        if (isProduction) NetworkLeadRepository(apiBaseUrl) else FakeLeadRepository()
+    }
+    val meetingRepository: MeetingRepository by lazy {
+        if (isProduction) NetworkMeetingRepository(apiBaseUrl) else FakeMeetingRepository()
+    }
+    val employeeRepository: EmployeeRepository by lazy {
+        if (isProduction) NetworkEmployeeRepository(apiBaseUrl) else FakeEmployeeRepository()
+    }
+    val companyBrainRepository: CompanyBrainRepository by lazy {
+        if (isProduction) NetworkCompanyBrainRepository(apiBaseUrl) else FakeCompanyBrainRepository()
+    }
+    val voiceCallRepository: VoiceCallRepository by lazy {
+        if (isProduction) NetworkVoiceCallRepository(apiBaseUrl) else FakeVoiceCallRepository()
+    }
+    val billingRepository: BillingRepository by lazy {
+        if (isProduction) NetworkBillingRepository(apiBaseUrl) else FakeBillingRepository()
+    }
 
     val getDashboardDataUseCase by lazy {
         GetDashboardDataUseCase(leadRepository, meetingRepository)

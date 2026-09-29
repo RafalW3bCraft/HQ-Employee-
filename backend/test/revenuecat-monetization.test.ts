@@ -384,4 +384,116 @@ describe('RevenueCat Monetization & Authoritative Credit Ledger Integration', ()
     assert.ok(adj);
     assert.strictEqual(adj.amount, 15);
   });
+
+  // --------------------------------------------------------------------------
+  // TEST 11: First-time User Welcome Grant (1000 Credits)
+  // --------------------------------------------------------------------------
+  it('11. grants exactly 1000 free credits to new user on onboarding with WELCOME_GRANT', async () => {
+    const freshCompanyId = '00000000-0000-0000-0000-000000000099';
+    const res = await server.inject({
+      method: 'POST',
+      url: '/api/billing/welcome-grant',
+      payload: {
+        companyId: freshCompanyId,
+        userId: 'user-fresh-01',
+      },
+    });
+
+    assert.strictEqual(res.statusCode, 200);
+    const body = JSON.parse(res.payload);
+    assert.strictEqual(body.granted, true);
+    assert.strictEqual(body.wallet.balance, 1000);
+    assert.strictEqual(body.wallet.available, 1000);
+    assert.strictEqual(body.transaction.type, 'WELCOME_GRANT');
+    assert.strictEqual(body.transaction.amount, 1000);
+    assert.strictEqual(body.transaction.idempotencyKey, `welcome_grant_${freshCompanyId}`);
+  });
+
+  // --------------------------------------------------------------------------
+  // TEST 12: Idempotent Replay Protection (Still 1000 Credits)
+  // --------------------------------------------------------------------------
+  it('12. prevents duplicate welcome grant on repeated requests, relogins, or reinstall', async () => {
+    const freshCompanyId = '00000000-0000-0000-0000-000000000099';
+    // Initial grant on registration
+    const firstRes = await server.inject({
+      method: 'POST',
+      url: '/api/billing/welcome-grant',
+      payload: {
+        companyId: freshCompanyId,
+        userId: 'user-fresh-01',
+      },
+    });
+    assert.strictEqual(firstRes.statusCode, 200);
+    assert.strictEqual(JSON.parse(firstRes.payload).granted, true);
+
+    // Second request (e.g. user re-logins, re-installs app, or replays request)
+    const res = await server.inject({
+      method: 'POST',
+      url: '/api/billing/welcome-grant',
+      payload: {
+        companyId: freshCompanyId,
+        userId: 'user-fresh-01-relogin',
+      },
+    });
+
+    assert.strictEqual(res.statusCode, 200);
+    const body = JSON.parse(res.payload);
+    assert.strictEqual(body.granted, false);
+    assert.strictEqual(body.wallet.balance, 1000);
+    assert.strictEqual(body.wallet.available, 1000);
+  });
+
+  // --------------------------------------------------------------------------
+  // TEST 13: Concurrency Protection (Exactly One Grant)
+  // --------------------------------------------------------------------------
+  it('13. guarantees concurrency safety under parallel welcome grant requests', async () => {
+    const concurrentCompanyId = '00000000-0000-0000-0000-000000000088';
+    const [res1, res2, res3] = await Promise.all([
+      server.inject({
+        method: 'POST',
+        url: '/api/billing/welcome-grant',
+        payload: { companyId: concurrentCompanyId, userId: 'worker-1' },
+      }),
+      server.inject({
+        method: 'POST',
+        url: '/api/billing/welcome-grant',
+        payload: { companyId: concurrentCompanyId, userId: 'worker-2' },
+      }),
+      server.inject({
+        method: 'POST',
+        url: '/api/billing/welcome-grant',
+        payload: { companyId: concurrentCompanyId, userId: 'worker-3' },
+      }),
+    ]);
+
+    assert.strictEqual(res1.statusCode, 200);
+    assert.strictEqual(res2.statusCode, 200);
+    assert.strictEqual(res3.statusCode, 200);
+
+    const b1 = JSON.parse(res1.payload);
+    const b2 = JSON.parse(res2.payload);
+    const b3 = JSON.parse(res3.payload);
+
+    const grantedCount = [b1.granted, b2.granted, b3.granted].filter(Boolean).length;
+    assert.strictEqual(grantedCount, 1);
+
+    const finalWallet = await defaultBillingService.getWallet(concurrentCompanyId);
+    assert.strictEqual(finalWallet.balance, 1000);
+  });
+
+  // --------------------------------------------------------------------------
+  // TEST 14: Tenant Isolation on Credit Ledgers
+  // --------------------------------------------------------------------------
+  it('14. maintains strict cross-tenant credit wallet isolation', async () => {
+    const tenantA = '00000000-0000-0000-0000-000000000077';
+    const tenantB = '00000000-0000-0000-0000-000000000066';
+
+    await defaultBillingService.grantWelcomeCredits(tenantA);
+    const walletA = await defaultBillingService.getWallet(tenantA);
+    const walletB = await defaultBillingService.getWallet(tenantB);
+
+    assert.strictEqual(walletA.balance, 1000);
+    assert.strictEqual(walletB.balance, 0); // Tenant B has not received grant yet
+  });
 });
+

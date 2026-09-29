@@ -17,7 +17,8 @@ export type CreditTransactionType =
   | 'CONSUMPTION'
   | 'RELEASE'
   | 'REFUND'
-  | 'ADJUSTMENT';
+  | 'ADJUSTMENT'
+  | 'WELCOME_GRANT';
 
 export interface CreditWallet {
   id: string;
@@ -97,16 +98,32 @@ export class InMemoryBillingRepository implements BillingRepository {
   private idempotencyIndex = new Map<string, string>(); // idempotencyKey -> txId
 
   constructor() {
-    // Seed default company with starting balance of 1000 credits
+    // Seed default company with starting balance of 1000 credits via WELCOME_GRANT
     const defaultCompanyId = '00000000-0000-0000-0000-000000000001';
+    const walletId = randomUUID();
+    const now = new Date().toISOString();
     this.wallets.set(defaultCompanyId, {
-      id: randomUUID(),
+      id: walletId,
       companyId: defaultCompanyId,
       balance: 1000,
       reserved: 0,
       available: 1000,
-      updatedAt: new Date().toISOString(),
+      updatedAt: now,
     });
+    const txId = randomUUID();
+    const tx: CreditTransaction = {
+      id: txId,
+      walletId,
+      companyId: defaultCompanyId,
+      type: 'WELCOME_GRANT',
+      amount: 1000,
+      idempotencyKey: `welcome_grant_${defaultCompanyId}`,
+      referenceId: defaultCompanyId,
+      description: 'First-time user welcome grant of 1000 free credits',
+      createdAt: now,
+    };
+    this.transactions.set(txId, tx);
+    this.idempotencyIndex.set(tx.idempotencyKey, txId);
   }
 
   async getWallet(companyId: string): Promise<CreditWallet> {
@@ -198,6 +215,33 @@ export class BillingService {
   }
 
   /**
+   * Authoritatively grant 1000 free welcome credits to a newly onboarded company/user.
+   * Strictly server-authoritative, atomic, and idempotent.
+   */
+  async grantWelcomeCredits(
+    companyId: string,
+    userId?: string
+  ): Promise<{ granted: boolean; wallet: CreditWallet; transaction: CreditTransaction }> {
+    const idempotencyKey = `welcome_grant_${companyId}`;
+    const existing = await this.repository.getTransactionByIdempotencyKey(idempotencyKey);
+    if (existing) {
+      const currentWallet = await this.repository.getWallet(companyId);
+      return { granted: false, wallet: currentWallet, transaction: existing };
+    }
+
+    const tx = await this.recordTransaction(companyId, {
+      type: 'WELCOME_GRANT',
+      amount: 1000,
+      idempotencyKey,
+      referenceId: userId || companyId,
+      description: 'First-time user welcome grant of 1000 free credits',
+    });
+
+    const updatedWallet = await this.repository.getWallet(companyId);
+    return { granted: true, wallet: updatedWallet, transaction: tx };
+  }
+
+  /**
    * Record an authoritative ledger transaction with strict idempotency.
    * The backend owns the balance calculation.
    */
@@ -222,7 +266,8 @@ export class BillingService {
 
     // 2. Apply balance mutation rules based on transaction type
     switch (params.type) {
-      case 'PURCHASE': {
+      case 'PURCHASE':
+      case 'WELCOME_GRANT': {
         wallet.balance += params.amount;
         break;
       }

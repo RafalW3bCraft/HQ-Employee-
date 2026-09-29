@@ -7,8 +7,8 @@
 [![RevenueCat Monetization](https://img.shields.io/badge/RevenueCat-In--App%20Purchases-e11d48?style=for-the-badge&logo=revenuecat)](https://www.revenuecat.com)
 [![Fastify Backend](https://img.shields.io/badge/Fastify-TypeScript%20API-000000?style=for-the-badge&logo=fastify)](https://fastify.dev)
 [![Android Client](https://img.shields.io/badge/Android-Jetpack%20Compose-3ddc84?style=for-the-badge&logo=android)](https://developer.android.com/jetpack/compose)
-[![Tests Passing](https://img.shields.io/badge/Tests-142%2F142%20Passed-10b981?style=for-the-badge)](file:///home/sp3ct0r/employee/backend/test)
-[![TypeScript Strict](https://img.shields.io/badge/TypeScript-Strict%20Mode-3178c6?style=for-the-badge&logo=typescript)](file:///home/sp3ct0r/employee/backend/tsconfig.json)
+[![Tests Passing](https://img.shields.io/badge/Tests-156%2F156%20Passed-10b981?style=for-the-badge)](file:///home/watcher/Desktop/employee/backend/test)
+[![TypeScript Strict](https://img.shields.io/badge/TypeScript-Strict%20Mode-3178c6?style=for-the-badge&logo=typescript)](file:///home/watcher/Desktop/employee/backend/tsconfig.json)
 
 **The Autonomous, Governed AI Sales & Client Coordinator for Rafal Webcraft**
 
@@ -60,7 +60,7 @@ HQ Employee is architected to run immediately in any environment. An in-memory f
 4. Click **Copy** to clipboard.
 5. In your project, open or create [`backend/.env`](file:///home/sp3ct0r/employee/backend/.env) and set:
    ```env
-   ASSEMBLYAI_API_KEY=7bdca5e023144a98a0xxxxxxxxxxxxxx
+   ASSEMBLYAI_API_KEY=your_assemblyai_api_key_here
    ```
    > ⚠️ **Security Architecture Rule:** The raw `ASSEMBLYAI_API_KEY` is **strictly kept on the backend**. It is NEVER bundled in the Android APK or exposed to browser JavaScript. Web and mobile clients request single-use, short-lived session tokens via `GET /api/voice/token`.
 

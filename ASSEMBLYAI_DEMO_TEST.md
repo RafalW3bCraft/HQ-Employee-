@@ -49,11 +49,11 @@ Browser requirements:
 
 **1.1 — Health check**
 ```
-GET http://localhost:3000/api/health
+GET http://localhost:3000/health
 ```
 Expected:
 ```json
-{ "status": "healthy", "service": "hq-employee-api" }
+{ "status": "ok", "service": "hq-employee-api", "version": "0.1.0", "uptime": <seconds> }
 ```
 
 **1.2 — Session configuration + 13 tools**
