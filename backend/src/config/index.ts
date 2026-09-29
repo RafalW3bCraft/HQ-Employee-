@@ -63,6 +63,18 @@ const configSchema = z.object({
         path: ['ASSEMBLYAI_API_KEY'],
       });
     }
+    // Reject localhost DATABASE_URL in production — Cloud Run has no local PG
+    if (
+      data.DATABASE_URL.includes('localhost') ||
+      data.DATABASE_URL.includes('127.0.0.1') ||
+      data.DATABASE_URL.includes('@localhost:')
+    ) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'DATABASE_URL must not use localhost in production. Set a real Neon/PostgreSQL URL.',
+        path: ['DATABASE_URL'],
+      });
+    }
   }
 });
 

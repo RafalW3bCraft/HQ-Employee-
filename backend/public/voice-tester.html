@@ -687,6 +687,9 @@ class PCMProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
     this._muted = false;
+    this._targetRate = 24000;
+    this._phase = 0;
+    this._lastSample = 0;
     this.port.onmessage = (e) => {
       if (e.data && e.data.type === 'mute') this._muted = e.data.value;
     };
@@ -694,12 +697,38 @@ class PCMProcessor extends AudioWorkletProcessor {
   process(inputs) {
     const input = inputs[0] && inputs[0][0];
     if (input && !this._muted) {
-      const pcm16 = new Int16Array(input.length);
-      for (let i = 0; i < input.length; i++) {
-        const s = Math.max(-1, Math.min(1, input[i]));
-        pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+      if (sampleRate === this._targetRate) {
+        const pcm16 = new Int16Array(input.length);
+        for (let i = 0; i < input.length; i++) {
+          const s = Math.max(-1, Math.min(1, input[i]));
+          pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+        }
+        this.port.postMessage(pcm16.buffer, [pcm16.buffer]);
+      } else {
+        const step = sampleRate / this._targetRate;
+        const maxOut = Math.ceil(input.length / step) + 2;
+        const pcm16 = new Int16Array(maxOut);
+        let outIdx = 0;
+        while (this._phase < input.length) {
+          const idx0 = Math.floor(this._phase);
+          const frac = this._phase - idx0;
+          const s0 = (idx0 === 0 && this._phase < 1)
+            ? (this._lastSample * (1 - frac) + input[0] * frac)
+            : input[idx0];
+          const s1 = (idx0 + 1 < input.length) ? input[idx0 + 1] : input[input.length - 1];
+          const val = s0 * (1 - frac) + s1 * frac;
+          const s = Math.max(-1, Math.min(1, val));
+          pcm16[outIdx++] = s < 0 ? s * 0x8000 : s * 0x7FFF;
+          this._phase += step;
+        }
+        this._phase -= input.length;
+        this._lastSample = input[input.length - 1];
+
+        if (outIdx > 0) {
+          const trimmed = pcm16.slice(0, outIdx);
+          this.port.postMessage(trimmed.buffer, [trimmed.buffer]);
+        }
       }
-      this.port.postMessage(pcm16.buffer, [pcm16.buffer]);
     }
     return true;
   }
@@ -718,6 +747,33 @@ registerProcessor('pcm-processor', PCMProcessor);
     let mediaStream      = null;
     let playbackTime     = 0;      // next scheduled playback position
     let currentCallId    = null;
+
+    // ── API Origin Configuration ─────────────────────────────────────────────
+    // Supports deployment from Firebase Hosting (different origin from Cloud Run).
+    // Priority: window.__HQ_API_BASE__ > URL param ?apiBase= > same origin.
+    // apiBase example:  https://api.hq-employee.run.app
+    // wsBase  example:  wss://api.hq-employee.run.app
+    // ── Firebase Web App Configuration ──────────────────────────────────────
+    window.firebaseConfig = {
+      apiKey: "AIzaSyCXh1O7V_ZaaJ4YGRqw_JMzO60es7T4j4M",
+      authDomain: "hq-employee.firebaseapp.com",
+      projectId: "hq-employee",
+      storageBucket: "hq-employee.firebasestorage.app",
+      messagingSenderId: "455918213015",
+      appId: "1:455918213015:web:e6db0e9b6403ba47ce96d2",
+      measurementId: "G-B31HC215D9"
+    };
+
+    const urlParams   = new URLSearchParams(window.location.search);
+    const apiBase     = (window.__HQ_API_BASE__  ||
+                         urlParams.get('apiBase') ||
+                         '').replace(/\/$/, '');
+    const wsProto     = (apiBase.startsWith('https://') ? 'wss' :
+                         apiBase.startsWith('http://')  ? 'ws'  :
+                         window.location.protocol === 'https:' ? 'wss' : 'ws');
+    const wsOrigin    = apiBase
+                        ? apiBase.replace(/^https?:/, wsProto + ':')
+                        : `${wsProto}://${window.location.host}`;
 
     // ── DOM Elements ────────────────────────────────────────────────────────
     const startBtn       = document.getElementById('startBtn');
@@ -829,7 +885,7 @@ registerProcessor('pcm-processor', PCMProcessor);
     // Backend CreditWallet shape: { balance, reserved, available }
     async function syncWallet() {
       try {
-        const res = await fetch('/api/billing/wallet');
+        const res = await fetch(`${apiBase}/api/billing/wallet`);
         if (res.ok) {
           const data = await res.json();
           const avail    = data.available    ?? data.availableCredits ?? '--';
@@ -880,11 +936,14 @@ registerProcessor('pcm-processor', PCMProcessor);
 
     // ── Microphone Capture ───────────────────────────────────────────────────
     async function startMicCapture() {
-      // Create AudioContext at 24kHz (matches AssemblyAI PCM16 expectation).
-      // Chrome/Edge honour this exactly. Firefox/Safari may use their default
-      // rate; the worklet will still produce PCM16 at whatever rate the context
-      // runs at — AssemblyAI tolerates minor rate mismatches and re-samples.
-      audioCtx     = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: 24000 });
+      // Create AudioContext at the browser/hardware native sample rate.
+      // Explicitly forcing { sampleRate: 24000 } causes Firefox and Linux/macOS audio drivers
+      // to throw "Connecting AudioNodes from AudioContexts with different sample-rate is currently not supported."
+      // The PCM AudioWorklet processor dynamically resamples audio to 24,000 Hz for AssemblyAI.
+      audioCtx     = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') {
+        await audioCtx.resume();
+      }
       playbackTime = audioCtx.currentTime;
 
       // Inline the processor as a Blob URL so this stays a single HTML file.
@@ -894,7 +953,7 @@ registerProcessor('pcm-processor', PCMProcessor);
       URL.revokeObjectURL(blobUrl);
 
       mediaStream  = await navigator.mediaDevices.getUserMedia({
-        audio: { echoCancellation: true, noiseSuppression: false, sampleRate: 24000 }
+        audio: { echoCancellation: true, noiseSuppression: false }
       });
 
       micSource       = audioCtx.createMediaStreamSource(mediaStream);
@@ -935,8 +994,7 @@ registerProcessor('pcm-processor', PCMProcessor);
         await startMicCapture();
 
         turnStatus.textContent = 'Connecting to HQ-Employee backend...';
-        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const wsUrl    = `${protocol}//${window.location.host}/api/voice/ws`;
+        const wsUrl    = `${wsOrigin}/api/voice/ws`;
         ws             = new WebSocket(wsUrl);
 
         ws.onopen = () => {
@@ -1096,7 +1154,7 @@ registerProcessor('pcm-processor', PCMProcessor);
     // ── Sandbox Tool Calling Triggers ────────────────────────────────────────
     async function executeMockTool(name, args) {
       try {
-        const res = await fetch('/api/voice/tools/execute', {
+        const res = await fetch(`${apiBase}/api/voice/tools/execute`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1146,7 +1204,7 @@ registerProcessor('pcm-processor', PCMProcessor);
 
     document.getElementById('testPurchaseGrowthBtn').onclick = async () => {
       try {
-        const res = await fetch('/api/billing/reconcile', {
+        const res = await fetch(`${apiBase}/api/billing/reconcile`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

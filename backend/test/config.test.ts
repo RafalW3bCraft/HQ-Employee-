@@ -40,4 +40,50 @@ describe('Configuration Module Validation', () => {
       loadConfig(invalidEnv);
     }, /Invalid application configuration/);
   });
+
+  it('fails closed in production if JWT_SECRET is missing', () => {
+    assert.throws(() => {
+      loadConfig({
+        NODE_ENV: 'production',
+        DATABASE_URL: 'postgresql://prod:secret@ep-cool-db.us-east-2.aws.neon.tech/neondb?sslmode=require',
+        ASSEMBLYAI_API_KEY: 'real_production_key_abc123',
+      });
+    }, /JWT_SECRET is required in production/);
+  });
+
+  it('fails closed in production if ASSEMBLYAI_API_KEY uses dummy testing key', () => {
+    assert.throws(() => {
+      loadConfig({
+        NODE_ENV: 'production',
+        DATABASE_URL: 'postgresql://prod:secret@ep-cool-db.us-east-2.aws.neon.tech/neondb?sslmode=require',
+        ASSEMBLYAI_API_KEY: 'dummy_dev_key_for_testing',
+        JWT_SECRET: 'super-secure-production-jwt-secret-key-32chars',
+        ALLOWED_ORIGINS: 'https://hq.example.com',
+      });
+    }, /ASSEMBLYAI_API_KEY must be set to a real key in production/);
+  });
+
+  it('fails closed in production if DATABASE_URL points to localhost', () => {
+    assert.throws(() => {
+      loadConfig({
+        NODE_ENV: 'production',
+        DATABASE_URL: 'postgresql://user:pass@localhost:5432/db',
+        ASSEMBLYAI_API_KEY: 'real_production_key_abc123',
+        JWT_SECRET: 'super-secure-production-jwt-secret-key-32chars',
+        ALLOWED_ORIGINS: 'https://hq.example.com',
+      });
+    }, /DATABASE_URL must not use localhost in production/);
+  });
+
+  it('succeeds in production when all production credentials and non-local database are supplied', () => {
+    const prodCfg = loadConfig({
+      NODE_ENV: 'production',
+      DATABASE_URL: 'postgresql://prod:secret@ep-cool-db.us-east-2.aws.neon.tech/neondb?sslmode=require',
+      ASSEMBLYAI_API_KEY: 'real_production_key_abc123',
+      JWT_SECRET: 'super-secure-production-jwt-secret-key-32chars',
+      ALLOWED_ORIGINS: 'https://hq.example.com',
+    });
+    assert.strictEqual(prodCfg.NODE_ENV, 'production');
+    assert.strictEqual(prodCfg.JWT_SECRET, 'super-secure-production-jwt-secret-key-32chars');
+  });
 });

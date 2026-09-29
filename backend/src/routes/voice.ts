@@ -177,13 +177,26 @@ export const voiceRoutes: FastifyPluginAsync = async (fastify) => {
                     isError: execution.isError,
                   });
 
-                  pendingTools.push({
-                    call_id: toolCallId,
-                    result: execution.result,
-                    is_error: execution.isError,
-                  });
+                  // Send tool.result IMMEDIATELY — AssemblyAI is waiting for this before it can continue
+                  if (assemblyWs && assemblyWs.readyState === 1 /* OPEN */) {
+                    assemblyWs.send(
+                      JSON.stringify({
+                        type: 'tool.result',
+                        call_id: toolCallId,
+                        result: execution.result,
+                        is_error: execution.isError,
+                      })
+                    );
+                  } else {
+                    // Fallback: queue if socket is temporarily unavailable
+                    pendingTools.push({
+                      call_id: toolCallId,
+                      result: execution.result,
+                      is_error: execution.isError,
+                    });
+                  }
 
-                  // Broadcast tool activity to client
+                  // Broadcast tool activity to browser client (Tool Feed UI)
                   socket.send(
                     JSON.stringify({
                       type: 'voice.tool_activity',
@@ -200,8 +213,6 @@ export const voiceRoutes: FastifyPluginAsync = async (fastify) => {
                       },
                     })
                   );
-
-                  flushPendingTools();
                 }
 
                 if (eventType === 'reply.started' || eventType === 'input.speech.started') {

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "skills": {
+    "extension-to-functions-codebase": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/extension-to-functions-codebase/SKILL.md",
+      "computedHash": "4597667cb7548b9906708ff0e5fdc1043a59119d2cb32cba1142c03e8a85f315"
+    },
+    "firebase-ai-logic-basics": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-ai-logic-basics/SKILL.md",
+      "computedHash": "9fb678d0c441ab8b2b5820816b726b5a40a26c6f81f7f46e5570ca31e6c84052"
+    },
+    "firebase-app-hosting-basics": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-app-hosting-basics/SKILL.md",
+      "computedHash": "e32ac489690e6c04bf6a71ce965918fe65a192e9992e6ed887c572d7733621c2"
+    },
+    "firebase-auth-basics": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-auth-basics/SKILL.md",
+      "computedHash": "872628e6958002c6670dc56bdb1e18b296f6742deb86110f8ee694aab25ddb42"
+    },
+    "firebase-basics": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-basics/SKILL.md",
+      "computedHash": "6ed16b8a4dc758b00810c2e0814cb6044f45852c3bc016938b9c0feae231d74e"
+    },
+    "firebase-crashlytics": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-crashlytics/SKILL.md",
+      "computedHash": "624c7d4b4a31aec138cb6a1dcce98258b9aced66ac81dbbada31a78b09802f79"
+    },
+    "firebase-data-connect": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-data-connect-basics/SKILL.md",
+      "computedHash": "ca3de978a8fd7ef2ae7048e155f6c5285baa7c0abb5156a3b06dccae8b36f689"
+    },
+    "firebase-firestore": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-firestore/SKILL.md",
+      "computedHash": "ceb185eeadfd5b7a0411ec93314cc13980bbc943ae26fe0103de0b7aae69d0f4"
+    },
+    "firebase-hosting-basics": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-hosting-basics/SKILL.md",
+      "computedHash": "381c7bb4200644d4a09f7f505bc5ba44b499cc74d0365d69bd3e313ea0865297"
+    },
+    "firebase-remote-config-basics": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-remote-config-basics/SKILL.md",
+      "computedHash": "cccf0ae250cb08a9226b956e3ee90c9838e250dee3cf8736560a453e7831bb26"
+    },
+    "firebase-security-rules-auditor": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firebase-security-rules-auditor/SKILL.md",
+      "computedHash": "f7c7565c93d0faf7c1d8e692a805d06c2794f39a0d9945634f3cd46860593517"
+    },
+    "firestore-rules-creation": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/firestore-rules-creation/SKILL.md",
+      "computedHash": "93f2a2f1a507eccd6dd4f060b3278fdeb902992d16eb8a6c3beaf68bf5fffae0"
+    },
+    "xcode-project-setup": {
+      "source": "firebase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/xcode-project-setup/SKILL.md",
+      "computedHash": "013d7ac834eac9b6dc761ed92b9b21f3513feb897acf021c8fea71da1cccd9f0"
+    }
+  }
+}
