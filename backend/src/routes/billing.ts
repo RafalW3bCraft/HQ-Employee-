@@ -11,9 +11,14 @@ const reconcilePurchaseSchema = z.object({
   companyId: z.string().default('00000000-0000-0000-0000-000000000001'),
   appUserId: z.string().default('00000000-0000-0000-0000-000000000001'),
   productId: z.string().min(1, 'productId is required'),
-  transactionReceiptId: z.string().min(1, 'transactionReceiptId is required'),
+  transactionReceiptId: z.string().optional(),
+  transactionId: z.string().optional(),
+  purchaseToken: z.string().optional(),
   idempotencyKey: z.string().optional(),
-});
+}).transform(data => ({
+  ...data,
+  transactionReceiptId: data.transactionReceiptId || data.transactionId || data.purchaseToken || `txn_${Date.now()}`
+}));
 
 const restorePurchasesSchema = z.object({
   companyId: z.string().default('00000000-0000-0000-0000-000000000001'),

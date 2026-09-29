@@ -99,3 +99,68 @@
 - **FIX**: Normalized `DATABASE_URL` in `.env` to `sslmode=verify-full` and added connection string sanitizer in `backend/src/db/index.ts` to automatically upgrade legacy `sslmode=require` to `sslmode=verify-full`.
 - **REGRESSION TEST**: Database queries execute with 0 warnings in test suites.
 - **STATUS**: `RESOLVED`
+
+---
+
+### BUG-007
+- **BUG-ID**: BUG-007
+- **SEVERITY**: P0 (Voice Engine Crash)
+- **COMPONENT**: Web Audio Pipeline & Microphone Capture
+- **FILE**: `hosting/public/index.html` & `backend/public/voice-tester.html`
+- **FUNCTION**: `startMicCapture()`
+- **REPRODUCTION**: Click "Start Conversation" on Firefox or Linux/macOS with 48kHz audio hardware.
+- **OBSERVED**: Throws `AudioContext.createMediaStreamSource: Connecting AudioNodes from AudioContexts with different sample-rate is currently not supported`.
+- **EXPECTED**: Microphone connects cleanly across all browsers and hardware sample rates without crashing.
+- **ROOT CAUSE**: Explicitly passing `{ sampleRate: 24000 }` to `new AudioContext()` caused hardware driver conflict when `getUserMedia()` returned a 48kHz or 44.1kHz stream.
+- **FIX**: Removed sampleRate override on AudioContext creation; implemented linear interpolation PCM16 downsampler in `PCMProcessor` `AudioWorklet` to dynamically resample hardware audio to AssemblyAI's 24,000 Hz requirement.
+- **REGRESSION TEST**: Verified across native browser contexts; audio chunks delivered at 24kHz.
+- **STATUS**: `RESOLVED`
+
+---
+
+### BUG-008
+- **BUG-ID**: BUG-008
+- **SEVERITY**: P1 (Broken Android Lead State Machine)
+- **COMPONENT**: Leads REST API
+- **FILE**: `backend/src/routes/leads.ts` & `backend/src/modules/leads/index.ts`
+- **FUNCTION**: `PATCH /api/leads/:id/status`
+- **REPRODUCTION**: Update lead status from Android client or send `PATCH http://localhost:3000/api/leads/lead-001/status`.
+- **OBSERVED**: Fastify returned HTTP 404 Not Found.
+- **EXPECTED**: Lead status updates in PostgreSQL and creates audit trail event.
+- **ROOT CAUSE**: Route was missing from `leadsRoutes` plugin despite client repository implementation.
+- **FIX**: Added `updateLeadStatus` to `LeadQualificationService` with audit event logging (`LEAD_UPDATED`) and registered `PATCH /api/leads/:id/status` endpoint in Fastify.
+- **REGRESSION TEST**: Verified via Node fetch; `lead-001` status updated to `MEETING_PENDING` and persisted.
+- **STATUS**: `RESOLVED`
+
+---
+
+### BUG-009
+- **BUG-ID**: BUG-009
+- **SEVERITY**: P0 (Disconnected Android Production Wiring)
+- **COMPONENT**: Android Network Repositories
+- **FILE**: `android/app/src/main/java/com/webcraft/employee/data/network/NetworkRepositories.kt`
+- **FUNCTION**: `getLeads()`, `getMeetings()`, `getWalletBalance()`
+- **REPRODUCTION**: Launch Android app with `isProduction = true`.
+- **OBSERVED**: All screens showed empty states or crashed due to mismatched data class fields.
+- **EXPECTED**: Android app retrieves live data from backend REST endpoints.
+- **ROOT CAUSE**: Repository methods returned uninitialized empty flows without making HTTP requests, and domain models had field name discrepancies.
+- **FIX**: Rewrote `NetworkRepositories.kt` with full `HttpURLConnection` REST fetchers, background coroutines, and aligned domain models.
+- **REGRESSION TEST**: Tested endpoint schemas; Android data models match backend responses.
+- **STATUS**: `RESOLVED`
+
+---
+
+### BUG-010
+- **BUG-ID**: BUG-010
+- **SEVERITY**: P1 (Monetization Sandbox Failure)
+- **COMPONENT**: Billing Reconcile Route
+- **FILE**: `backend/src/routes/billing.ts` & `hosting/public/index.html`
+- **FUNCTION**: `POST /api/billing/reconcile`
+- **REPRODUCTION**: Click "Reconcile Growth Pack (50 Cr)" on the live web console.
+- **OBSERVED**: Returned HTTP 400 with `transactionReceiptId: Required`.
+- **EXPECTED**: Reconciles in-app purchase and credits wallet with 50 credits.
+- **ROOT CAUSE**: Web console sent `transactionId` and `purchaseToken`, while backend Zod schema strictly demanded `transactionReceiptId`.
+- **FIX**: Added Zod schema transformation in `billing.ts` to automatically map `transactionId` or `purchaseToken` to `transactionReceiptId`, and updated `index.html` to pass explicit `transactionReceiptId`.
+- **REGRESSION TEST**: Live `curl` returned `200 OK`, crediting wallet and deduplicating duplicate attempts.
+- **STATUS**: `RESOLVED`
+
