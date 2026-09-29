@@ -55,7 +55,7 @@ class AppContainer(
     }
 
     val getDashboardDataUseCase by lazy {
-        GetDashboardDataUseCase(leadRepository, meetingRepository)
+        GetDashboardDataUseCase(leadRepository, meetingRepository, billingRepository)
     }
     val getLeadsUseCase by lazy {
         GetLeadsUseCase(leadRepository)

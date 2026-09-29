@@ -50,7 +50,12 @@ import com.webcraft.employee.presentation.theme.IndigoPrimary
 @Composable
 fun DashboardScreen(
     viewModel: DashboardViewModel,
-    onLeadClick: (String) -> Unit
+    onLeadClick: (String) -> Unit,
+    onStartEmployeeClick: () -> Unit = {},
+    onNavigateToLeads: () -> Unit = {},
+    onNavigateToMeetings: () -> Unit = {},
+    onNavigateToBrain: () -> Unit = {},
+    onNavigateToBilling: () -> Unit = {}
 ) {
     val state by viewModel.uiState.collectAsState()
 
@@ -66,7 +71,15 @@ fun DashboardScreen(
             }
         }
         is DashboardUiState.Success -> {
-            ControlCenterContent(stats = currentState.stats, onLeadClick = onLeadClick)
+            ControlCenterContent(
+                stats = currentState.stats,
+                onLeadClick = onLeadClick,
+                onStartEmployeeClick = onStartEmployeeClick,
+                onNavigateToLeads = onNavigateToLeads,
+                onNavigateToMeetings = onNavigateToMeetings,
+                onNavigateToBrain = onNavigateToBrain,
+                onNavigateToBilling = onNavigateToBilling
+            )
         }
     }
 }
@@ -74,7 +87,12 @@ fun DashboardScreen(
 @Composable
 private fun ControlCenterContent(
     stats: DashboardStats,
-    onLeadClick: (String) -> Unit
+    onLeadClick: (String) -> Unit,
+    onStartEmployeeClick: () -> Unit,
+    onNavigateToLeads: () -> Unit,
+    onNavigateToMeetings: () -> Unit,
+    onNavigateToBrain: () -> Unit,
+    onNavigateToBilling: () -> Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -123,9 +141,9 @@ private fun ControlCenterContent(
 
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // Primary Action: START EMPLOYEE
+                    // Primary Action: START EMPLOYEE (Auto-proceed to Employee Console)
                     Button(
-                        onClick = { /* Start full-duplex session */ },
+                        onClick = onStartEmployeeClick,
                         modifier = Modifier.fillMaxWidth(),
                         colors = ButtonDefaults.buttonColors(containerColor = IndigoPrimary),
                         shape = RoundedCornerShape(10.dp)
@@ -147,7 +165,11 @@ private fun ControlCenterContent(
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Column(modifier = Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    ActivityRow(label = "Current Lead", value = stats.recentLeads.firstOrNull()?.fullName ?: "Waiting for next lead")
+                    val activeLead = stats.recentLeads.firstOrNull()
+                    ActivityRow(
+                        label = "Current Lead",
+                        value = activeLead?.fullName ?: "Waiting for next lead"
+                    )
                     ActivityRow(label = "Current Objective", value = "Qualify Discovery Requirements")
                     ActivityRow(label = "Current Call", value = "Idle — Ready to connect via AssemblyAI")
                     ActivityRow(label = "Current Action", value = "Listening on fail-closed policy boundary")
@@ -200,10 +222,26 @@ private fun ControlCenterContent(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                QuickActionButton(modifier = Modifier.weight(1f), title = "Leads")
-                QuickActionButton(modifier = Modifier.weight(1f), title = "Meetings")
-                QuickActionButton(modifier = Modifier.weight(1f), title = "Brain")
-                QuickActionButton(modifier = Modifier.weight(1f), title = "Credits: ${stats.callCreditsRemaining}")
+                QuickActionButton(
+                    modifier = Modifier.weight(1f),
+                    title = "Leads",
+                    onClick = onNavigateToLeads
+                )
+                QuickActionButton(
+                    modifier = Modifier.weight(1f),
+                    title = "Meetings",
+                    onClick = onNavigateToMeetings
+                )
+                QuickActionButton(
+                    modifier = Modifier.weight(1f),
+                    title = "Brain",
+                    onClick = onNavigateToBrain
+                )
+                QuickActionButton(
+                    modifier = Modifier.weight(1f),
+                    title = "Credits: ${stats.callCreditsRemaining}",
+                    onClick = onNavigateToBilling
+                )
             }
         }
     }
@@ -246,9 +284,9 @@ private fun MetricCard(modifier: Modifier = Modifier, label: String, value: Stri
 }
 
 @Composable
-private fun QuickActionButton(modifier: Modifier = Modifier, title: String) {
+private fun QuickActionButton(modifier: Modifier = Modifier, title: String, onClick: () -> Unit = {}) {
     Card(
-        modifier = modifier.clickable { },
+        modifier = modifier.clickable(onClick = onClick),
         colors = CardDefaults.cardColors(containerColor = DarkSurfaceVariant),
         shape = RoundedCornerShape(8.dp)
     ) {
@@ -257,3 +295,4 @@ private fun QuickActionButton(modifier: Modifier = Modifier, title: String) {
         }
     }
 }
+

@@ -42,7 +42,12 @@ fun WebcraftNavGraph(
             AppScaffold(navController = navController, currentScreenTitle = Screen.Dashboard.title) {
                 DashboardScreen(
                     viewModel = dashboardViewModel,
-                    onLeadClick = { leadId -> navController.navigate(Screen.LeadDetail.createRoute(leadId)) }
+                    onLeadClick = { leadId -> navController.navigate(Screen.LeadDetail.createRoute(leadId)) },
+                    onStartEmployeeClick = { navController.navigate(Screen.Employee.route) },
+                    onNavigateToLeads = { navController.navigate(Screen.Leads.route) },
+                    onNavigateToMeetings = { navController.navigate(Screen.Meetings.route) },
+                    onNavigateToBrain = { navController.navigate(Screen.CompanyBrain.route) },
+                    onNavigateToBilling = { navController.navigate(Screen.Billing.route) }
                 )
             }
         }

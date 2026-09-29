@@ -1,6 +1,7 @@
 package com.webcraft.employee.presentation.common
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -45,7 +46,7 @@ data class NavItem(val screen: Screen, val icon: ImageVector, val label: String)
 fun AppScaffold(
     navController: NavController,
     currentScreenTitle: String,
-    callCreditsRemaining: Int = 45,
+    callCreditsRemaining: Int? = null,
     content: @Composable () -> Unit
 ) {
     val navBackStackEntry = navController.currentBackStackEntryAsState()
@@ -80,7 +81,7 @@ fun AppScaffold(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "$callCreditsRemaining Credits",
+                            text = if (callCreditsRemaining != null) "$callCreditsRemaining Credits" else "💳 Wallet",
                             style = MaterialTheme.typography.labelSmall,
                             color = CyanAccent
                         )
