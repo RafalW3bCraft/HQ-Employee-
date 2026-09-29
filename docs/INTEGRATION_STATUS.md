@@ -43,36 +43,56 @@ Zero generic or arbitrary execution tools (`exec`, `query`, `eval`). Every tool 
 
 ---
 
-## 2. AssemblyAI SIP & Outbound Telephony Integration
+---
 
-**Mode**: Governed Outbound Sales & Re-Engagement Telephony  
-**Endpoint**: `/api/telephony/outbound/initiate`  
+## 2. Telephony Providers (CALL-E Primary, Twilio Secondary)
 
-### 2.1 10-Step Pre-Call Validation Pipeline
-Before carrier dialing, the system enforces a strict sequential gate:
-1. **Authentication**: Requesting user must have a valid JWT with `sales` or `admin` role.
-2. **Authorization**: Caller must belong to the target company tenant.
-3. **E.164 Normalization**: Destination formatted to international standard (e.g., `+15551234567`).
-4. **Restricted Numbers**: Blocks emergency (911, 112, 999) and premium rate numbers (900).
-5. **Opt-Out (Do-Not-Call) Check**: Queries `telephony_opt_outs` table. If opted out, call is strictly rejected with `403 FORBIDDEN`.
-6. **Calling Hours Validation**: Enforces local time calling window (8:00 AM – 8:00 PM).
-7. **Credit Balance Check**: Verifies company has sufficient telephony credits.
-8. **Credit Reservation**: Atomically reserves call credits before carrier connection.
-9. **Concurrency Lock**: Prevents duplicate concurrent calls to the same active lead (`409 CONFLICT`).
-10. **Carrier Session Dispatch**: Dispatches to carrier with caller ID configured in `SIP_CALLER_ID`.
+### 2.1 Primary Carrier: CALL-E (`heycall-e.com`)
+- **Mode**: Real outbound calling via CALL-E Agentic Phone API.
+- **Base Endpoint**: `https://api.heycall-e.com/v1/calls`
+- **Webhook Endpoint**: `POST /api/webhooks/calle`
+- **Number Validation**: Strict international E.164 (`+1415...`, `+919...`).
+- **Emergency Halt**: `POST /api/telephony/emergency-stop`.
 
-### 2.2 Telephony Error Recovery & Webhook Verification
-- Carrier rejections (Busy / 486, No Answer / 480) automatically release the reserved credits and update call records with `canRetry` and exponential backoff.
-- Webhooks from carrier (`POST /api/telephony/webhooks/assemblyai`) require valid `X-AAI-Signature` HMAC.
+### 2.2 Secondary Carrier: Twilio Programmable Voice
+- **Mode**: Outbound calls via Twilio REST API + TwiML Media Streams.
+- **Webhook Endpoints**: `POST /api/webhooks/twilio/voice`, `POST /api/webhooks/twilio/status`, `POST /api/webhooks/twilio/stream`.
+
+### 2.3 AssemblyAI ↔ Telephony Bidirectional Audio Bridge
+- **Endpoint**: `WS /media-stream/:callId`
+- **Codec**: G.711 μ-law (`audio/pcmu`) at 8 kHz matching carrier stream format.
+- **Audio Lifecycle**: Twilio/Call-E media frames stream into AssemblyAI `input.audio`; AssemblyAI `reply.audio` streams back to caller; user barge-in triggers telephony `clear` event.
 
 ---
 
-## 3. RevenueCat Monetization & Ledger Integration
+## 3. Google Workspace & Google Meet Integration
+
+### 3.1 Google Calendar & Google Meet Creation
+- **Auth**: OAuth 2.0 with token refresh and backend-only credential storage.
+- **Conference Generation**: Unique Google Meet `conferenceData` request ID per meeting space.
+- **Endpoints**: `GET /api/calendar/availability`, `POST /api/calendar/events`, `GET /api/calendar/events`, `POST /api/meetings`, `POST /api/webhooks/google`.
+
+### 3.2 Live Google Meet Media Participation (WebRTC)
+- **Status**: Separated from meeting creation.
+- **Honest Disclosure**: Discloses `LIVE AI MEET MEDIA: Not configured / Not eligible (Developer Preview requirement)` unless enrolled in Google Developer Preview. Never presents fake AI conference attendance.
+
+---
+
+## 4. Bulk Outbound Campaign Engine
+
+- **State Machine**: `DRAFT`, `READY`, `RUNNING`, `PAUSED`, `DRAINING`, `COMPLETED`, `CANCELLED`.
+- **Validation**: Strict CSV parser verifying E.164, deduplicating records, filtering DNC opt-outs.
+- **Concurrency**: Governed per-number cooldown and concurrent call throttles.
+- **Endpoints**: `POST /api/campaigns`, `GET /api/campaigns`, `POST /api/campaigns/:id/start`, `/pause`, `/resume`, `/stop`, `/validate-csv`.
+
+---
+
+## 5. RevenueCat Monetization & Ledger Integration
 
 **Track**: RevenueCat Shipaton 2026 Submission Track  
 **Monetization Model**: Consumable Voice & Telephony Credit Packs (`credits_intro_10`, `credits_growth_50`, `credits_scale_200`)  
 
-### 3.1 Immutable Credit Ledger Architecture
+### 5.1 Immutable Credit Ledger Architecture
 Credit balances are not stored as arbitrary mutable integers. All changes are driven by an append-only transaction ledger in PostgreSQL:
 
 ```
@@ -87,28 +107,10 @@ Credit balances are not stored as arbitrary mutable integers. All changes are dr
         └── REFUND      (-Balance)              ──> Disputed Purchase
 ```
 
-### 3.2 RevenueCat Webhook Processing
-- Endpoint: `POST /api/billing/webhook/revenuecat`
-- Supported Event Types: `INITIAL_PURCHASE`, `RENEWAL`, `NON_RENEWING_PURCHASE`, `CANCELLATION`, `EXPIRATION`.
-- Replay Prevention: Database uniqueness constraint on `credit_transactions.idempotency_key` ensures duplicate webhook posts from network retries are 100% idempotent.
-
 ---
 
-## 4. Calendar Provider Integration
+## 6. One-Click System Health Check & Setup Center
 
-**Subsystem**: Meeting Scheduling Engine  
-**Interface**: `CalendarProvider` (`checkAvailability`, `createEvent`, `updateEvent`, `deleteEvent`)  
+- **Setup Center**: `GET /api/admin/setup` inspecting all 13 core subsystems.
+- **Diagnostics**: `GET /api/admin/health` executing 9 real-time connectivity probes returning `PASS`, `WARN`, `FAIL`, or `BLOCKED` with honest error details and remediation steps.
 
-### 4.1 Hybrid Real / Simulated Provider
-- **Production Mode**: When `GOOGLE_CALENDAR_CLIENT_ID`, `CLIENT_SECRET`, and `REFRESH_TOKEN` are set, uses Google Calendar API v3 with OAuth2 refresh flow.
-- **Sandbox / Test Mode**: When credentials are not set, activates `SimulatedCalendarProvider` which logs bookings and maintains deterministic in-memory and database slot availability.
-- **Race Condition Prevention**: Employs optimistic locking and database constraints on `meetings(scheduled_at, company_id)` to reject concurrent double-booking of the same time slot with `409 CONFLICT`.
-
----
-
-## 5. PostgreSQL Database Integration
-
-**Provider**: Neon Serverless PostgreSQL  
-**Connection**: Node `pg.Pool` (Max 10 connections, 30s idle timeout)  
-**Security**: SSL Mode `verify-full` with connection-level sanitization.  
-**Migrations**: 6 schema migrations tracked in `schema_migrations` table. All tables indexed for high concurrency and tenant isolation.
