@@ -2,13 +2,13 @@
 
 Follow these step-by-step instructions to test and verify HQ-Employee live using a standard web browser (Chrome, Firefox, Edge, or Safari).
 
-**Live Demo URL:** [https://hq-employee.web.app](https://hq-employee.web.app)  
+**Live Demo URL:** `{{LIVE_URL}}/voice-tester`  
 **Local Test URL (if running locally):** `http://localhost:3000/voice-tester`
 
 ---
 
 ## Step 1: Open the Application
-Navigate to [https://hq-employee.web.app](https://hq-employee.web.app) in your web browser.  
+Navigate to `{{LIVE_URL}}/voice-tester` (or `http://localhost:3000/voice-tester` locally) in your web browser.  
 Observe the dark glassmorphic dashboard with the real-time audio spectrum visualizer, live conversation stream, and deterministic policy ledger.
 
 ---
@@ -21,7 +21,7 @@ When prompted by your browser, click **"Allow"** for microphone access.
 - Status indicator turns glowing green (`Live — Speaking...`).
 - Audio visualizer animates with gentle frequency waves.
 - HQ-Employee greets you in a natural voice:
-  > *"Hello! Welcome to Rafal Webcraft. I'm HQ-Employee, your AI sales and client coordination assistant. How can I help you today?"*
+  > *"Hello! Thanks for reaching out to HQ-Employee. I'm the HQ-Employee business development coordinator. How can I help with your project today?"*
 
 ---
 
@@ -34,7 +34,7 @@ Speak into your microphone:
 - Tool Execution Ledger displays:
   - Tool: `create_lead`
   - Policy Decision: **ALLOW**
-  - Result: Creates prospect record for Alex Chen in PostgreSQL.
+  - Result: Creates prospect record for Alex Chen in lead registry.
 
 ---
 

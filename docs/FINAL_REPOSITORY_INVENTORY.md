@@ -8039,7 +8039,7 @@ Complete inventory and dependency classification of every file in the repository
 - **OBSOLETE:** NO
 - **UNRELATED:** NO
 - **SAFE TO DELETE:** NO
-- **REASON:** Production web hosting frontend (https://hq-employee.web.app)
+- **REASON:** Web hosting frontend prototype
 - **CLASSIFICATION:** `DEPLOYMENT`
 
 ### `infra/Dockerfile`

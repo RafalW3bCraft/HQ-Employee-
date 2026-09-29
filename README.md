@@ -7,14 +7,14 @@
 [![RevenueCat Monetization](https://img.shields.io/badge/RevenueCat-In--App%20Purchases-e11d48?style=for-the-badge&logo=revenuecat)](https://www.revenuecat.com)
 [![Fastify Backend](https://img.shields.io/badge/Fastify-TypeScript%20API-000000?style=for-the-badge&logo=fastify)](https://fastify.dev)
 [![Android Client](https://img.shields.io/badge/Android-Jetpack%20Compose-3ddc84?style=for-the-badge&logo=android)](https://developer.android.com/jetpack/compose)
-[![Tests Passing](https://img.shields.io/badge/Tests-156%2F156%20Passed-10b981?style=for-the-badge)](file:///home/watcher/Desktop/employee/backend/test)
+[![Tests Passing](https://img.shields.io/badge/Tests-181%2F181%20Passed-10b981?style=for-the-badge)](file:///home/watcher/Desktop/employee/backend/test)
 [![TypeScript Strict](https://img.shields.io/badge/TypeScript-Strict%20Mode-3178c6?style=for-the-badge&logo=typescript)](file:///home/watcher/Desktop/employee/backend/tsconfig.json)
 
 **The Autonomous, Governed AI Sales & Client Coordinator for Rafal Webcraft**
 
 *Dual Submission for the **RevenueCat Shipaton 2026** and **AssemblyAI Voice Agent Hackathon***
 
-[Quick Start](#-quick-start--installation) • [API Keys Setup Guide](#-required-api-keys--how-to-obtain-them) • [Usage Steps](#-step-by-step-usage-guide) • [Lifecycle & Flows](#-complete-system-lifecycle--flow-architecture) • [File-by-File Analysis](#-complete-project-file-by-file--code-by-code-analysis) • [API Reference](#-complete-api-endpoints-reference) • [Evaluation Guide](docs/JUDGE_ACCESS.md)
+[Quick Start](#-quick-start--installation) • [API Keys Setup Guide](#-required-api-keys--how-to-obtain-them) • [Usage Steps](#-step-by-step-usage-guide) • [Lifecycle & Flows](#-complete-system-lifecycle--flow-architecture) • [File-by-File Analysis](#-complete-project-file-by-file--code-by-code-analysis) • [API Reference](#-complete-api-endpoints-reference) • [Evaluation Guide](docs/JUDGE_ACCESS.md) • [Persistence Audit](docs/PERSISTENCE_STATUS.md)
 
 </div>
 
@@ -29,25 +29,25 @@
 - 🛡️ **Fail-Closed Deterministic Governance:** A Policy Engine that evaluates every proposed tool call and strictly returns `ALLOW`, `REQUIRE_APPROVAL`, or `BLOCK`. The LLM never decides its own business authority.
 - 🧠 **Company Brain Subsystem:** Versioned company profile, approved service catalog, pricing formulas, delivery timeline constraints, and canonical FAQs. The agent discusses *only* approved knowledge.
 - 📋 **Adaptive Lead Qualification:** Discovers 10 critical project dimensions without interrogating leads, detects contradictory facts, tracks provenance, and outputs structured Project Briefs.
-- 📅 **Race-Safe Calendar Scheduling:** Directly integrates with enterprise calendar slots, atomically locks availability, and enforces a zero-phantom-booking guarantee.
+- 📅 **Race-Safe Calendar Scheduling:** Integrates with calendar slots (Google Calendar when configured, otherwise a simulated calendar), atomically locks availability, and enforces a zero-phantom-booking guarantee.
 - 💳 **RevenueCat Authoritative Monetization:** Double-entry ledger tracking credit packages (*Starter*, *Growth*, *Scale*), balance reservations, consumption auditing, and server-to-server webhook reconciliation.
-- 📞 **Governed Outbound Telephony:** A 10-step pre-call verification pipeline including TCPA-compliant calling windows, mandatory AI disclosure, carrier SIP trunking, and Do-Not-Call (DNC) registry enforcement.
-- 🖥️ **Zero-Setup Browser Console:** Includes an in-browser voice testing console (`/voice-tester`) featuring live microphone capture, real-time PCM16 streaming, audio waveform visualizers, and tool event inspection.
+- 📞 **Governed Outbound Telephony:** Outbound pre-call compliance pipeline implemented (TCPA calling hours, AI disclosure, E.164 validation, DNC registry); SIP carrier dispatch is simulated in this submission.
+- 🖥️ **Zero-Setup Single-Origin Console:** Includes an in-browser voice testing console (`/voice-tester`) featuring live microphone capture, real-time PCM16 streaming, audio waveform visualizers, and tool event inspection.
 
 ---
 
 ## 🔑 2. Required API Keys & How to Obtain Them
 
-HQ Employee is architected to run immediately in any environment. An in-memory fallback layer allows all automated tests, mock voice calls, and ledger transactions to execute with zero external dependencies. To enable live voice synthesis, real-time telephony, and production monetization, configure the following API keys in `backend/.env`:
+HQ-Employee is architected to run immediately in any environment. Runtime operational state is maintained in Node.js process memory for deterministic zero-latency turn-taking during tests and demos, with non-blocking write-through to PostgreSQL when connected (see [`docs/PERSISTENCE_STATUS.md`](docs/PERSISTENCE_STATUS.md)). To enable live voice synthesis, real-time telephony, and production monetization, configure the following API keys in `backend/.env`:
 
 | Environment Variable | Service | Required For | Fallback When Missing |
 |---|---|---|---|
-| `ASSEMBLYAI_API_KEY` | [AssemblyAI](https://www.assemblyai.com) | Live Voice Agent WebSocket, Speech Synthesis (`alba`), Real-time STT, SIP Trunking | Mock Voice Session Provider |
+| `ASSEMBLYAI_API_KEY` | [AssemblyAI](https://www.assemblyai.com) | Live Voice Agent WebSocket, Speech Synthesis (`alba`), Real-time STT | Simulation Mode in dev/test; 503 Refusal in prod |
 | `REVENUECAT_SECRET_KEY` | [RevenueCat](https://www.revenuecat.com) | Server-side receipt verification, customer entitlement sync | In-Memory Authoritative Ledger |
 | `REVENUECAT_WEBHOOK_SECRET` | [RevenueCat](https://www.revenuecat.com) | Cryptographic signature validation for inbound purchase webhooks | Test signature bypass in dev mode |
 | `DATABASE_URL` | [Neon](https://neon.tech) / PostgreSQL | Multi-tenant persistent relational storage across all 12 subsystems | In-Memory Atomic Concurrent Store |
 | `SIP_CALLER_ID` | Carrier / Twilio / SIP | Authorized outbound caller ID (E.164 format) | Default: `+15550001234` |
-| `JWT_SECRET` | Backend Auth | Minting ephemeral single-use session tokens for clients | Development default secret |
+| `JWT_SECRET` | Backend Auth | HMAC voice ticket generation & JWT session tokens | Development default secret |
 
 ---
 
@@ -62,7 +62,7 @@ HQ Employee is architected to run immediately in any environment. An in-memory f
    ```env
    ASSEMBLYAI_API_KEY=your_assemblyai_api_key_here
    ```
-   > ⚠️ **Security Architecture Rule:** The raw `ASSEMBLYAI_API_KEY` is **strictly kept on the backend**. It is NEVER bundled in the Android APK or exposed to browser JavaScript. Web and mobile clients request single-use, short-lived session tokens via `GET /api/voice/token`.
+   > ⚠️ **Security Architecture Rule:** The raw `ASSEMBLYAI_API_KEY` is **strictly kept on the backend**. It is NEVER bundled in client code. Clients fetch a single-use short-lived HMAC ticket from `GET /api/voice/ticket` to access `/api/voice/ws`, or request direct temporary session tokens via `GET /api/voice/token`.
 
 #### Step 2: Obtain RevenueCat API Keys
 1. Create or sign into your account at [app.revenuecat.com](https://app.revenuecat.com).
@@ -158,16 +158,19 @@ npm install
 # Build TypeScript to verify zero compilation errors
 npm run build
 
-# Run complete 142-test suite across 18 test suites
+# Run complete 181-test suite across 24 test suites
 npm test
 ```
 
 Expected test output:
 ```text
-✔ 18 test suites passed
-✔ 142 automated unit, integration, and E2E tests passed
-✔ 0 failures, 0 skipped
-ℹ Duration: ~1.2s
+ℹ tests 181
+ℹ suites 24
+ℹ pass 181
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
 ```
 
 ---
@@ -566,7 +569,9 @@ employee/
 
 ---
 
-### Part E: Android Mobile Application (HQ)
+### Part E: Android Mobile Application (HQ) (UI Prototype)
+
+> ⚠️ **Disclosure:** The Android client is an offline UI prototype, not connected to the backend in this submission.
 
 The Android client is built using **Kotlin**, **Jetpack Compose**, and **Clean Architecture**:
 
@@ -602,7 +607,7 @@ android/app/src/main/java/com/webcraft/employee/
 - **Audio Pipeline:**
   - Creates a browser `AudioContext` with standard 16kHz audio constraints.
   - Registers an `AudioWorklet` / `ScriptProcessorNode` to capture raw Float32 microphone data and downsample/convert it to signed 16-bit linear PCM (`Int16Array`).
-  - Streams binary PCM frames over WebSocket directly to `/api/voice/ws`.
+  - Fetches short-lived HMAC ticket from `GET /api/voice/ticket` and streams binary PCM frames over WebSocket directly to `/api/voice/ws?ticket=...`.
   - Receives synthesized PCM16 response audio from the Voice Agent and schedules playback via dynamic AudioBufferSource nodes with zero clicks or pops.
 - **Visualizer Engine:** Uses HTML5 Canvas and `AnalyserNode` to compute frequency and time-domain data, rendering a fluid 60fps waveform of both user speech and AI responses.
 
@@ -610,7 +615,7 @@ android/app/src/main/java/com/webcraft/employee/
 
 ## 🧪 7. Test Suite Breakdown & Verification
 
-The project includes **142 automated tests** across **18 test suites** covering unit logic, integration boundaries, security isolation, and full end-to-end workflows.
+The project includes **181 automated tests** across **24 test suites** (100% passing) covering unit logic, integration boundaries, security isolation, and full end-to-end workflows.
 
 ```bash
 cd backend
@@ -622,23 +627,24 @@ npm test
 | # | Test Suite File | Test Count | Key Scenarios Verified |
 |---|---|---|---|
 | 1 | `test/e2e-workflow.test.ts` | 17 | All 17 end-to-end lifecycle scenarios: standard qualification, insufficient info, unauthorized discounts, legal contracts, rush deadlines, unsupported services, DNC opt-outs, SIP failures, AssemblyAI connection drops, calendar race conditions, duplicate purchases, credit exhaustion, expired approvals |
-| 2 | `test/assemblyai-voice-agent.test.ts` | 12 | Token minting, tool registration, tenant isolation in tool execution, turn interruption, session start/end lifecycle |
+| 2 | `test/assemblyai-voice-agent.test.ts` | 19 | Gated ticket issuance, single-use consumption, tool coordination (BLK-012), tenant isolation in tool execution, turn interruption, session start/end lifecycle |
 | 3 | `test/assemblyai-telephony.test.ts` | 11 | 10-step pre-call pipeline, E.164 validation, emergency number blocking (`911`, `999`), TCPA calling hours, credit reservation & rollback |
-| 4 | `test/revenuecat-monetization.test.ts` | 10 | Authoritative ledger, double-entry accounting, purchase idempotency, webhook signature verification, balance reservations |
-| 5 | `test/policy-engine.test.ts` | 14 | Deterministic tri-state decisions (`ALLOW`, `REQUIRE_APPROVAL`, `BLOCK`), parameter thresholds, unknown action fail-closed |
-| 6 | `test/lead-qualification.test.ts` | 9 | Stage transitions, adaptive discovery questions, contradictory fact detection, markdown Project Brief generation |
-| 7 | `test/meetings.test.ts` | 8 | Concurrency lock, double-booking prevention, timezone offsets, rollback on calendar provider error |
-| 8 | `test/company-brain.test.ts` | 8 | Versioned policy updates (`ACTIVE` → `SUPERSEDED`), service catalog bounds, FAQ retrieval |
-| 9 | `test/hq-audit-system.test.ts` | 6 | Append-only immutability, sensitive data sanitization (passwords, tokens, keys) |
-| 10 | `test/hq-employee-memory.test.ts` | 6 | 4-tier memory architecture, provenance tracking, GDPR Right to be Forgotten memory purge |
-| 11 | `test/hq-employee-runtime.test.ts` | 5 | Dynamic system prompt assembly, persona constraints, policy filtering |
-| 12 | `test/errors.test.ts` | 4 | RFC 7807 JSON error serialization, status code mapping |
-| 13 | `test/health.test.ts` | 2 | Health check endpoint, uptime, version output |
-| 14 | `test/config.test.ts` | 2 | Environment schema validation, default fallbacks |
-| 15 | `test/modules.test.ts` | 2 | Architectural boundary enforcement, module decoupling |
-| 16 | `test/auth.test.ts` | 8 | JWT issuance, token tampering rejection, protected route authorization, dev-token production blocking |
-| 17 | `test/proposals.test.ts` | 9 | Proposal generation from brief, custom pricing human approval guard, lifecycle status transitions |
-| 18 | `test/objectives.test.ts` | 9 | Autonomous outbound task generation, stale lead follow-ups, priority queues, human approval triggers |
+| 4 | `test/autonomous-agent-architecture.test.ts` | 14 | Governed autonomous company operating agent, campaign execution, budget enforcement, kill-switch |
+| 5 | `test/revenuecat-monetization.test.ts` | 14 | Authoritative ledger, double-entry accounting, purchase idempotency, webhook signature verification, balance reservations, welcome grant |
+| 6 | `test/policy-engine.test.ts` | 10 | Deterministic tri-state decisions (`ALLOW`, `REQUIRE_APPROVAL`, `BLOCK`), parameter thresholds, unknown action fail-closed |
+| 7 | `test/lead-qualification.test.ts` | 6 | Stage transitions, adaptive discovery questions, contradictory fact detection, markdown Project Brief generation |
+| 8 | `test/meetings.test.ts` | 10 | Concurrency lock, double-booking prevention, timezone offsets, rollback on calendar provider error |
+| 9 | `test/company-brain.test.ts` | 8 | Versioned policy updates (`ACTIVE` → `SUPERSEDED`), service catalog bounds, FAQ retrieval |
+| 10 | `test/hq-audit-system.test.ts` | 5 | Append-only immutability, sensitive data sanitization (passwords, tokens, keys) |
+| 11 | `test/hq-employee-memory.test.ts` | 7 | 4-tier memory architecture, provenance tracking, GDPR Right to be Forgotten memory purge |
+| 12 | `test/hq-employee-runtime.test.ts` | 6 | Dynamic system prompt assembly, persona constraints, policy filtering |
+| 13 | `test/proposals.test.ts` | 9 | Proposal generation from brief, custom pricing human approval guard, lifecycle status transitions |
+| 14 | `test/objectives.test.ts` | 9 | Autonomous outbound task generation, stale lead follow-ups, priority queues, human approval triggers |
+| 15 | `test/auth.test.ts` | 8 | JWT issuance, token tampering rejection, protected route authorization, dev-token production blocking |
+| 16 | `test/config.test.ts` | 4 | Environment schema validation, default fallbacks, AAI_WEBHOOK_SECRET enforcement |
+| 17 | `test/errors.test.ts` | 4 | RFC 7807 JSON error serialization, status code mapping |
+| 18 | `test/health.test.ts` | 2 | Health check endpoint, uptime, version output |
+| 19 | `test/modules.test.ts` | 2 | Architectural boundary enforcement, module decoupling |
 
 ---
 

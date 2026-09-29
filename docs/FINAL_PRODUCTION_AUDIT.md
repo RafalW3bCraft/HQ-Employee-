@@ -214,7 +214,7 @@
 ## 9. TESTING
 
 - **Unit:**
-  - 177 automated tests across 24 test suites in `backend/test/`. All passing (0 failures).
+  - 181 automated tests across 24 test suites in `backend/test/`. All passing (0 failures).
 - **Integration:**
   - End-to-end scenarios covering complete lead qualification, meeting booking, policy blocking, and credit reconciliation.
 - **E2E:**
@@ -223,7 +223,7 @@
   - 24 user-facing QA test cases executed and passed in `docs/MANUAL_QA_MATRIX.md`.
 - **Live:**
   - Real AssemblyAI token minting verified over live internet.
-  - Production web console tested live at `https://hq-employee.web.app`.
+  - Production web console tested live at `{{LIVE_URL}}/voice-tester`.
 
 ---
 

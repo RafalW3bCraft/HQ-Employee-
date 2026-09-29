@@ -63,11 +63,11 @@ export interface VoiceSessionConfiguration {
     keyterms: string[];
     transcription_mode: 'balanced' | 'min_latency' | 'max_accuracy';
     turn_detection: {
-      vad_threshold: number;
-      min_silence: number;
-      max_silence: number;
-      interrupt_response: boolean;
-      interruption_delay: number;
+      vad_threshold?: number;
+      interrupt_response?: boolean;
+      min_silence?: number;
+      max_silence?: number;
+      interruption_delay?: number;
     };
     voice_focus: 'near-field' | 'far-field';
     voice_focus_threshold: number;
@@ -691,22 +691,22 @@ Call your tools whenever you need to fetch information or update client records.
         format: { encoding: 'audio/pcm' },
         keyterms: [
           'HQ-Employee',
-          'AssemblyAI',
-          'TypeScript',
-          'PostgreSQL',
-          'Full-Stack',
-          'Mobile Apps',
-          'AI Clinical Dictation',
+          'Rafal Webcraft',
+          'Web Development',
+          'Full-Stack Engineering',
+          'Mobile App Development',
+          'Voice AI Systems',
+          'Cloud Architecture',
           'Discovery Consultation',
-          'Fastify',
+          'Discovery Call',
+          'Pricing Guidance',
+          'Director Approval',
+          'Deterministic Policy',
         ],
         transcription_mode: 'balanced',
         turn_detection: {
           vad_threshold: 0.5,
-          min_silence: 800,
-          max_silence: 2500,
           interrupt_response: true,
-          interruption_delay: 100,
         },
         voice_focus: 'near-field',
         voice_focus_threshold: 0.85,

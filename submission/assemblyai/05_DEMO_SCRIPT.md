@@ -1,71 +1,66 @@
 # 2-Minute Demo Video Script: HQ-Employee
 
-**Total Target Duration:** 2:30 – 3:00  
-**Focus:** Live product execution, real-time voice, tool calling, and deterministic governance.
+**Total Target Duration:** 2:00  
+**Focus:** Verified capabilities that passed live testing (AssemblyAI Voice Agent API, 24 kHz streaming, BLK-012 tool turn-taking, and deterministic governance).
 
 ---
 
-### [0:00 – 0:20] Hook & Interface Introduction
-- **Visual:** Open `https://hq-employee.web.app/`. Show the dark glassmorphic interface: real-time audio spectrum visualizer, live conversation stream, policy execution ledger, and action controls.
+### [0:00 – 0:20] Architecture & Ticket-Gated Connection
+- **Visual:** Open `{{LIVE_URL}}/voice-tester`. The dashboard displays the live conversation feed, audio spectrum visualizer, and deterministic policy ledger.
 - **Narrator (VO):**
-  > "Welcome to HQ-Employee. Most conversational AI agents are built as unconstrained chatbots that hallucinate and make promises companies can't keep. HQ-Employee is different: it is a **governed AI business employee** powered by AssemblyAI's full-duplex Voice Agent API. It speaks naturally, discovers requirements, schedules real meetings, and operates strictly within company policy."
-
----
-
-### [0:20 – 0:50] Full-Duplex Connection & Lead Introduction
+  > "Welcome to HQ-Employee. Most conversational voice agents are built as unconstrained bots that hallucinate promises and commercial commitments. HQ-Employee is different: it is a **governed AI business employee** built on AssemblyAI's managed Voice Agent API. It conducts real-time 24 kHz speech discovery while enforcing deterministic commercial boundaries."
 - **Action:** Click **"Start Conversation"**.
-- **Visual:** Microphone permission prompt appears and is allowed. Status dot turns glowing green (`LIVE — Speaking...`). The audio visualizer animates.
-- **AI Employee (Alba Voice):**
-  > *"Hello! Welcome to Rafal Webcraft. I'm HQ-Employee, your AI sales and client coordination assistant. How can I help you today?"*
-- **User (Spoken):**
-  > *"Hi, my name is Alex Chen. I'm the CTO of TechVentures, and we're looking to build a custom enterprise platform."*
-- **Visual:** User transcript appears instantly in conversation feed. The Tool Execution Ledger lights up: `create_lead` tool executed with decision **ALLOW**. Lead ID is created in PostgreSQL.
-- **AI Employee (Alba Voice):**
-  > *"Great to meet you, Alex! We specialize in custom enterprise web and cloud platforms. Tell me a bit about your primary requirements and target timeline."*
+- **Visual Highlight:** Browser fetches a single-use 60-second HMAC ticket (`GET /api/voice/ticket`) and connects to `/api/voice/ws`. Upstream handshake sends `session.update`, receives `session.ready` with `session_id`, and transitions status to `LIVE`.
 
 ---
 
-### [0:50 – 1:25] Discovery & Tool Execution
-- **User (Spoken):**
-  > *"We need a real-time web portal with speech dictation and AI analytics. Our budget is around thirty to fifty thousand dollars, and we want to launch within six months."*
-- **Visual:** Tool Ledger displays sequential tool executions:
-  - `record_requirement` -> **ALLOW**
-  - `record_budget` (`$30,000 - $50,000`) -> **ALLOW**
-  - `record_timeline` (`6 months`) -> **ALLOW**
-- **AI Employee (Alba Voice):**
-  > *"Understood. A custom portal with speech and analytics fits right into our core expertise. With your 6-month target and $30k to $50k budget, we can definitely support that. Would you like to schedule an introductory consultation with our engineering team?"*
+### [0:20 – 0:45] Live Speech, Greeting & Real-Time Barge-In
+- **AI Employee (Audio):**
+  > *"Hello! Thanks for reaching out to HQ-Employee. I'm the HQ-Employee business development coordinator. How can I help with your project today?"*
+- **Action / User (Spoken Barge-in):** Speak directly over the agent mid-sentence:
+  > *"Hi! I'm Alex Chen, CTO of TechVentures. We need a custom enterprise web platform."*
+- **Visual Highlight:**
+  - The instant user speech begins, the audio buffer flushes immediately and agent speech halts without overhang.
+  - Live transcript renders the finalized user transcript.
 
 ---
 
-### [1:25 – 1:55] Meeting Scheduling & Interruption (Barge-in)
+### [0:45 – 1:15] Tool Turn-Taking (BLK-012) & Meeting Scheduling (ALLOW)
 - **User (Spoken):**
-  > *"Yes, can we schedule a discovery call next week?"*
-- **Visual:** Tool `check_calendar` executes -> Available slots retrieved.
-- **AI Employee starts speaking:**
-  > *"I have availability on Tuesday at 9:00 AM Eastern, or Wednesday at—"*
-- **User Interrupts (Speaks over AI):**
-  > *"Tuesday at 9:00 AM works perfectly!"*
-- **Visual Highlight:** The instant the user speaks, the audio visualizer reflects user speech, AssemblyAI emits speech started, and the agent's playback **instantly halts** with zero awkward delay or duplicated audio.
-- **Visual:** Tool `schedule_meeting` executes with decision **ALLOW**. The meeting is booked in PostgreSQL with confirmation code `WC-MKTG-SONF`.
+  > *"Can we schedule a discovery consultation next week?"*
+- **Visual Highlight (BLK-012 Tool Protocol):**
+  - Upstream emits `tool.call` (`schedule_meeting`).
+  - The coordinator buffers the tool execution while the agent speaks (`reply.started`).
+  - Upon `reply.done`, the coordinator drains the result, sends `tool.result`, and triggers the agent's confirmation.
+  - Policy Ledger displays: `schedule_meeting` -> **`ALLOW`** (Meeting scheduling within approved availability is permitted).
+- **AI Employee (Audio):**
+  > *"I've checked our calendar and reserved an introductory discovery consultation for your team."*
 
 ---
 
-### [1:55 – 2:25] The Governance Boundary (Policy in Action)
+### [1:15 – 1:40] Deterministic Governance: Escalation & Hard Block
 - **User (Spoken):**
-  > *"Before we wrap up, can you give me a 15 percent discount on the project?"*
-- **Visual:** Tool Ledger displays `request_human_approval` with decision **`REQUIRE_APPROVAL`**.
-- **AI Employee (Alba Voice):**
-  > *"I've logged your request for a 15% discount as an approval ticket for our managing director. They will review it and follow up with you directly."*
+  > *"Can you give me a 15 percent discount on this project?"*
+- **Visual Highlight (Escalation):**
+  - Policy Engine intercepts the discount request.
+  - Ledger displays: `request_discount (15%)` -> **`REQUIRE_APPROVAL`** (amber badge).
+- **AI Employee (Audio):**
+  > *"A 15% discount exceeds my autonomous authority. I've logged an approval ticket for our Commercial Director to review."*
 - **User (Spoken):**
-  > *"Can't you just approve it and let's sign the contract right now?"*
-- **Visual:** Policy Engine intercepts action `SIGN_CONTRACT` with decision **`BLOCK`**.
-- **AI Employee (Alba Voice):**
-  > *"I am not authorized to execute legal contracts or unilaterally approve custom discounts. Our director will finalize the formal agreement following our discovery call."*
+  > *"Can't you just approve it and let's sign the contract right now on this call?"*
+- **Visual Highlight (Hard Block):**
+  - Policy Engine intercepts contract signing.
+  - Ledger displays: `sign_contract` -> **`BLOCK`** (red badge).
+- **AI Employee (Audio):**
+  > *"I am strictly prohibited from signing or accepting legal contracts. All agreements require human director authorization."*
+- **Visual:** Show the append-only audit trail recording each action, decision, reason, and timestamp.
 
 ---
 
-### [2:25 – 2:45] Architecture & Closing
-- **Visual:** Switch briefly to architecture diagram showing:
-  `Browser (AudioWorklet) <--> Fastify Gateway (Cloud Run) <--> AssemblyAI Voice Agent (WSS) + Policy Engine + PostgreSQL`.
+### [1:40 – 2:00] Clean Teardown & Production Verification
+- **Action:** Click **"End Call"**.
+- **Visual Highlight:**
+  - Server sends `session.end` and receives `session.ended`.
+  - Upstream socket closes cleanly (code 1005), timers clear, and active IP session releases.
 - **Narrator (VO):**
-  > "HQ-Employee proves that real-time voice AI doesn't have to be a liability. With AssemblyAI's Voice Agent API, low-latency AudioWorklets, and a deterministic policy engine, enterprises can deploy AI workers that are natural, accountable, and production-ready today."
+  > "HQ-Employee demonstrates production-grade voice AI: 24 kHz full-duplex speech on AssemblyAI, docs-conformant tool coordination, fail-closed policy governance, zero client key exposure, and 181 automated tests passing with zero failures."

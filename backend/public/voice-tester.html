@@ -552,6 +552,10 @@
           <span style="color: var(--accent-emerald);">●</span>
           <span>Policy v1.0 Active</span>
         </div>
+        <div id="simulationBadge" class="pill" style="display: none; border-color: rgba(245, 158, 11, 0.6); background: rgba(245, 158, 11, 0.15); color: #fbbf24; font-weight: 700;">
+          <span>⚡</span>
+          <span>SIMULATION</span>
+        </div>
         <div class="pill" style="border-color: rgba(244, 63, 94, 0.3);">
           <span>💳</span>
           <span id="headerWallet">Wallet: -- Cr</span>
@@ -794,16 +798,7 @@ registerProcessor('pcm-processor', PCMProcessor);
     // Priority: window.__HQ_API_BASE__ > URL param ?apiBase= > same origin.
     // apiBase example:  https://api.hq-employee.run.app
     // wsBase  example:  wss://api.hq-employee.run.app
-    // ── Firebase Web App Configuration ──────────────────────────────────────
-    window.firebaseConfig = {
-      apiKey: "AIzaSyCXh1O7V_ZaaJ4YGRqw_JMzO60es7T4j4M",
-      authDomain: "hq-employee.firebaseapp.com",
-      projectId: "hq-employee",
-      storageBucket: "hq-employee.firebasestorage.app",
-      messagingSenderId: "455918213015",
-      appId: "1:455918213015:web:e6db0e9b6403ba47ce96d2",
-      measurementId: "G-B31HC215D9"
-    };
+
 
     const urlParams   = new URLSearchParams(window.location.search);
     const apiBase     = (window.__HQ_API_BASE__  ||
@@ -1033,19 +1028,43 @@ registerProcessor('pcm-processor', PCMProcessor);
       playbackTime = 0;
     }
 
+    let currentVoiceTicket = '';
+
     // ── Voice Session WebSocket ──────────────────────────────────────────────
     startBtn.onclick = async () => {
       try {
         startBtn.disabled = true;
-        statusText.textContent = 'Connecting...';
-        turnStatus.textContent = 'Requesting mic permission...';
+        statusText.textContent = 'Acquiring ticket...';
+        turnStatus.textContent = 'Requesting single-use voice ticket from backend...';
 
+        const urlParams = new URLSearchParams(window.location.search);
+        const accessCode = urlParams.get('code') || '';
+        const ticketUrl = `${apiBase}/api/voice/ticket${accessCode ? `?code=${encodeURIComponent(accessCode)}` : ''}`;
+
+        const ticketRes = await fetch(ticketUrl, {
+          headers: accessCode ? { 'x-demo-access-code': accessCode } : {}
+        });
+
+        if (!ticketRes.ok) {
+          const errData = await ticketRes.json().catch(() => ({}));
+          const errMsg = errData.message || `Failed to acquire voice ticket (HTTP ${ticketRes.status})`;
+          turnStatus.textContent = errMsg;
+          statusText.textContent = 'Ticket Error';
+          statusDot.className = 'status-dot';
+          startBtn.disabled = false;
+          throw new Error(errMsg);
+        }
+
+        const ticketData = await ticketRes.json();
+        currentVoiceTicket = ticketData.ticket;
+
+        turnStatus.textContent = 'Requesting mic permission...';
         // Start mic capture BEFORE opening WS so any permission prompt is resolved.
         await startMicCapture();
 
         turnStatus.textContent = 'Connecting to HQ-Employee backend...';
-        const wsUrl    = `${wsOrigin}/api/voice/ws`;
-        ws             = new WebSocket(wsUrl);
+        const wsUrl = `${wsOrigin}/api/voice/ws?ticket=${encodeURIComponent(currentVoiceTicket)}`;
+        ws = new WebSocket(wsUrl);
 
         ws.onopen = () => {
           isConnected = true;
@@ -1073,6 +1092,11 @@ registerProcessor('pcm-processor', PCMProcessor);
             sessionPill.textContent = `Session: ${(msg.sessionId || '').slice(0, 12)}...`;
             statusText.textContent  = 'Live — Speaking...';
             turnStatus.textContent  = 'HQ-Employee is listening';
+            if (msg.payload && msg.payload.mode === 'simulation') {
+              document.getElementById('simulationBadge').style.display = 'inline-flex';
+            } else {
+              document.getElementById('simulationBadge').style.display = 'none';
+            }
             syncWallet();
           }
 
@@ -1147,14 +1171,26 @@ registerProcessor('pcm-processor', PCMProcessor);
 
           // ── Backend / upstream error ───────────────────────────────────────
           if (msg.type === 'voice.error') {
-            const errMsg = (msg.payload && msg.payload.message) || 'Unknown error';
-            console.error('Voice error:', errMsg);
-            turnStatus.textContent = `Error: ${errMsg}`;
+            const payload = msg.payload || {};
+            const errMsg = payload.message || 'Unknown voice error';
+            console.error('Voice error:', errMsg, payload);
+            statusDot.className = 'status-dot';
+            if (payload.retryable) {
+              statusText.textContent = 'Busy (Retryable)';
+              turnStatus.textContent = `Busy: ${errMsg}`;
+            } else {
+              statusText.textContent = 'Voice Error';
+              turnStatus.textContent = `Error: ${errMsg}`;
+            }
+            appendMessage('agent', `[System Notice: ${errMsg}]`);
           }
         };
 
-        ws.onclose = () => {
+        ws.onclose = (evt) => {
           cleanup();
+          if (evt && evt.reason) {
+            turnStatus.textContent = `Disconnected: ${evt.reason}`;
+          }
           syncWallet();
         };
 
@@ -1207,6 +1243,7 @@ registerProcessor('pcm-processor', PCMProcessor);
       sessionPill.textContent = 'ID: None';
       isMuted = false;
       document.getElementById('muteIcon').textContent = '🔇';
+      document.getElementById('simulationBadge').style.display = 'none';
       muteBtn.classList.remove('btn-danger');
       muteBtn.classList.add('btn-secondary');
       if (ws) { try { ws.close(); } catch {} ws = null; }
@@ -1216,22 +1253,50 @@ registerProcessor('pcm-processor', PCMProcessor);
     // ── Sandbox Tool Calling Triggers ────────────────────────────────────────
     async function executeMockTool(name, args) {
       try {
+        let ticketToUse = currentVoiceTicket;
+        if (!ticketToUse) {
+          try {
+            const tRes = await fetch(`${apiBase}/api/voice/ticket`);
+            if (tRes.ok) {
+              const tData = await tRes.json();
+              ticketToUse = tData.ticket;
+            }
+          } catch {}
+        }
+        const headers = { 'Content-Type': 'application/json' };
+        if (ticketToUse) {
+          headers['x-voice-ticket'] = ticketToUse;
+        }
+
         const res = await fetch(`${apiBase}/api/voice/tools/execute`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers,
           body: JSON.stringify({
             name,
             arguments: args,
             callId:    currentCallId || '00000000-0000-0000-0000-000000000001',
             leadId:    '00000000-0000-0000-0000-000000000002',
-            companyId: '00000000-0000-0000-0000-000000000001'
           })
         });
+
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          appendToolActivity({
+            toolName:       name,
+            arguments:      args,
+            policyDecision: 'BLOCK',
+            policyReason:   errData.message || `HTTP ${res.status}`,
+            durationMs:     10
+          });
+          return;
+        }
+
         const result = await res.json();
         appendToolActivity({
           toolName:       name,
           arguments:      args,
           policyDecision: result.policyDecision || (result.isError ? 'BLOCK' : 'ALLOW'),
+          policyReason:   result.policyReason,
           durationMs:     18
         });
       } catch (err) {

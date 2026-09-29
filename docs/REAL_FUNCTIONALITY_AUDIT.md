@@ -41,7 +41,7 @@ Per the absolute rule of Section 2:
 
 | # | Element | Visible Label | File & Line | ViewModel Method | UseCase & Repository | API / Backend Route | Database / Provider | Expected Result | Actual Result | Real / Fake | Persistence | Error Handling | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2.1 | Action Button | `Start Voice Call` | `EmployeeScreen.kt:160` | `viewModel.startCall()` | `voiceCallRepository.startCall()` | `POST /api/voice/token` & WebSocket `wss://agents.assemblyai.com/v1/ws` | AssemblyAI Voice Agent API | Mints ephemeral token & initiates real 24kHz stream | In-memory session state mutation | FAKE | Temporary | None | **MOCKED** |
+| 2.1 | Action Button | `Start Voice Call` | `EmployeeScreen.kt:160` | `viewModel.startCall()` | `voiceCallRepository.startCall()` | `GET /api/voice/ticket` & WebSocket `/api/voice/ws` | AssemblyAI Voice Agent API | Mints ephemeral ticket & initiates real 24kHz stream | In-memory session state mutation | FAKE | Temporary | None | **MOCKED** |
 | 2.2 | Action Button | `End Call` | `EmployeeScreen.kt:169` | `viewModel.endCall()` | `voiceCallRepository.endCall()` | WebSocket close | AssemblyAI | Terminates voice WebSocket session | Updates local session state to ENDED | PARTIAL | Temporary | None | **PARTIAL** |
 | 2.3 | Text Input | `Speak as Lead...` | `EmployeeScreen.kt:208` | `viewModel.sendUserInput(text)`| `voiceCallRepository.sendUserInput(text)` | WebSocket client turn | AssemblyAI | Injects simulated user turn to voice agent | Updates local StateFlow without sending to WS | FAKE | Temporary | None | **MOCKED** |
 | 2.4 | Prompt Chip | Quick Test Chips | `EmployeeScreen.kt:225` | `onSendUserInput(prompt)` | `voiceCallRepository.sendUserInput(prompt)` | WebSocket client turn | AssemblyAI | Sends scenario test prompt to AI | Updates local StateFlow only | FAKE | Temporary | None | **MOCKED** |
@@ -145,7 +145,7 @@ Per the absolute rule of Section 2:
    - `NetworkMeetingRepository`: `getMeetings()` returned an empty flow without executing `GET /api/meetings`.
    - `NetworkCompanyBrainRepository`: `getCompanyBrain()` returned static mock data; `upsertService`, `upsertFaq`, and `updateProfile` were empty stubs.
    - `NetworkBillingRepository`: `getWalletBalance()` returned a static hardcoded wallet without fetching `GET /api/billing/wallet`.
-   - `NetworkVoiceCallRepository`: `startCall()` did not connect to the real backend voice token endpoint (`POST /api/voice/token`).
+   - `NetworkVoiceCallRepository`: `startCall()` did not connect to the real backend voice ticket endpoint (`GET /api/voice/ticket`).
 3. **Company Brain CRUD Operations:**
    - Saving a service or FAQ updated local memory but did not persist to PostgreSQL.
 4. **AppScaffold Default Credits:**

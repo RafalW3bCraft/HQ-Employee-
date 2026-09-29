@@ -42,6 +42,7 @@ declare module '@fastify/jwt' {
 declare module 'fastify' {
   interface FastifyInstance {
     authenticate: (request: FastifyRequest, reply: FastifyReply) => Promise<void>;
+    appConfig: AppConfig;
   }
 }
 
@@ -54,6 +55,8 @@ export async function createServer(appConfig: AppConfig): Promise<FastifyInstanc
     requestIdHeader: 'x-request-id',
     genReqId: (req) => (req.headers['x-request-id'] as string) || randomUUID(),
   });
+
+  server.decorate('appConfig', appConfig);
 
   // ── WebSocket ─────────────────────────────────────────────────────────────
   await server.register(fastifyWebsocket);

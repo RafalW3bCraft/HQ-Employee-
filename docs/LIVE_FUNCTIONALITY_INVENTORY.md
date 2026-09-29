@@ -35,7 +35,7 @@
 | **Audit** | YES | YES | YES | YES | YES | YES | YES | YES | NONE |
 | **Configuration** | YES | YES | YES | YES | YES | YES | YES | YES | NONE |
 | **Infrastructure** | YES | YES | YES | YES | YES | YES | YES | YES | NONE |
-| **Tests** | YES | YES | YES | YES | YES (177) | YES | YES | YES | NONE |
+| **Tests** | YES | YES | YES | YES | YES (181) | YES | YES | YES | NONE |
 | **Documentation** | YES | YES | YES | YES | YES | YES | YES | YES | NONE |
 | **Agent Skills** | YES | YES | YES | YES | YES | YES | YES | YES | NONE |
 
@@ -43,13 +43,12 @@
 
 ## 2. Key Findings & Detailed Analysis
 
-### Telephony (PARTIAL)
-- **Status:** Architecture, validation, calling hours, opt-out checking, credit pre-reservation, and audit logging are fully implemented and verified.
-- **Provider Status:** Uses `SimulatedSIPProvider` when live carrier credentials (`TWILIO_ACCOUNT_SID` or `TELNYX_API_KEY`) are not provided in the environment. Correctly classified as `PARTIAL` per Section 23 and 26.
+### Telephony (SIMULATED)
+- **Status:** Outbound pre-call compliance pipeline implemented; SIP carrier dispatch is simulated in this submission.
 
 ### Calendar (PARTIAL)
-- **Status:** Full conflict detection, timezone conversion, booking, rescheduling, and cancellation are fully implemented in the database.
-- **Provider Status:** Uses `SimulatedCalendarProvider` when `GOOGLE_CALENDAR_CLIENT_EMAIL` is not present in `.env`. Correctly classified as `PARTIAL` per Section 24.
+- **Status:** Full conflict detection, timezone conversion, booking, rescheduling, and cancellation are fully implemented.
+- **Provider Status:** Uses Google Calendar when configured, otherwise a simulated calendar.
 
 ### Voice & AssemblyAI (LIVE / READY)
-- **Status:** Native Web Audio capture with dynamic PCM16 resampling to 24kHz via AudioWorklet. Mints real ephemeral AssemblyAI session tokens via `GET /api/voice/token`. Full-duplex WebSocket stream live at `https://hq-employee.web.app`.
+- **Status:** Native Web Audio capture with dynamic PCM16 resampling to 24kHz. Mints single-use tickets/tokens (`GET /api/voice/ticket`, `GET /api/voice/token`). Full-duplex WebSocket stream live at single-origin `{{LIVE_URL}}/voice-tester`.

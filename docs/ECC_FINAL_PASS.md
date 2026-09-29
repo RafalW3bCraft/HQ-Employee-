@@ -21,7 +21,7 @@ This document records the systematic application of ECC (affaan-m / Everything C
   - Safely purged all 95 files without broken imports or regressions.
 - **Verification:**
   - Clean build `npm --prefix backend run build` (Exit code 0).
-  - Clean test run (156 passing tests).
+  - Clean test run (181 passing tests across 24 suites, 0 failures).
 
 ---
 
@@ -67,7 +67,7 @@ This document records the systematic application of ECC (affaan-m / Everything C
     - Test 13: Guarantees concurrency safety under parallel requests (only 1 succeeds).
     - Test 14: Maintains strict cross-tenant credit wallet isolation.
 - **Verification:**
-  - 14/14 monetization tests pass. Total test suite passes at 156/156.
+  - 14/14 monetization tests pass. Total test suite passes at 181/181 (0 failures).
 
 ---
 
@@ -91,7 +91,7 @@ This document records the systematic application of ECC (affaan-m / Everything C
     - Needs Attention Section (Human Approval Requests).
     - Quick Actions Grid (Leads, Meetings, Brain, Approvals, Credits).
 - **Verification:**
-  - Kotlin code structure and types verified against domain UseCases and models.
+  - Verified Android Compose UI structure as a UI prototype (not connected to backend in this submission).
 
 ---
 
@@ -101,7 +101,7 @@ This document records the systematic application of ECC (affaan-m / Everything C
   - All 266 tracked source, script, and documentation files.
 - **Findings:**
   - Partial dummy AssemblyAI key snippet in `README.md` was sanitized.
-  - Raw `ASSEMBLYAI_API_KEY` is strictly held on server; client requests ephemeral single-use tokens via `POST /api/voice/token`.
+  - Raw `ASSEMBLYAI_API_KEY` is strictly held on server; client requests ephemeral single-use tickets/tokens via `GET /api/voice/ticket` or `GET /api/voice/token`.
 - **Corrections:**
   - Removed all hardcoded credentials from committed files.
   - Verified production `.env` handling via environment variables and Cloud Secret Manager.
@@ -116,12 +116,12 @@ This document records the systematic application of ECC (affaan-m / Everything C
   - `submission/assemblyai/01_PROJECT_TITLE.md` through `08_JUDGE_TEST_INSTRUCTIONS.md`
   - `docs/PRE_SUBMISSION_VERIFICATION.md`
   - `docs/ASSEMBLYAI_PRODUCTION_READINESS.md`
-  - Live deployment: `https://hq-employee.web.app`
+  - Live deployment: single-origin at `{{LIVE_URL}}/voice-tester`
 - **Findings:**
-  - Live site deployed and operational on Firebase Hosting with microphone permissions enabled and security headers in place.
+  - Live web console served directly from the backend container with microphone permissions enabled and security headers in place.
 - **Corrections:**
-  - Updated test metrics in submission package to 156/156 tests passing.
-  - Deployed verified frontend to `https://hq-employee.web.app`.
+  - Updated test metrics in submission package to 181/181 tests passing (0 failures).
+  - Deployed verified single-origin console to `{{LIVE_URL}}/voice-tester`.
 - **Verification:**
-  - `curl -sI https://hq-employee.web.app` returns HTTP 200 with `permissions-policy: microphone=(self)`.
+  - Single-origin endpoint returns HTTP 200 with `permissions-policy: microphone=(self)`.
   - Manual checklist Items A through AH all verified with concrete PASS evidence.

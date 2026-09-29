@@ -15,8 +15,8 @@ CALLER:             DashboardScreen.kt -> onStartEmployeeClick / EmployeeScreen.
 VIEWMODEL:          EmployeeViewModel.startCall()
 USE CASE:           (Direct VoiceCallRepository invocation)
 REPOSITORY:         NetworkVoiceCallRepository.startCall()
-HTTP / WS:          POST /api/voice/token -> WebSocket wss://agents.assemblyai.com/v1/ws
-BACKEND ROUTE:      fastify.post('/api/voice/token') in backend/src/routes/voice.ts
+HTTP / WS:          GET /api/voice/ticket -> WebSocket /api/voice/ws?ticket=...
+BACKEND ROUTE:      fastify.get('/api/voice/ticket') & fastify.get('/api/voice/ws') in backend/src/routes/voice.ts
 SERVICE:            AssemblyAIVoiceAgentService.mintSessionToken()
 POLICY:             Evaluates token request against active company policy -> ALLOW
 DATABASE:           Logs AUDIT_EVENT 'VOICE_SESSION_INITIALIZED' in PostgreSQL

@@ -1,8 +1,8 @@
 # HQ-Employee — AssemblyAI Voice Agent Hackathon Submission
 
-**Live Web Application:** [https://hq-employee.web.app](https://hq-employee.web.app)  
+**Live Web Application:** {{LIVE_URL}}/voice-tester  
 **Public GitHub Repository:** [https://github.com/RafalW3bCraft/HQ-Employee-](https://github.com/RafalW3bCraft/HQ-Employee-)  
-**Category:** Voice Agent API / Real-time Speech-to-Speech
+**Category:** Voice Agent API / Real-time Speech-to-Speech  
 
 ---
 
@@ -22,12 +22,13 @@ HQ-Employee solves this by placing a **deterministic Policy Engine** between the
 ---
 
 ## Technical Highlights
-- **Full-Duplex Voice Engine:** AssemblyAI Voice Agent WebSocket API (`wss://agents.assemblyai.com/v1/ws`) with `universal-voice-agent` and natural speech barge-in.
+- **Full-Duplex Voice Engine:** AssemblyAI Voice Agent WebSocket API (`wss://agents.assemblyai.com/v1/ws`) with low-latency neural speech, real-time STT, and natural speech barge-in.
 - **AudioWorklet Architecture:** Real-time 24kHz PCM16 client capture and low-latency audio playback buffer.
-- **Immediate Tool Results (`BLK-012`):** Zero-delay tool result forwarding upstream to eliminate conversational latency.
-- **Ephemeral Token Security:** Single-use temporary tokens minted server-side via `POST /api/voice/token`; raw keys are never exposed.
-- **Enterprise Persistence:** PostgreSQL database storing leads, interaction facts, and confirmed calendar bookings with idempotent migrations 001–006.
-- **100% Test Coverage:** 156 automated integration tests passing across 18 test suites.
+- **Docs-Conformant Tool Coordination (BLK-012):** Gated tool execution draining on `reply.done` and clearing on interruption per official AssemblyAI specifications.
+- **Ephemeral Token & Ticket Security:** Single-use short-lived HMAC tickets minted server-side via `GET /api/voice/ticket` (or direct tokens via `GET /api/voice/token`); raw keys are never exposed.
+- **Robust Domain State:** Authoritative in-memory runtime for ultra-low latency, accompanied by structured PostgreSQL schemas (migrations 001–006) with non-blocking database write-through (disclosed in `docs/PERSISTENCE_STATUS.md`).
+- **Comprehensive Test Suite:** 181 automated tests passing across 24 test suites with 0 failures (`npm test`).
+- **Calendar & Modalities:** Google Calendar when configured, otherwise a simulated calendar. Outbound pre-call compliance pipeline implemented; SIP carrier dispatch is simulated in this submission. Android client is a UI prototype, not connected to the backend in this submission.
 
 ---
 
@@ -35,4 +36,5 @@ HQ-Employee solves this by placing a **deterministic Policy Engine** between the
 - [Judge Testing Instructions](08_JUDGE_TEST_INSTRUCTIONS.md)
 - [Video Demo Script](05_DEMO_SCRIPT.md)
 - [Slide Outline](06_SLIDE_OUTLINE.md)
-- [Detailed Architecture & Verification](docs/ASSEMBLYAI_PRODUCTION_VERIFICATION.md)
+- [Persistence Status Audit](../../docs/PERSISTENCE_STATUS.md)
+- [Detailed Architecture & Verification](../../docs/ASSEMBLYAI_PRODUCTION_VERIFICATION.md)

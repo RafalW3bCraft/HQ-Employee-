@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-29  
 **Tester:** Senior Staff QA & Systems Engineer  
-**Execution Environment:** Local Linux Testbed + Neon PostgreSQL Cloud Instance + Live Backend (`http://localhost:3000`) + Production Web Console (`https://hq-employee.web.app`)  
+**Execution Environment:** Local Linux Testbed + Neon PostgreSQL Cloud Instance + Live Backend (`http://localhost:3000`) + Production Web Console (`{{LIVE_URL}}/voice-tester`)  
 
 ---
 

@@ -164,3 +164,20 @@
 - **REGRESSION TEST**: Live `curl` returned `200 OK`, crediting wallet and deduplicating duplicate attempts.
 - **STATUS**: `RESOLVED`
 
+---
+
+### BUG-011
+- **BUG-ID**: BUG-011
+- **SEVERITY**: P0 (Protocol Desynchronization)
+- **COMPONENT**: AssemblyAI Voice Agent Protocol Coordinator
+- **FILE**: `backend/src/routes/voice.ts`
+- **FUNCTION**: `VoiceToolResultCoordinator` / WebSocket `tool.result` dispatch
+- **REPRODUCTION**: Execute conversational voice interaction with simultaneous tool calling and speech synthesis.
+- **OBSERVED**: Sending `tool.result` immediately while the agent was speaking violated AssemblyAI's turn-taking contract.
+- **EXPECTED**: Conform strictly to official documentation: buffer results on `tool.call`, flush on `reply.done`, and discard if `reply.done` reports `status: 'interrupted'`.
+- **ROOT CAUSE**: Immediate dispatch without tracking conversational turn state machine (`reply.started`, `input.speech.started`, `reply.done`).
+- **FIX**: Implemented `VoiceToolResultCoordinator` tracking `lastEvent` state, accumulating results, draining on `reply.done`, and discarding on interruption.
+- **REGRESSION TEST**: `backend/test/assemblyai-voice-agent.test.ts` test 17.
+- **STATUS**: `RESOLVED`
+
+

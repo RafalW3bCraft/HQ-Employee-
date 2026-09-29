@@ -127,6 +127,17 @@ export const telephonyRoutes: FastifyPluginAsync = async (fastify) => {
 
   // 6. AssemblyAI Telephony Signed Webhook Receiver
   fastify.post('/api/telephony/webhooks/assemblyai', async (request, reply) => {
+    const appConfig = (fastify as any).appConfig;
+    const isProd = appConfig ? appConfig.NODE_ENV === 'production' : process.env.NODE_ENV === 'production';
+    const secret = appConfig ? appConfig.AAI_WEBHOOK_SECRET : process.env.AAI_WEBHOOK_SECRET;
+    if (isProd && !secret) {
+      return reply.status(503).send({
+        statusCode: 503,
+        error: 'Service Unavailable',
+        message: 'AAI_WEBHOOK_SECRET is required in production',
+      });
+    }
+
     const signatureHeader = request.headers['x-aai-signature'] as string | undefined;
     const rawPayload = request.body;
 

@@ -71,8 +71,21 @@ describe('Configuration Module Validation', () => {
         ASSEMBLYAI_API_KEY: 'real_production_key_abc123',
         JWT_SECRET: 'super-secure-production-jwt-secret-key-32chars',
         ALLOWED_ORIGINS: 'https://hq.example.com',
+        AAI_WEBHOOK_SECRET: 'prod_telephony_secret_1234567890123',
       });
     }, /DATABASE_URL must not use localhost in production/);
+  });
+
+  it('fails closed in production if AAI_WEBHOOK_SECRET is missing', () => {
+    assert.throws(() => {
+      loadConfig({
+        NODE_ENV: 'production',
+        DATABASE_URL: 'postgresql://prod:secret@ep-cool-db.us-east-2.aws.neon.tech/neondb?sslmode=require',
+        ASSEMBLYAI_API_KEY: 'real_production_key_abc123',
+        JWT_SECRET: 'super-secure-production-jwt-secret-key-32chars',
+        ALLOWED_ORIGINS: 'https://hq.example.com',
+      });
+    }, /AAI_WEBHOOK_SECRET is required in production/);
   });
 
   it('succeeds in production when all production credentials and non-local database are supplied', () => {
@@ -82,8 +95,18 @@ describe('Configuration Module Validation', () => {
       ASSEMBLYAI_API_KEY: 'real_production_key_abc123',
       JWT_SECRET: 'super-secure-production-jwt-secret-key-32chars',
       ALLOWED_ORIGINS: 'https://hq.example.com',
+      AAI_WEBHOOK_SECRET: 'prod_telephony_secret_1234567890123',
+      VOICE_MAX_SESSION_SECONDS: '360',
+      VOICE_MAX_CONCURRENT: '5',
+      VOICE_DAILY_SESSION_MINUTES: '180',
+      DEMO_ACCESS_CODE: 'access_code_123',
     });
     assert.strictEqual(prodCfg.NODE_ENV, 'production');
     assert.strictEqual(prodCfg.JWT_SECRET, 'super-secure-production-jwt-secret-key-32chars');
+    assert.strictEqual(prodCfg.AAI_WEBHOOK_SECRET, 'prod_telephony_secret_1234567890123');
+    assert.strictEqual(prodCfg.VOICE_MAX_SESSION_SECONDS, 360);
+    assert.strictEqual(prodCfg.VOICE_MAX_CONCURRENT, 5);
+    assert.strictEqual(prodCfg.VOICE_DAILY_SESSION_MINUTES, 180);
+    assert.strictEqual(prodCfg.DEMO_ACCESS_CODE, 'access_code_123');
   });
 });

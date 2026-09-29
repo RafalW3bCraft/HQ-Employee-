@@ -40,6 +40,15 @@ const configSchema = z.object({
   RATE_LIMIT_GLOBAL: z.coerce.number().int().positive().default(60),
   RATE_LIMIT_VOICE_TOKEN: z.coerce.number().int().positive().default(10),
   RATE_LIMIT_TELEPHONY: z.coerce.number().int().positive().default(5),
+
+  // Voice Agent Constraints & Gating
+  VOICE_MAX_SESSION_SECONDS: z.coerce.number().int().positive().default(300),
+  VOICE_MAX_CONCURRENT: z.coerce.number().int().positive().default(3),
+  VOICE_DAILY_SESSION_MINUTES: z.coerce.number().int().positive().default(120),
+  DEMO_ACCESS_CODE: z.string().optional(),
+
+  // AssemblyAI Telephony Webhook Secret (fail closed in production)
+  AAI_WEBHOOK_SECRET: z.string().optional(),
 }).superRefine((data, ctx) => {
   if (data.NODE_ENV === 'production') {
     if (!data.JWT_SECRET) {
@@ -47,6 +56,13 @@ const configSchema = z.object({
         code: z.ZodIssueCode.custom,
         message: 'JWT_SECRET is required in production',
         path: ['JWT_SECRET'],
+      });
+    }
+    if (!data.AAI_WEBHOOK_SECRET) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'AAI_WEBHOOK_SECRET is required in production',
+        path: ['AAI_WEBHOOK_SECRET'],
       });
     }
     if (data.ALLOWED_ORIGINS === '*') {

@@ -1,16 +1,13 @@
 # Technology Tags
 
 - AssemblyAI Voice Agent API
-- Speech-to-Speech
-- Real-time Full-Duplex Audio
-- Web AudioContext / AudioWorklet
-- TypeScript
-- Node.js
+- Full-Duplex WebSockets
+- Real-time Speech-to-Speech
+- 24kHz PCM16 Audio
 - Fastify
-- WebSockets
-- PostgreSQL / Neon
-- Google Cloud Run
-- Firebase Hosting
+- Node.js
+- TypeScript
 - Governed Policy Engine
-- Enterprise AI Architecture
-- Cryptographic Audit Log
+- HMAC Security & Single-Use Tokens
+- Append-Only Audit Logging
+- Google Cloud Run

@@ -29,7 +29,7 @@ Every subsystem was inspected, traced, reproduced, patched, and verified through
   - Normalized field names (`fullName`, `companyName`, `contacts`, `status`, `memory.projectType`).
   - Added real `PATCH /api/leads/:id/status` endpoint to backend `leads.ts`.
   - Injected `BillingRepository` into `GetDashboardDataUseCase.kt` to query live authoritative balance.
-- **Tests:** Tested with live `curl` and Node fetch; 177 unit & integration tests passing.
+- **Tests:** Tested with live `curl` and Node fetch; 181 unit & integration tests passing (0 failures).
 
 ### Workflow 2: Audio Pipeline & Live Voice Agent Verification
 - **Subsystem:** Web Audio / PCM AudioWorklet / AssemblyAI Voice Agent API
@@ -60,7 +60,7 @@ Every subsystem was inspected, traced, reproduced, patched, and verified through
   - Implemented `backend/src/modules/autonomous/` (`types.ts`, `industry-profiles.ts`, `emergency-stop.ts`, `scheduler.ts`, `pipeline.ts`).
   - Implemented REST routes in `backend/src/routes/autonomous.ts`.
   - Added 21 automated tests covering industry profiles, emergency stop, and persistent scheduler jobs.
-- **Tests:** 177/177 backend tests pass.
+- **Tests:** 181/181 backend tests pass (0 failures).
 
 ---
 

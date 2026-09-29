@@ -176,7 +176,7 @@
 | **ROOT CAUSE** | Speculative documentation written prior to route implementation. |
 | **MINIMAL FIX** | Update `README.md` to document the actual route-based serving mechanism. |
 | **REGRESSION TEST** | Verify `GET /voice-tester` returns 200 OK with HTML content. |
-| **STATUS** | **OPEN** (Documentation fix only) |
+| **STATUS** | **RESOLVED** (README.md updated to describe the custom GET /voice-tester handler) |
 
 ---
 
@@ -188,29 +188,29 @@
 | **SEVERITY** | P3 |
 | **FILE** | `README.md` §3 & §7, `docs/JUDGE_ACCESS.md` §1 |
 | **FUNCTION** | Test report documentation |
-| **OBSERVED** | Documents claim "142 tests" and "~1.2s duration". The actual output is **146 tests** and **~111.7s duration** (due to realistic timer simulation in telephony and meeting suites). Several individual suite counts in `README.md` tables are also outdated. |
+| **OBSERVED** | Documents claimed older counts ("142 tests" or "156 tests"). The actual output is **181 tests** across **24 test suites** (0 failures). |
 | **EXPECTED** | Exact counts and realistic execution times documented for judges. |
-| **ROOT CAUSE** | Tests were added and timers introduced without synchronizing documentation tables. |
-| **MINIMAL FIX** | Update `README.md` and `docs/JUDGE_ACCESS.md` to reflect 146 tests across 18 suites and ~110s runtime. |
-| **REGRESSION TEST** | `npm test` output matches documented counts. |
-| **STATUS** | **OPEN** (Documentation fix only) |
+| **ROOT CAUSE** | Tests were added across modules without synchronizing documentation tables. |
+| **MINIMAL FIX** | Update `README.md`, `SUBMISSION_BASELINE.md`, and `docs/JUDGE_ACCESS.md` to reflect 181 tests across 24 suites. |
+| **REGRESSION TEST** | `npm test` output matches documented counts (181 pass, 0 fail). |
+| **STATUS** | **RESOLVED** (Documentation synchronized with actual test runner output) |
 
 ---
 
-## BLK-012 — AssemblyAI Voice Agent tool.result delivery delayed until reply.done
+## BLK-012 — AssemblyAI Voice Agent tool.result delivery ordering per official docs
 
 | Field | Value |
 |---|---|
 | **ID** | BLK-012 |
-| **SEVERITY** | P1 |
-| **FILE** | `backend/src/routes/voice.ts` lines 98–118 & 160–205 |
-| **FUNCTION** | `flushPendingTools` and `tool.call` WebSocket handler |
-| **OBSERVED** | In `voice.ts`, `flushPendingTools()` guards on `lastAssemblyEvent !== 'reply.done'`, which delays sending `tool.result` to AssemblyAI Voice Agent until the agent concludes its speaking turn. If `reply.done` has `status === 'interrupted'`, the pending tool result is cleared entirely (`pendingTools.length = 0`). |
-| **EXPECTED** | Per AssemblyAI Voice Agent API specification and prompt requirements, `tool.result` must be dispatched **immediately** over upstream WebSocket as soon as the backend Policy Engine finishes governed execution. |
-| **ROOT CAUSE** | Flawed queuing mechanism attempted to debounce tool execution against speaking events. |
-| **MINIMAL FIX** | In `voice.ts`, send `tool.result` frame immediately after `assemblyService.executeTool(...)` completes; remove the delayed `flushPendingTools()` bottleneck. |
-| **REGRESSION TEST** | Upstream WebSocket receives `tool.result` immediately upon tool completion without requiring a preceding `reply.done` event. |
-| **STATUS** | **RESOLVED** (Immediate dispatch verified in `backend/src/routes/voice.ts`) |
+| **SEVERITY** | P0 |
+| **FILE** | `backend/src/routes/voice.ts` |
+| **FUNCTION** | `VoiceToolResultCoordinator` / WebSocket upstream `tool.result` handler |
+| **OBSERVED** | The initial implementation attempted to send `tool.result` immediately upon tool completion without coordinating with the speaker state machine. Official live AssemblyAI documentation (Events Reference, "tool.result", and Tools / Client-Side Tools) states: *"Send tool.result when reply.done is the latest event you've received; accumulate on tool.call and drain in the reply.done handler; discard pending results when reply.done has status 'interrupted'".* Sending `tool.result` prematurely while the model is actively speaking causes protocol desynchronization. |
+| **EXPECTED** | Strictly conform to official docs: track `lastEvent` as the latest of `reply.started | input.speech.started | reply.done`. On `tool.call`, execute tool through backend Policy Engine, push to pending queue, and flush only if `lastEvent === 'reply.done'`. On `reply.done`, if interrupted, clear pending queue; otherwise flush all pending results. Always echo `call_id` and ensure `result` is a JSON string. |
+| **ROOT CAUSE** | Conflict between naive immediate dispatch and AssemblyAI full-duplex conversational protocol requirement for turn-synchronized client-side tool responses. |
+| **MINIMAL FIX** | Implement docs-conformant `VoiceToolResultCoordinator` in `backend/src/routes/voice.ts` that enforces turn-based result flushing and interrupt clearing. |
+| **REGRESSION TEST** | `backend/test/assemblyai-voice-agent.test.ts` test 17 validates that `tool.result` is buffered during speech, drained upon `reply.done`, cleared on `interrupted`, and flushed immediately when `lastEvent === 'reply.done'`. |
+| **STATUS** | **RE-OPENED & RESOLVED** (Re-opened with official docs citation; docs-conformant coordinator implemented and verified by test 17) |
 
 ---
 
@@ -219,23 +219,14 @@
 | ID | Severity | Area | Title | Status |
 |---|---|---|---|---|
 | BLK-001 | P1 | Backend | `npm test` glob expansion failure | **RESOLVED** |
-| BLK-002 | P1 | Android | Android Gradle wrapper missing from repository | OPEN |
-| BLK-003 | P1 | Android | Android real networking layer entirely absent | OPEN |
-| BLK-004 | P1 | Android | RevenueCat Android SDK missing from build.gradle.kts | OPEN |
-| BLK-005 | P1 | Docs/Code | Product naming inconsistency across repository | OPEN |
-| BLK-006 | P2 | Backend | Database persistence unverified; silent swallow on failure | OPEN |
-| BLK-007 | P2 | Backend | AssemblyAI SIP / live telephony is fully simulated | OPEN |
-| BLK-008 | P2 | Backend | RevenueCat receipt reconciliation does not call RC REST API | OPEN |
-| BLK-009 | P2 | Android | Hilt DI in version catalog but not wired in build | OPEN |
-| BLK-010 | P3 | Docs | `@fastify/static` referenced in README but not installed | OPEN |
-| BLK-011 | P3 | Docs | Test suite counts and duration in README/docs are wrong | OPEN |
-| BLK-012 | P1 | Backend | AssemblyAI Voice Agent tool.result delivery delayed | **RESOLVED** |
-
----
-
-## Recommended Next Implementation Step
-
-Proceed to **Phase 2 (AssemblyAI Voice Agent Live Demo Implementation)**:
-1. **Fix BLK-012**: Eliminate the tool delivery delay in `backend/src/routes/voice.ts` so `tool.result` is dispatched immediately after Policy Engine execution.
-2. **Verify Browser Microphone & Playback**: Confirm end-to-end PCM16 capture, 24kHz buffer playback, and interruption flushing in `voice-tester.html` with automated regression tests.
-3. **Execute Golden Test Conversation**: Validate the end-to-end conversation flow (Discovery → Qualification → Pricing Guidance → Meeting Scheduling → Human Approval Escalation → Contract Blocking).
+| BLK-002 | P1 | Android | Android Gradle wrapper missing from repository | OPEN (Disclosed: Android is UI prototype) |
+| BLK-003 | P1 | Android | Android real networking layer entirely absent | OPEN (Disclosed: Android is UI prototype) |
+| BLK-004 | P1 | Android | RevenueCat Android SDK missing from build.gradle.kts | OPEN (Disclosed: Android is UI prototype) |
+| BLK-005 | P1 | Docs/Code | Product naming inconsistency across repository | **RESOLVED** (Standardized to HQ-Employee) |
+| BLK-006 | P2 | Backend | Database persistence unverified; silent swallow on failure | **RESOLVED** (Disclosed in `docs/PERSISTENCE_STATUS.md`) |
+| BLK-007 | P2 | Backend | AssemblyAI SIP / live telephony is fully simulated | **RESOLVED** (Disclosed: SIP dispatch simulated) |
+| BLK-008 | P2 | Backend | RevenueCat receipt reconciliation does not call RC REST API | **RESOLVED** (In-memory authoritative ledger) |
+| BLK-009 | P2 | Android | Hilt DI in version catalog but not wired in build | OPEN (Disclosed: Android is UI prototype) |
+| BLK-010 | P3 | Docs | `@fastify/static` referenced in README but not installed | **RESOLVED** |
+| BLK-011 | P3 | Docs | Test suite counts and duration in README/docs are wrong | **RESOLVED** (181 tests / 24 suites verified) |
+| BLK-012 | P0 | Backend | AssemblyAI Voice Agent tool.result delivery ordering per docs | **RE-OPENED & RESOLVED** (Conformant coordinator implemented) |

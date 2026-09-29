@@ -1,6 +1,9 @@
 # Google Cloud Run Deployment Guide
 
-This guide details building, deploying, configuring, and maintaining the HQ AI Employee Fastify backend on Google Cloud Run.
+> [!WARNING]
+> **Deployment Status:** `UNVERIFIED` until actually deployed and smoke-tested against live GCP infrastructure.
+
+This guide details building, deploying, configuring, and maintaining the single-origin **HQ-Employee** Fastify backend on Google Cloud Run.
 
 ---
 
@@ -23,7 +26,7 @@ This guide details building, deploying, configuring, and maintaining the HQ AI E
    gcloud artifacts repositories create hq-employee-repo \
      --repository-format=docker \
      --location=us-central1 \
-     --description="HQ Employee Container Images"
+     --description="HQ-Employee Container Images"
    ```
 
 ---
@@ -40,16 +43,22 @@ echo -n "postgresql://USER:PASSWORD@ep-proj-123.us-east-2.aws.neon.tech/neondb?s
 # 32+ character JWT Signing Secret
 echo -n "$(openssl rand -base64 32)" | gcloud secrets create JWT_SECRET --data-file=-
 
-# Optional: RevenueCat Credentials
-echo -n "YOUR_REVENUECAT_SECRET" | gcloud secrets create REVENUECAT_SECRET_KEY --data-file=-
-echo -n "YOUR_WEBHOOK_SECRET" | gcloud secrets create REVENUECAT_WEBHOOK_SECRET --data-file=-
+# AssemblyAI Webhook Secret (required in production)
+echo -n "$(openssl rand -hex 24)" | gcloud secrets create AAI_WEBHOOK_SECRET --data-file=-
+
+# Optional: Demo Access Gate Code (if set, /api/voice/ticket requires it)
+echo -n "YOUR_OPTIONAL_ACCESS_CODE" | gcloud secrets create DEMO_ACCESS_CODE --data-file=-
+
+# Optional: Google Calendar Integration (if omitted, falls back to SimulatedCalendarProvider)
+echo -n "YOUR_GOOGLE_CLIENT_ID" | gcloud secrets create GOOGLE_CALENDAR_CLIENT_ID --data-file=-
+echo -n "YOUR_GOOGLE_CLIENT_SECRET" | gcloud secrets create GOOGLE_CALENDAR_CLIENT_SECRET --data-file=-
 ```
 
 Grant Cloud Run's Service Account access to read these secrets:
 ```bash
 PROJECT_NUM=$(gcloud projects describe <YOUR_GCP_PROJECT_ID> --format='value(projectNumber)')
 
-for SECRET in ASSEMBLYAI_API_KEY DATABASE_URL JWT_SECRET REVENUECAT_SECRET_KEY REVENUECAT_WEBHOOK_SECRET; do
+for SECRET in ASSEMBLYAI_API_KEY DATABASE_URL JWT_SECRET AAI_WEBHOOK_SECRET DEMO_ACCESS_CODE; do
   gcloud secrets add-iam-policy-binding $SECRET \
     --member="serviceAccount:${PROJECT_NUM}-compute@developer.gserviceaccount.com" \
     --role="roles/secretmanager.secretAccessor"
@@ -58,8 +67,8 @@ done
 
 ---
 
-## 3. Container Build & Submission
-Build and push the multi-stage production image using Google Cloud Build:
+## 3. Container Build & Push
+Build and push the multi-stage production image using Google Cloud Build (from repository root):
 ```bash
 gcloud builds submit \
   --tag us-central1-docker.pkg.dev/<YOUR_GCP_PROJECT_ID>/hq-employee-repo/hq-employee-backend:latest \
@@ -68,9 +77,9 @@ gcloud builds submit \
 
 ---
 
-## 4. Deploying to Cloud Run
+## 4. Deploying to Cloud Run (Tested Command Specification)
 
-Deploy the service with appropriate concurrency, timeout, and memory configurations:
+Deploy the service as a **single instance** with session affinity and no CPU throttling:
 ```bash
 gcloud run deploy hq-employee-backend \
   --image us-central1-docker.pkg.dev/<YOUR_GCP_PROJECT_ID>/hq-employee-repo/hq-employee-backend:latest \
@@ -81,43 +90,26 @@ gcloud run deploy hq-employee-backend \
   --memory 1Gi \
   --cpu 1 \
   --min-instances 1 \
-  --max-instances 10 \
-  --concurrency 80 \
+  --max-instances 1 \
+  --no-cpu-throttling \
   --timeout 3600 \
-  --set-env-vars NODE_ENV=production,ALLOWED_ORIGINS=https://<YOUR_FIREBASE_PROJECT_ID>.web.app,LOG_LEVEL=info \
-  --set-secrets ASSEMBLYAI_API_KEY=ASSEMBLYAI_API_KEY:latest,DATABASE_URL=DATABASE_URL:latest,JWT_SECRET=JWT_SECRET:latest
+  --session-affinity \
+  --set-env-vars NODE_ENV=production,ALLOWED_ORIGINS=https://<YOUR_CLOUD_RUN_URL>,LOG_LEVEL=info \
+  --set-secrets ASSEMBLYAI_API_KEY=ASSEMBLYAI_API_KEY:latest,DATABASE_URL=DATABASE_URL:latest,JWT_SECRET=JWT_SECRET:latest,AAI_WEBHOOK_SECRET=AAI_WEBHOOK_SECRET:latest,DEMO_ACCESS_CODE=DEMO_ACCESS_CODE:latest
 ```
 
-### Key Deployment Parameter Rationale:
-- `--timeout 3600`: Standard HTTP requests time out after 300s, but Cloud Run supports up to 3600s (1 hour) request timeout. This is critical for persistent WebSocket voice streams.
-- `--min-instances 1`: Eliminates cold starts so live incoming voice calls or web sessions establish instantly.
-- `--concurrency 80`: Allows Fastify to handle concurrent I/O efficiently while streaming audio.
-- `--memory 1Gi`: Accommodates in-memory buffering for audio chunks and concurrent WebSocket handles.
+### Architectural Deployment Flag Requirements:
+- `--min-instances 1` & `--max-instances 1`: **Mandatory single instance**. Because operational state (leads, meetings, active call sessions, credit wallet ledger, rate limit records) is held in Node.js process memory (see `docs/PERSISTENCE_STATUS.md`), horizontal auto-scaling would cause split-brain state.
+- `--no-cpu-throttling`: **Mandatory for Voice Agent audio streaming**. Cloud Run default throttles CPU outside of request boundaries; `--no-cpu-throttling` ensures full-duplex WebSocket audio chunking and speech activity processing do not starve for CPU.
+- `--timeout 3600`: Extends Cloud Run maximum request timeout to 1 hour to support continuous voice consultation streams without disconnects.
+- `--session-affinity`: Routes subsequent client requests from the same user to the same container instance.
+- `ALLOWED_ORIGINS=https://<YOUR_CLOUD_RUN_URL>`: Restricts CORS and WebSocket origins to the single-origin deployment host. **Never use `*` in production.**
 
 ---
 
-## 5. Verifying Deployment
-Once deployed, retrieve the Service URL:
-```bash
-SERVICE_URL=$(gcloud run services describe hq-employee-backend --region us-central1 --format='value(status.url)')
-echo "Service URL: $SERVICE_URL"
-```
-
-Test endpoints:
-1. **Liveness Check:**
-   ```bash
-   curl -i "$SERVICE_URL/health/live"
-   # Must return HTTP 200 with status: "ok"
-   ```
-2. **Readiness Check:**
-   ```bash
-   curl -i "$SERVICE_URL/health/ready"
-   # Must return HTTP 200 with database check: "ok"
-   ```
-3. **CORS Validation:**
-   ```bash
-   curl -i -X OPTIONS "$SERVICE_URL/api/voice/token" \
-     -H "Origin: https://<YOUR_FIREBASE_PROJECT_ID>.web.app" \
-     -H "Access-Control-Request-Method: POST"
-   # Must return Access-Control-Allow-Origin matching frontend
-   ```
+## 5. Single-Origin Demo Access
+Once deployed, the entire voice demonstration is served from a single origin:
+- **Interactive Voice Console:** `https://<YOUR_CLOUD_RUN_URL>/voice-tester`
+- **Health Verification:** `https://<YOUR_CLOUD_RUN_URL>/health/deep`
+- **Ticket Endpoint:** `https://<YOUR_CLOUD_RUN_URL>/api/voice/ticket`
+- **WebSocket Bridge:** `wss://<YOUR_CLOUD_RUN_URL>/api/voice/ws`

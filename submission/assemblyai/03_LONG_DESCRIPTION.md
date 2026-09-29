@@ -1,73 +1,71 @@
 # Long Description: HQ-Employee
 
-## Executive Overview
-Most AI voice agents are designed as generic chatbots or unconstrained autonomous agents. In enterprise sales and client coordination, this creates catastrophic risks: hallucinations of pricing, unauthorized commercial commitments, lack of tenant isolation, and inability to integrate reliably into enterprise state.
+## Executive Summary
+Unconstrained conversational voice agents pose severe commercial and operational risks for businesses: they can hallucinate pricing, commit to unauthorized contractual terms, leak credentials, and stumble over audio turn-taking.
 
-**HQ-Employee** reimagines the enterprise AI worker as a **Governed AI Business Employee**. Built on top of **AssemblyAI's Voice Agent API**, HQ-Employee conducts natural, full-duplex conversational voice calls, qualifies inbound opportunities, looks up approved company offerings, executes authorized business tools, reserves calendar slots, and strictly escalates out-of-bounds requests to human leadership.
-
----
-
-## The Governed Flow
-
-```
-  VOICE (AssemblyAI 24kHz Full-Duplex Speech)
-    │
-    ▼
-  UNDERSTANDING (Turn Detection, VAD, Code-Switching)
-    │
-    ▼
-  COMPANY BRAIN (Services, Approved Pricing & Timeline Guidance)
-    │
-    ▼
-  POLICY ENGINE (Deterministic Boundary: ALLOW / REQUIRE_APPROVAL / BLOCK)
-    │
-    ▼
-  BUSINESS TOOLS (13 Explicit Domain Tools with Strict JSON Schemas)
-    │
-    ▼
-  BUSINESS RESULT (PostgreSQL Lead Record, Confirmed Calendar Booking, Audit Log)
-```
+**HQ-Employee** solves this by establishing a **Governed AI Business Employee** built directly on **AssemblyAI's Voice Agent API**. Operating via full-duplex 24 kHz speech, HQ-Employee conducts natural qualification conversations with prospective clients, discovers project requirements, executes authorized business tools, and schedules calendar consultations. Every proposed action is intercepted and verified by a **deterministic Policy Engine** that enforces explicit commercial boundaries before any backend action or response occurs.
 
 ---
 
-## Key Capabilities & Innovations
+## Governed System Flow
 
-### 1. Ultra-Low-Latency Full-Duplex Voice
-- Powered by AssemblyAI's managed Voice Agent WebSocket (`wss://agents.assemblyai.com/v1/ws`).
-- Browser client uses custom `AudioWorklet` capturing raw PCM16 audio at 24,000 Hz.
-- Natural speech barge-in and interruption: when the human speaks, AssemblyAI triggers turn events, and HQ-Employee immediately flushes the client audio buffer.
+```
+  CLIENT MICROPHONE (24 kHz PCM16 Audio Stream)
+         │
+         ▼
+  FASTIFY GATEWAY (Single-Use HMAC Ticket Authentication)
+         │
+         ▼
+  ASSEMBLYAI VOICE AGENT API (wss://agents.assemblyai.com/v1/ws)
+  • session.update Handshake -> session.ready (session_id logged)
+  • Speech Detection & Real-Time Bidirectional Audio
+  • Docs-Conformant Tool Coordination (BLK-012)
+         │
+         ▼
+  DETERMINISTIC POLICY ENGINE
+  ├── ALLOW             -> schedule_meeting, record_budget, record_timeline
+  ├── REQUIRE_APPROVAL  -> 15% discount request (escalated to Commercial Director)
+  └── BLOCK             -> sign_contract, wire transfers, credential sharing
+         │
+         ▼
+  BUSINESS EXECUTION & AUDIT
+  • Business Tools Execution (drained on reply.done)
+  • Append-Only Audit Log (Action, Decision, Reason, Actor, Timestamp)
+```
 
-### 2. Zero-Trust Security & Ephemeral Token Minting
-- The browser client NEVER sees `ASSEMBLYAI_API_KEY`.
-- Ephemeral single-use tokens are minted via `POST /api/voice/token` on the backend and expire in 300 seconds.
-- Multi-tenant data isolation ensures Lead A can never inspect or alter Lead B's memory records.
+---
 
-### 3. Governed Policy Engine Boundary
-The LLM has zero direct database, network, or shell access. Every proposed action routes through a deterministic policy engine:
-- **Approved Service Inquiry & Budget Capture**: `ALLOW`
-- **10%–20% Discount Request**: `REQUIRE_APPROVAL` (Escalated to human director; creates trackable ticket)
-- **Excessive Discount (>20%)**: `BLOCK` (Hard cut-off)
-- **Contract / Legal Signing**: `BLOCK` (AI cannot sign contracts or execute legal commitments)
-- **Direct Financial Transfers**: `BLOCK` (Fail-closed default)
+## Core Technical Capabilities
 
-### 4. 13 Explicit Domain Business Tools
-HQ-Employee operates with exactly 13 domain-specific tools:
-1. `get_company_profile` — Background, headquarters, and core expertise
-2. `get_service_details` — Deliverables and technology stacks
-3. `get_pricing_guidance` — Official approved price bands
-4. `get_timeline_guidance` — Standard sprint and delivery schedules
-5. `create_lead` — Creates prospect records in PostgreSQL
-6. `update_lead` — Updates contact information
-7. `record_requirement` — Logs technical and business needs
-8. `record_budget` — Captures stated budget ranges
-9. `record_timeline` — Captures target launch deadlines
-10. `request_human_approval` — Escalates out-of-bounds client requests
-11. `check_calendar` — Checks real-time meeting availability
-12. `schedule_meeting` — Reserves confirmed consultation slot
-13. `end_call` — Concludes conversation gracefully
+### 1. Full-Duplex 24 kHz Voice Engine
+- **Direct AssemblyAI Integration:** Connects to AssemblyAI's managed Voice Agent WebSocket (`wss://agents.assemblyai.com/v1/ws`).
+- **Strict Handshake Protocol:** The backend initiates the session with `session.update` as the very first upstream message, awaits `session.ready` with the assigned `session_id`, and buffers incoming client audio frames until handshake completion.
+- **Natural Speech & Barge-In:** Streams raw 24 kHz PCM16 mono audio in ~50ms frames. Interruption events (`voice.speech_started` / `input.speech.started`) immediately halt agent playback and flush queued audio buffers.
 
-### 5. Production-Ready Deployment
-- **Web Console**: Deployed on Firebase Hosting (`https://hq-employee.web.app`) with strict CSP and `Permissions-Policy: microphone=(self)`.
-- **Fastify Backend**: Containerized with multi-stage non-root OCI image for Google Cloud Run.
-- **Database**: PostgreSQL with idempotent migrations 001–006.
-- **Observability**: Cryptographic SHA-256 tamper-evident audit logging for every policy evaluation and state transition.
+### 2. Official Docs-Conformant Tool Coordination (BLK-012)
+AssemblyAI requires precise turn-taking synchronization for client-side tool execution:
+- When a `tool.call` arrives while the agent is speaking (`reply.started`), tool execution results are buffered.
+- On `reply.done` with `status: "completed"`, the coordinator drains accumulated results and sends `tool.result` upstream.
+- If the agent reply is interrupted before completion (`status: "interrupted"`), pending tool results are discarded, preventing stale or out-of-order execution loops.
+
+### 3. Fail-Closed Policy Engine & Audit Trail
+The AI model does not have authority to make commercial commitments or execute legal contracts:
+- **`ALLOW`:** Routine business qualification operations, including company information lookup, requirement capture, and calendar booking (`schedule_meeting`).
+- **`REQUIRE_APPROVAL`:** Requests exceeding autonomous authority (such as a 15% discount) automatically trigger an escalation ticket for human Commercial Director review.
+- **`BLOCK`:** Strictly prohibited actions, such as signing contracts (`sign_contract`), accessing banking credentials, or demanding customer passwords, are hard-blocked immediately.
+- **Audit Logging:** Every policy evaluation and tool execution is recorded in an append-only audit trail with sensitive credential sanitization.
+
+### 4. Ephemeral Zero-Trust Security
+- **No Secret Leakage:** The raw `ASSEMBLYAI_API_KEY` is maintained strictly server-side and is never transmitted to the browser.
+- **Single-Use HMAC Tickets:** Browser clients request a short-lived (60-second) HMAC-signed ticket via `GET /api/voice/ticket` (supporting optional `DEMO_ACCESS_CODE`) before connecting to `/api/voice/ws?ticket=...`.
+- **Replay & Origin Protection:** Reused tickets (rejected with code `4003`), expired tickets, unauthorized origins, and concurrent connections from the same IP (code `4029`) are rejected.
+
+---
+
+## Architecture & Operational Status
+
+Per our verified empirical testing (`docs/PRE_SUBMISSION_VERIFICATION.md`):
+- **Runtime State:** Operational domain state is maintained in Node.js process memory for deterministic low latency. Container restarts reset in-memory operational state to clean seed data, backed by structured PostgreSQL schemas (migrations 001–006) for persistent deployments (see `docs/PERSISTENCE_STATUS.md`).
+- **Single-Instance Deployment:** Designed for container deployment (Google Cloud Run `min=max=1` with session affinity and no CPU throttling).
+- **Calendar & Telephony:** Calendar integration supports Google Calendar when configured with automated fallback to a simulated calendar. Telephony pre-call compliance validation is implemented with simulated SIP carrier dispatch. The Android client is an offline UI prototype not connected to the backend in this submission.
+- **Automated Verification:** 181 automated tests pass across 24 test suites with 0 failures (`npm test`).

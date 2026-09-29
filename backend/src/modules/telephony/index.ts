@@ -309,7 +309,16 @@ export class AssemblySIPProvider implements TelephonyProvider {
 
   constructor(options: AssemblySIPProviderOptions = {}) {
     this.sipOriginationUri = options.sipOriginationUri || 'sip:sip.assemblyai.com';
-    this.webhookSecret = options.webhookSecret || process.env.AAI_WEBHOOK_SECRET || 'secret_telephony_webhook_signing_key_32_chars';
+    const secret = options.webhookSecret || process.env.AAI_WEBHOOK_SECRET;
+    if (!secret) {
+      if (process.env.NODE_ENV === 'production') {
+        this.webhookSecret = '';
+      } else {
+        this.webhookSecret = 'dev_test_aai_webhook_secret_key_32_chars';
+      }
+    } else {
+      this.webhookSecret = secret;
+    }
     this.apiBaseUrl = options.apiBaseUrl || 'https://agents.assemblyai.com';
     this.apiKey = options.apiKey || process.env.ASSEMBLYAI_API_KEY || '';
   }
@@ -460,6 +469,7 @@ export class AssemblySIPProvider implements TelephonyProvider {
    * Format: t=<timestamp>,v1=<hex_hmac_sha256>
    */
   public verifyWebhookSignature(rawBody: unknown, signatureHeader: string): boolean {
+    if (!this.webhookSecret) return false;
     if (!signatureHeader) return false;
 
     const parts = signatureHeader.split(',');

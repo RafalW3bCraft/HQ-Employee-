@@ -3,33 +3,46 @@
 **Project**: HQ Governed AI Business Employee  
 **Evaluation Standard**: Section 7 (Debug Build Systems), Section 8 (Fix Errors Systematically), Section 34 (Implementation Rule)  
 **Test Runner**: Node.js v22+ Native Test Runner with `tsx` ESM Loader (`node --import tsx --test test/**/*.test.ts`)  
-**Status**: **142 / 142 TESTS PASSING ACROSS ALL 18 TEST SUITES (100% PASS RATE)**  
+**Status**: **181 / 181 TESTS PASSING ACROSS ALL 24 TEST SUITES (0 FAILURES)**  
 
 ---
 
-## 1. Test Suite Summary Table
+## 1. Test Suite Summary
 
-| Suite # | Test File | Domain / Subsystem | Tests Count | Status | Execution Duration |
-|---|---|---|:---:|:---:|:---:|
-| 1 | `test/assemblyai-voice-agent.test.ts` | AssemblyAI Realtime Voice Agent API & Web Testing Harness | 12 | **PASS** | ~45.9s |
-| 2 | `test/auth.test.ts` | JWT Authentication, Dev Token Gating & Security | 8 | **PASS** | ~1.9s |
-| 3 | `test/company-brain.test.ts` | Company Brain, Service Catalog & FAQ Store | 8 | **PASS** | ~18.2s |
-| 4 | `test/employee-persona.test.ts` | Persona Prompting, Multi-Language & Tone Guardrails | 6 | **PASS** | ~2.1s |
-| 5 | `test/leads.test.ts` | Lead Management, Lifecycle Transitions & Cross-Tenant Isolation | 10 | **PASS** | ~21.4s |
-| 6 | `test/meetings.test.ts` | Meeting Scheduling, Stale Availability & Race Condition Locks | 10 | **PASS** | ~46.9s |
-| 7 | `test/memory.test.ts` | Structured Memory Facts, Provenance & Right to be Forgotten | 7 | **PASS** | ~13.9s |
-| 8 | `test/modular-architecture.test.ts` | Module Boundaries & Dependency Injection Contracts | 2 | **PASS** | ~0.01s |
-| 9 | `test/objectives.test.ts` | ObjectiveEngine, Proactive Cycles & Expiration Sweeps | 9 | **PASS** | ~45.9s |
-| 10 | `test/policies.test.ts` | Governed Policy Engine, Pricing & Authority Boundaries | 10 | **PASS** | ~19.6s |
-| 11 | `test/proposals.test.ts` | Proposals Engine, Scopes, Pricing & PostgreSQL Persistence | 9 | **PASS** | ~65.4s |
-| 12 | `test/qualification.test.ts` | Adaptive Discovery & 0–100 Qualification Scoring | 8 | **PASS** | ~18.5s |
-| 13 | `test/revenuecat-billing.test.ts` | RevenueCat In-App Purchases, Ledger & Wallet Replay Defenses | 10 | **PASS** | ~25.7s |
-| 14 | `test/runtime.test.ts` | Employee Runtime Layer, Deterministic Context Builder | 6 | **PASS** | ~14.2s |
-| 15 | `test/scenarios.test.ts` | 15 Complex Adversarial Client Scenarios & Guardrails | 15 | **PASS** | ~58.2s |
-| 16 | `test/security.test.ts` | Security Defenses, Tamper-Evident Hash Chain & Input Sanitation | 5 | **PASS** | ~12.1s |
-| 17 | `test/telephony.test.ts` | AssemblyAI Outbound SIP Telephony, DNC Registry & Credits | 15 | **PASS** | ~82.4s |
-| 18 | `test/tools.test.ts` | 13 Explicit Domain Tools Schema Validation & Execution | 8 | **PASS** | ~17.5s |
-| **TOTAL** | **18 Suites** | **Complete Full-Stack Backend Ecosystem** | **142** | **100% PASS** | **~4.5 min** |
+The backend test suite is executed using Node.js v22+ native test runner with `tsx` (`npm --prefix backend test`):
+
+```text
+ℹ tests 181
+ℹ suites 24
+ℹ pass 181
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+```
+
+| # | Test File | Domain / Subsystem | Status |
+|---|---|---|:---:|
+| 1 | `test/assemblyai-telephony.test.ts` | Outbound Telephony Compliance & Dispatch Simulation | **PASS** |
+| 2 | `test/assemblyai-voice-agent.test.ts` | AssemblyAI Realtime Voice Agent API, Web Tester & BLK-012 Tool Ordering | **PASS** |
+| 3 | `test/auth.test.ts` | JWT Authentication & Security Gating | **PASS** |
+| 4 | `test/autonomous-agent-architecture.test.ts` | Governed Autonomous Operating Agent Architecture | **PASS** |
+| 5 | `test/company-brain.test.ts` | Company Brain, Service Catalog & FAQ Store | **PASS** |
+| 6 | `test/config.test.ts` | Environment Configuration & Production Fail-Closed Defaults | **PASS** |
+| 7 | `test/e2e-workflow.test.ts` | Complete End-to-End Workflow & Governance Verification (17 Scenarios) | **PASS** |
+| 8 | `test/errors.test.ts` | Structured Error Handling & Schema Formatting | **PASS** |
+| 9 | `test/health.test.ts` | Health & Readiness Probes (`/health`, `/health/live`, `/health/ready`) | **PASS** |
+| 10 | `test/hq-audit-system.test.ts` | Append-Only Audit Logging with PII Redaction | **PASS** |
+| 11 | `test/hq-employee-memory.test.ts` | Structured Memory Subsystem & Right to be Forgotten | **PASS** |
+| 12 | `test/hq-employee-runtime.test.ts` | Runtime Context Builder & Isolation | **PASS** |
+| 13 | `test/lead-qualification.test.ts` | Adaptive Discovery & 0–100 Qualification Scoring | **PASS** |
+| 14 | `test/meetings.test.ts` | Meeting Scheduling, Race Conditions & Calendar Provider | **PASS** |
+| 15 | `test/modules.test.ts` | Modular Architecture Boundaries & Contracts | **PASS** |
+| 16 | `test/objectives.test.ts` | ObjectiveEngine, Proactive Cycles & Expiration Sweeps | **PASS** |
+| 17 | `test/policy-engine.test.ts` | Governed Policy Engine, Pricing & Authority Boundaries | **PASS** |
+| 18 | `test/proposals.test.ts` | Proposal Engine, Scopes, Pricing & State Machine | **PASS** |
+| 19 | `test/revenuecat-monetization.test.ts` | RevenueCat In-App Purchases, Ledger & Wallet Replay Defenses | **PASS** |
+| **TOTAL** | **19 Files / 24 Suites** | **Complete Backend Test Suite** | **181 / 181 PASS (0 FAIL)** |
 
 ---
 
@@ -56,7 +69,7 @@
 ## 3. Automated Test Execution Commands
 
 ```bash
-# Run all 142 tests across 18 test suites
+# Run all 181 tests across 24 test suites
 npm --prefix backend test
 
 # Run individual test suites

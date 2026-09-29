@@ -321,16 +321,16 @@ PHASE 0: ASSEMBLYAI VOICE AGENT HACKATHON SUBMISSION (COMPLETED & VERIFIED)
 ================================================================================
 [x] Real-time 24kHz PCM16 Web Audio capture & AudioWorklet linear resampler
 [x] Real microphone permission & full-duplex voice stream
-[x] AssemblyAI Voice Agent API integration (universal-voice-agent)
-[x] Server-side ephemeral token minting (POST /api/voice/token)
-[x] 13 explicit business tools with zero latency upstream forwarding (BLK-012)
+[x] AssemblyAI Voice Agent API integration (managed Speech-to-Speech)
+[x] Server-side ephemeral ticket & token minting (GET /api/voice/ticket, GET /api/voice/token)
+[x] 13 explicit business tools with docs-conformant coordination (BLK-012)
 [x] Deterministic Policy Engine (ALLOW, REQUIRE_APPROVAL, BLOCK)
 [x] Lead discovery, requirement recording, and qualification scoring
 [x] Meeting availability checking & conflict-free booking (Google Calendar)
 [x] Server-authoritative 1,000 credit onboarding grant (WELCOME_GRANT)
-[x] Business Control Center Dashboard (Web & Android)
-[x] 100% automated test coverage (156 passing tests across 18 test suites)
-[x] Live production deployment on Firebase Hosting (https://hq-employee.web.app)
+[x] Business Control Center Dashboard (Web single-origin; Android UI prototype)
+[x] Automated test coverage: 181 passing tests across 24 test suites (0 failures)
+[x] Single-origin web console deployment at {{LIVE_URL}}/voice-tester
 
 ================================================================================
 PHASE 1: GOVERNED AUTONOMOUS COMPANY OPERATING AGENT ARCHITECTURE (THIS MODULE)

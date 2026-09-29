@@ -7,6 +7,14 @@ import { defaultAssemblyAIService } from '../src/modules/assemblyai/index.js';
 import { defaultCallsService } from '../src/modules/calls/index.js';
 import { defaultAuditService } from '../src/modules/audit/index.js';
 import { defaultLeadsRepository } from '../src/modules/leads/index.js';
+import {
+  VoiceToolResultCoordinator,
+  generateVoiceTicket,
+  verifyVoiceTicket,
+  resetVoiceTrackingForTesting,
+  DEFAULT_DEMO_COMPANY_ID,
+  READ_ONLY_VOICE_TOOLS,
+} from '../src/routes/voice.js';
 
 describe('AssemblyAI Voice Agent API Integration', () => {
   let server: FastifyInstance;
@@ -560,5 +568,150 @@ describe('AssemblyAI Voice Agent API Integration', () => {
     assert.strictEqual(payload.includes('test_key'),           false, 'Must not contain API key value');
     // Token fetch must go via backend endpoint, not to assemblyai.com directly
     assert.strictEqual(payload.includes('agents.assemblyai.com'), false, 'Browser must not contact AssemblyAI directly');
+  });
+
+  it('17. [BLK-012] conforms to official docs: buffers tool.result during speaking, flushes on reply.done, and discards when interrupted', () => {
+    const sentMessages: any[] = [];
+    const coordinator = new VoiceToolResultCoordinator((msg) => sentMessages.push(msg));
+
+    // A. While agent is speaking (reply.started), tool call results are accumulated and NOT sent
+    coordinator.recordEvent('reply.started');
+    assert.strictEqual(coordinator.lastEvent, 'reply.started');
+
+    coordinator.recordToolCall('call_001', JSON.stringify({ company: 'HQ-Employee' }), false);
+    assert.strictEqual(coordinator.pendingTools.length, 1);
+    assert.strictEqual(sentMessages.length, 0, 'Must NOT send tool.result immediately while reply.started');
+
+    // B. When reply.done is received (normal completion), queued tool results are drained and sent
+    coordinator.recordEvent('reply.done', 'completed');
+    assert.strictEqual(coordinator.lastEvent, 'reply.done');
+    assert.strictEqual(coordinator.pendingTools.length, 0, 'Pending tools must be drained');
+    assert.strictEqual(sentMessages.length, 1, 'Must flush accumulated tool.result on reply.done');
+    assert.strictEqual(sentMessages[0].type, 'tool.result');
+    assert.strictEqual(sentMessages[0].call_id, 'call_001');
+    assert.strictEqual(typeof sentMessages[0].result, 'string', 'Result must be a JSON string');
+
+    // C. When speaking again and user interrupts (reply.done with status: "interrupted"), discard pending
+    sentMessages.length = 0;
+    coordinator.recordEvent('reply.started');
+    coordinator.recordToolCall('call_002', JSON.stringify({ pricing: '$25,000' }), false);
+    assert.strictEqual(coordinator.pendingTools.length, 1);
+    assert.strictEqual(sentMessages.length, 0);
+
+    coordinator.recordEvent('reply.done', 'interrupted');
+    assert.strictEqual(coordinator.lastEvent, 'reply.done');
+    assert.strictEqual(coordinator.pendingTools.length, 0, 'Pending tools must be discarded on interruption');
+    assert.strictEqual(sentMessages.length, 0, 'No tool.result must be sent if reply.done was interrupted');
+
+    // D. When lastEvent === 'reply.done' already, new tool calls flush immediately
+    sentMessages.length = 0;
+    coordinator.recordToolCall('call_003', JSON.stringify({ slots: ['10:00 AM'] }), false);
+    assert.strictEqual(sentMessages.length, 1, 'Must flush immediately when lastEvent === reply.done');
+    assert.strictEqual(sentMessages[0].call_id, 'call_003');
+
+    // E. When input.speech.started occurs, tool calls are buffered
+    sentMessages.length = 0;
+    coordinator.recordEvent('input.speech.started');
+    assert.strictEqual(coordinator.lastEvent, 'input.speech.started');
+    coordinator.recordToolCall('call_004', JSON.stringify({ booked: true }), false);
+    assert.strictEqual(sentMessages.length, 0, 'Must buffer during user speech');
+    coordinator.recordEvent('reply.done', 'completed');
+    assert.strictEqual(sentMessages.length, 1);
+    assert.strictEqual(sentMessages[0].call_id, 'call_004');
+  });
+
+  it('18. issues short-lived single-use HMAC voice ticket and rejects reused or forged tickets', async () => {
+    resetVoiceTrackingForTesting();
+
+    const res = await server.inject({
+      method: 'GET',
+      url: '/api/voice/ticket',
+    });
+    assert.strictEqual(res.statusCode, 200);
+    const body = JSON.parse(res.payload);
+    assert.ok(body.ticket, 'Must return ticket token');
+    assert.strictEqual(body.expiresInSeconds, 60);
+    assert.strictEqual(body.companyId, DEFAULT_DEMO_COMPANY_ID);
+
+    // Verify first use succeeds and consumes ticket
+    const verify1 = verifyVoiceTicket(body.ticket, true);
+    assert.strictEqual(verify1.valid, true);
+
+    // Verify second use fails because ticket is single-use
+    const verify2 = verifyVoiceTicket(body.ticket, true);
+    assert.strictEqual(verify2.valid, false);
+    assert.ok(verify2.error.includes('already been used'));
+
+    // Verify forged ticket signature fails
+    const forged = body.ticket.slice(0, -6) + 'xxxxxx';
+    const verifyForged = verifyVoiceTicket(forged, false);
+    assert.strictEqual(verifyForged.valid, false);
+  });
+
+  it('19. enforces read-only allowlist and valid ticket for direct tool execution in production', async () => {
+    const prodConfig = loadConfig({
+      NODE_ENV: 'production',
+      LOG_LEVEL: 'fatal',
+      DATABASE_URL: 'postgresql://prod:secret@ep-cool-db.us-east-2.aws.neon.tech/neondb?sslmode=require',
+      ASSEMBLYAI_API_KEY: 'real_production_key_abc123',
+      JWT_SECRET: 'super-secure-production-jwt-secret-key-32chars',
+      ALLOWED_ORIGINS: 'https://hq.example.com',
+      AAI_WEBHOOK_SECRET: 'prod_telephony_secret_1234567890123',
+    });
+    const prodServer = await createServer(prodConfig);
+    await prodServer.ready();
+
+    try {
+      // 1. Calling without ticket in production fails 401
+      const noTicketRes = await prodServer.inject({
+        method: 'POST',
+        url: '/api/voice/tools/execute',
+        payload: {
+          name: 'get_company_profile',
+          arguments: {},
+        },
+      });
+      assert.strictEqual(noTicketRes.statusCode, 401);
+
+      // 2. Calling with valid ticket on write tool in production fails 403
+      const ticketRes = await prodServer.inject({
+        method: 'GET',
+        url: '/api/voice/ticket',
+      });
+      assert.strictEqual(ticketRes.statusCode, 200);
+      const { ticket } = JSON.parse(ticketRes.payload);
+
+      const writeToolRes = await prodServer.inject({
+        method: 'POST',
+        url: '/api/voice/tools/execute',
+        headers: {
+          'x-voice-ticket': ticket,
+        },
+        payload: {
+          name: 'create_lead',
+          arguments: { full_name: 'Mallory Hacker' },
+        },
+      });
+      assert.strictEqual(writeToolRes.statusCode, 403);
+      assert.ok(writeToolRes.payload.includes('restricted to read-only tools'));
+
+      // 3. Calling with valid ticket on read-only tool in production succeeds 200
+      const readOnlyRes = await prodServer.inject({
+        method: 'POST',
+        url: '/api/voice/tools/execute',
+        headers: {
+          'x-voice-ticket': ticket,
+        },
+        payload: {
+          name: 'get_company_profile',
+          arguments: {},
+        },
+      });
+      assert.strictEqual(readOnlyRes.statusCode, 200);
+      const readResult = JSON.parse(readOnlyRes.payload);
+      assert.strictEqual(readResult.policyDecision, 'ALLOW');
+    } finally {
+      await prodServer.close();
+    }
   });
 });
